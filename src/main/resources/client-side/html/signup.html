@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>signup</title>
+      <link rel="stylesheet" href="/client-side/css/signup.css">
+    </head>
+     <body>
+        <header>
+          <div class="logo">
+            <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
+          </div>
+        </header>
+      <div class="center">
+        <h1>signup</h1>
+
+        <form method = "post" action = "/client-side/html/login.html"  id = "signup-form">
+          <div class="txt_field">
+            <input type="text" name = "firstname" id ="firstname" required>
+            <span></span>
+            <label>First name</label>
+          </div>
+
+          <div class="txt_field">
+            <input type="text" name = "secondname" id ="secondname" required>
+            <span></span>
+            <label>Last name</label>
+          </div>
+
+          <div class="txt_field">
+            <input type="text" name = "email" id ="email" required>
+            <span></span>
+            <label>email</label>
+          </div>
+
+          <div class="txt_field">
+            <input type="password"  name = "password" id ="password" required>
+            <span></span>
+            <label>Password</label>
+          </div>
+
+          <div class = "txt_field">
+            <input  type = "password"  name = "repeated-password" id ="repeated-password"  required  >
+            <span></span>
+            <label>repeat password</label>
+          </div>
+          
+          <div class = "txt_field">
+            <input  type = "text"  name = "phone-number" id = "phone-number" required>
+            <span></span>
+            <label>phone number</label>
+          </div>
+
+          <input type="submit" value="signup">
+        </form>
+      </div>
+      <script src="/client-side/js/signup.js"></script>
+  </body>
+</html>
