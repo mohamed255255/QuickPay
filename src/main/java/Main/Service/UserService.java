@@ -107,7 +107,7 @@ public class UserService {
 
     public void payforService(services service , double amount){
          User user = (User)session.getAttribute("user");
-         Discount discount = discountRepository.findByServiceType(service.getSerivcetype());
+         Discount discount = discountRepository.findByServiceType(service.getServicetype());
          if(discount != null){
              double PriceAfterDiscount =  discount.getDiscountPercentage() * amount ;
              creditcard userCreditCard = user.getCreditCard();
@@ -120,7 +120,7 @@ public class UserService {
              userCreditCard.setCurrentBalance(BalanceAfterPayment);
          }
          transaction payment_transaction = new transaction(
-                 service.getSerivcetype() ,
+                 service.getServicetype() ,
                  service.getServicename() ,
                  "payment transaction" );
          transactionRepository.save(payment_transaction);

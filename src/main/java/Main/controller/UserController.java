@@ -14,7 +14,9 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:63342")
 
 public class UserController {
+
     private final UserService userService ;
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService ;
@@ -54,6 +56,7 @@ public class UserController {
         userService.addCreditCard(creditcard);
     }
 
+    
     @PostMapping("/pay")
     public void payforService(@RequestBody  services service , @RequestBody double amount){
         userService.payforService(service , amount);

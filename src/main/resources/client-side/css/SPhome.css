@@ -1,0 +1,36 @@
+
+/*table*/
+.link-table {
+    border-collapse: separate;
+    position: absolute;
+    left: 100px;
+    top: 200px;
+
+}
+
+.link-table td {
+    padding: 25px;
+}
+
+.link-table a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    border: 0;
+    padding: 20px 200px 20px 20px;
+}
+
+.link-table img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.back-button{
+    margin-left: 680px;
+    margin-top: 400px;
+}
+.footer{
+    margin: 60px -10px 0px -10px ;
+}

@@ -6,33 +6,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-
-header {
-  height: 7vh; 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  position: fixed;
-  float: left;
-  margin-left: 0px;
-  width: 10vw; /* set the width to 10% of the viewport width */
-  height: 5vh; /* set the height to 5% of the viewport height */
-}
-
-header img {
-  position: absolute;
-  top: -7vh; /* set the distance between the top of the logo and the top of the viewport */
-  left: 0;
-  width: 200%;
-  height: 400%;
-}
-
 body{
   margin: 0;
   padding: 0;

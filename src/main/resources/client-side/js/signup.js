@@ -40,7 +40,7 @@ signUpForm.addEventListener('submit', (e) => {
    .then(response => {
       console.log(response);
       alert('You have successfully signed up!');
-      window.location.href = "/client-side/html/login.html" // redirect to the login page this the only way
+      window.location.href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html" // redirect to the login page this the only way
       // if i put the link in html it doesnt work also if i put at the end of this function it gives error 
       // bec it worked before the fetch so u should learn what work first and why i cant use html way
    })

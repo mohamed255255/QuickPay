@@ -1,64 +1,144 @@
-/* Header */
-header {
-    height: 12vh;
-    background: #1b6ca1;
-    position: relative;
-    margin-left: -10px;
-    margin-right: -10px;
-}
+.offer-list{
+    list-style: none;
 
-.logo {
-    float: left;
-    width: 10vw;
-    height: 7vh;
-}
 
-header img {
-    position: relative;
-    top: -8vh;
-    left: 0;
-    width: 150%;
-    height: 400%;
 }
-.header-buttons {
+.buttons {
     display: flex;
-    font-size: 19px;
-    margin-top: -10px;
-    margin-left: 250px;
-}
+    margin: 260px 0px 50px 500px;
 
-.header-buttons a {
-    color: white;
-    text-decoration: none;
-    padding: 40px 30px 20px 20px;
+
 }
-/*table*/
-.link-table {
-    border-collapse: separate;
+.back-button{
+    display: inline-block;
+    margin-left: 20px;
+}
+.serviceProvider-tag{
+    border: 1px solid #ececec;
+    padding: 20px 200px 0px 10px;
+    border-radius: 4px;
+    box-shadow: 0px 0 14px #d8d4d485;
+    width: 150px;
+    height: 80px;
+    margin-left: 90px;
+    margin-top: 80px;
+    font-weight: bold;
+}
+.serviceProvider-tag img{
+    width :70px;
+    height: 70px;
+    padding-left: 10px;
+    position: relative;
+    top:0px;
+}
+.serviceProvider-tag p{
+    position: relative;
+    left:100px;
+    bottom: 45px;
+    margin: 2px;
+}
+/*service type list*/
+
+.service-type-menu-button{
+    padding: 10px 15px 10px 20px;
+    background-color: white;
+    color : black;
+    text-decoration: none;
     position: absolute;
     left: 100px;
-    top: 100px;
+    top: 300px;
+
+    border-radius: 4px;
+    box-shadow: 0px 0 14px #d8d4d485;
+
+}
+.service-type-menu-button span{
+    padding-right: 400px;
+}
+.service-type-menu {
+    display: none;
+    position: absolute;
+    left: 100px;
+    top: 338px;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    flex-direction: column;
+    border-radius: 7px;
+
 }
 
-.link-table td {
-    padding: 25px;
-}
-
-.link-table a {
-    display: block;
+.service-type-menu a{
+    border-bottom: 1px solid transparent;
     text-decoration: none;
     color: #333;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-    border: 0;
-    padding: 20px 200px 20px 20px;
+    transition: background-color 1s ease;
+    padding: 10px 380px 10px 20px;
+
+
 }
 
-.link-table img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
+.service-type-menu a:hover{
+    background: #cccccc;
+    color:#2691d9;
 }
 
-.link-table p {
-    margin: 0;
+/*mobile number text field*/
+.txt_field{
+    background-color: white;
+    text-decoration: none;
+    position: absolute;
+    left: 800px;
+    top: 300px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px 380px 10px 20px;
+
+}
+/*footer*/
+.footer{
+    margin: 60px 0px 0px -10px ;
+}
+
+
+/*Mobile text field*/
+.txt_field input{
+    height: 15px;
+    font-size: 16px;
+    width: 400px;
+    margin-right: -380px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.txt_field label{
+    position: absolute;
+    top: 70%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-70%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+    font-weight: bold;
+}
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+    width: 100%;
 }
