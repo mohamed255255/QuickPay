@@ -1,53 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <title>Donation</title>
-    <link rel="stylesheet" href="/client-side/css/SPhome.css">
+    <meta charset="utf-8">
+    <title>Quickpay</title>
     <link rel="stylesheet" href="/client-side/css/template.css">
+    <link rel="stylesheet" href="/client-side/css/Quickpay.css">
+    <script src="https://kit.fontawesome.com/8f96432f9e.js" crossorigin="anonymous"></script>
 </head>
+
+
+
 <body>
-
-
 <header>
     <div class="logo">
         <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
     </div>
     <div class="header-buttons">
         <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
-        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>        <a href="http://127.0.0.1:5500/client-side/html/home.html"   id ="myHistory">myHistory</a>
-        <a href="http://127.0.0.1:5500/client-side/html/home.html"   id  ="help-support">Help & Support</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myhistory.html"   id ="myHistory">myHistory</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html"   id  ="help-support">Help & Support</a>
     </div>
 </header>
 
-<a href="#" class="dropdown-button">welcome userFirstName</a>
-<i class="fa-sharp fa-solid fa-caret-down"></i>
+<div class ="noCreditCardForm">
+    <p>There is no added card to access QuickPay<br>
+        kindly add your card by pressing <span>Add a new credit card</span> button
+    </p>
+    <img src="../icons/wallet.jpg" height="108" width="109"/>
+</div>
+
+<a href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/creditcardform.html" class = "ccbutton">
+    <span class="plus-sign">+</span> Add a new credit card
+</a>
+
+
+
+<table class="CreditCardTable">
+</table>
+
+
+
+
+
+<a href="#" class="dropdown-button">welcome userFirstName ▼</a>
 <div class="dropdown-menu">
     <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myprofile.html">myProfile</a>
     <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Dashboard</a>
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html#" style="color: red">Logout</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html" style="color: red">Logout</a>
 </div>
-
-<p class="step">Step 2 : <span>Choose a service provider</span></p>
-
-
-<table class="link-table">
-    <tr>
-        <td>
-            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/donation/57357hospital.html">
-                <img src="../../icons/hospital.png" height="568" width="524"/></a>
-        </td>
-    <td>
-        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/donation/resala.html">
-            <img src="../../icons/resala.png" height="870" width="1044"/></a>
-    </td>
-    </tr>
-</table>
-
-<a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class="back-button">
-    <img href ="#"> Back
-</a>
-
 
 
 
@@ -111,6 +112,6 @@
 </div>
 <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
 <script src="/client-side/js/template.js"></script>
-<script src="/client-side/js/services.js"></script>
-</body>
+<script src="/client-side/js/showCreditCard.js"></script>
+ </body>
 </html>

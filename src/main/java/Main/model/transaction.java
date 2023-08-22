@@ -1,5 +1,6 @@
 package Main.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -63,15 +64,12 @@ import jakarta.persistence.*;
     private  String TransactionType ;
     private double amount ;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "User_fk")
-    private User user;
 
    public transaction(String ServiceType , String ServiceName , String TransactionType){
        this.ServiceName = ServiceName ;
        this.TransactionType = TransactionType;
    }
-   public transaction(String TransactionType){
+    public transaction(String TransactionType){
      this.TransactionType =  TransactionType;
    }
     public transaction(){}
@@ -83,5 +81,9 @@ import jakarta.persistence.*;
         return transactionID;
     }
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "userID")
+    private User user;
 
 }

@@ -1,0 +1,30 @@
+h1{
+    color: #468cbb;
+    margin-left: 145px;
+
+}
+
+.writings span{
+    background: #ffd4007a;
+    color: #468cbb;
+    padding: 2px 5px 2px 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.writings p{
+    margin-left: 150px;
+
+}
+.footer{
+    margin-top: 0px;
+    margin-right: -7px;
+}
+.next-button{
+    margin: -25px 0px 50px 600px;
+}
+
+/*txt field edits to fit this page*/
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+    width: 20px;
+}

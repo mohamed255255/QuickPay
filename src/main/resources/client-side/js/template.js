@@ -1,7 +1,6 @@
-// Get the dropdown button and dropdown content elements
+
 const dropdownButton = document.querySelector('.dropdown-button');
 const dropdownMenu = document.querySelector('.dropdown-menu');
-// Add a click event listener to the dropdown button
 dropdownButton.addEventListener('click', function() {
     if (dropdownMenu.style.display === 'none') {
         dropdownMenu.style.display = 'flex';
@@ -25,7 +24,7 @@ function loadWelcomeMessage() {
         .catch(error => console.error(error));
 }
 
-/// call welcome msg at load time
+/// call welcome msg at load time for all the pages
 window.addEventListener('load', () => {
     loadWelcomeMessage();
 });

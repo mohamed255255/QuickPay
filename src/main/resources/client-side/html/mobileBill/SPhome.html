@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>orange</title>
-  <link rel="stylesheet" href="/client-side/css/services.css">
+  <title>Mobile Bill</title>
+  <link rel="stylesheet" href="/client-side/css/SPhome.css">
   <link rel="stylesheet" href="/client-side/css/template.css">
 </head>
 <body>
@@ -15,49 +15,52 @@
   </div>
   <div class="header-buttons">
     <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/services.html"   id ="myPay">myPay</a>
-    <a href="http://127.0.0.1:5500/client-side/html/home.html"   id ="myHistory">myHistory</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>    <a href="http://127.0.0.1:5500/client-side/html/home.html"   id ="myHistory">myHistory</a>
     <a href="http://127.0.0.1:5500/client-side/html/home.html"   id  ="help-support">Help & Support</a>
   </div>
 </header>
 
-
-<p class="step">Step 3 : <span>Choose a service type</span></p>
-
-<div class = "serviceProvider-tag">
-  <img src="../../icons/orange.png" height="630" width="1200"/>
-  <p>Orange</p>
+<a href="#" class="dropdown-button">welcome userFirstName</a>
+<i class="fa-sharp fa-solid fa-caret-down"></i>
+<div class="dropdown-menu">
+  <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myprofile.html">myProfile</a>
+  <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Dashboard</a>
+  <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html#" style="color: red">Logout</a>
 </div>
 
-
-<a href="#" id="service-type-menu-button" class="service-type-menu-button">
-  <span class="ServiceTypeContent">Service types</span>
-  ▾</a>
-<div class="service-type-menu">
-  <a href="#" class="menu-option">orange bill</a>
-</div>
+<p class="step">Step 2 : <span>Choose a service provider</span></p>
 
 
-<div class = "txt_field">
-  <input type = "text" name = "Mobile Number" id ="Mobile Number" class="mobileNumber" required  >
-  <span></span>
-  <label>Mobile number</label>
-</div>
-<style>
-  .txt_field{
-    display: none;
-  }
-</style>
+<table class="link-table">
+  <tr>
+    <td>
+      <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/mobileRecharge/vodafone.html">
+        <img src="../../icons/voda.png" alt="telephone img">
+      </a>
+    </td>
+    <td>
+      <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/mobileRecharge/we.html">
+        <img src="../../icons/we2.jpg" height="500" width="500"/></a>
+    </td>
+    <td>
+      <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/mobileRecharge/etisalat.html">
+        <img src="../../icons/etisalat.png">
+      </a>
+    </td>
+    <td>
+      <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/mobileRecharge/orange.html">
+        <img src="../../icons/orange.png" >
+      </a>
+    </td>
+  </tr>
+</table>
 
-<div class = "buttons">
-  <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class = "back-button">
-    Back
-  </a>
+<a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class="back-button">
+  <img href ="#"> Back
+</a>
 
-  <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/payment.html" class = "back-button"  id="next-button">
-    Next
-  </a>
-</div>
+
+
 
 <div class="footer">
   <ul>
@@ -119,7 +122,6 @@
 </div>
 <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
 <script src="/client-side/js/template.js"></script>
-<script src="/client-side/js/mobileRecharge.js"></script>
-
+<script src="/client-side/js/services.js"></script>
 </body>
 </html>

@@ -50,13 +50,13 @@ body {
 .dropdown-menu {
     display: none;
     position: absolute;
+    top:70px;
+    right: 50px;
     background-color: #f9f9f9;
     min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     flex-direction: column;  /* Set the direction to column */
-    margin-left: 1300px;
-    margin-top: -350px;
     border-radius: 7px;
 }
 
@@ -120,7 +120,7 @@ body {
     color: white;
     background: #353636;
     padding: 15px 0;
-    font-size: 18px;
+    font-size: 14px;
     display: flex;
     flex-direction: column;
     align-self: flex-end;
@@ -153,7 +153,7 @@ body {
     font-weight: lighter;
 }
 
-.back-button{
+.back-button , .next-button{
     padding : 10px 70px 10px 70px ;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     border: 0px solid #ececec;
@@ -165,6 +165,58 @@ body {
     border-radius: 3px;
 
 }
-.back-button:hover{
+.back-button{
     background: #d2cece;
+}
+.next-button{
+background : rgb(255, 212, 2) !important;
+}
+
+/*web site text fields */
+
+.txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 70px 0px 30px 800px;
+    width: 25%;
+}
+
+.txt_field input{
+    height: 15px;
+    font-size: 16px;
+    width: 400px;
+    margin-right: -380px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.txt_field label{
+    position: absolute;
+    top: 70%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-70%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+    font-weight: bold;
+}
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 17px;
+    left: 0;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+    width: 100%;
 }

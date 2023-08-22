@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -94,13 +95,14 @@ public class UserService {
 
 
 
-
     public void addCreditCard(creditcard creditcard)  {
+
         User user = (User) session.getAttribute("user");
-        user.addCreditCard(creditcard);
+        user.addCreditCard(creditcard);  /// link the Credit card with the user
         creditCardRepository.save(creditcard) ;
 
-        transaction addCreditCardTransaction = new transaction("add to credit card" );
+        transaction addCreditCardTransaction = new transaction("a credit card is added" );
+        user.setTransaction(addCreditCardTransaction); /// link the transaction with the user
         transactionRepository.save(addCreditCardTransaction);
     }
 
@@ -110,14 +112,14 @@ public class UserService {
          Discount discount = discountRepository.findByServiceType(service.getServicetype());
          if(discount != null){
              double PriceAfterDiscount =  discount.getDiscountPercentage() * amount ;
-             creditcard userCreditCard = user.getCreditCard();
+            // creditcard userCreditCard = user.getCreditCard();
 
-             double BalanceAfterPayment = userCreditCard.getCurrentBalance() - PriceAfterDiscount ;
-             userCreditCard.setCurrentBalance(BalanceAfterPayment);
+           //  double BalanceAfterPayment = userCreditCard.getCurrentBalance() - PriceAfterDiscount ;
+           //  userCreditCard.setCurrentBalance(BalanceAfterPayment);
          }else{
-             creditcard userCreditCard = user.getCreditCard();
-             double BalanceAfterPayment = userCreditCard.getCurrentBalance();
-             userCreditCard.setCurrentBalance(BalanceAfterPayment);
+           //  creditcard userCreditCard = user.getCreditCard();
+         //    double BalanceAfterPayment = userCreditCard.getCurrentBalance();
+          //   userCreditCard.setCurrentBalance(BalanceAfterPayment);
          }
          transaction payment_transaction = new transaction(
                  service.getServicetype() ,
@@ -136,4 +138,16 @@ public class UserService {
         //to get my point
     }
 
+public List<creditcard> showCreditCard() {
+        User user = (User) session.getAttribute("user");
+        if (user.getCreditCards().isEmpty()) {
+            return new ArrayList<>();
+        }
+        return user.getCreditCards();
+    }
+
+
+
 }
+
+

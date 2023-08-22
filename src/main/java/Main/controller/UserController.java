@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
@@ -15,58 +16,58 @@ import java.util.List;
 
 public class UserController {
 
-    private final UserService userService ;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
-        this.userService = userService ;
+        this.userService = userService;
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<String> signup (@RequestBody User user){
-        return  userService.signup( user );
+    public ResponseEntity<String> signup(@RequestBody User user) {
+        return userService.signup(user);
     }
 
     @PostMapping("/signin")
-    ResponseEntity<String> signIn(@RequestBody User user , HttpSession session) {
-        return userService.login(user , session);
+    ResponseEntity<String> signIn(@RequestBody User user, HttpSession session) {
+        return userService.login(user, session);
     }
 
-    @GetMapping ("/welcome")
-    public String welcomeFirstName(){
+    @GetMapping("/welcome")
+    public String welcomeFirstName() {
         return userService.welcomeFirstName(userService.getSession());
     }
 
 
-
     @GetMapping("/search")
-    List<services> SearchServiceByName(@RequestParam("servicename") String servicename){
+    List<services> SearchServiceByName(@RequestParam("servicename") String servicename) {
         return userService.search(servicename);
     }
 
     @GetMapping("/checkDiscount")
-    List<Discount> ShowAllDiscounts(){
+    List<Discount> ShowAllDiscounts() {
         return userService.ShowAllDiscounts();
     }
 
 
-
     @PostMapping("/AddCreditCard")
-    public void addCreditCard(@RequestBody creditcard creditcard){
+    public void addCreditCard(@RequestBody creditcard creditcard) {
         userService.addCreditCard(creditcard);
     }
 
-    
+
     @PostMapping("/pay")
-    public void payforService(@RequestBody  services service , @RequestBody double amount){
-        userService.payforService(service , amount);
+    public void payforService(@RequestBody services service, @RequestBody double amount) {
+        userService.payforService(service, amount);
     }
 
     @PostMapping("/RefundRequest")
-    public void AskForRefund(RefundRequest RefundRequest){
+    public void AskForRefund(RefundRequest RefundRequest) {
         userService.AskForRefund(RefundRequest);
     }
 
-
-
+    @GetMapping("showcreditcard")
+    public List<creditcard> showCreditCard() {
+       return userService.showCreditCard();
+    }
 }

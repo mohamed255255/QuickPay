@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Donation</title>
-    <link rel="stylesheet" href="/client-side/css/SPhome.css">
+    <title>Vodafone</title>
+    <link rel="stylesheet" href="/client-side/css/services.css">
     <link rel="stylesheet" href="/client-side/css/template.css">
 </head>
 <body>
@@ -20,36 +20,43 @@
     </div>
 </header>
 
-<a href="#" class="dropdown-button">welcome userFirstName</a>
-<i class="fa-sharp fa-solid fa-caret-down"></i>
-<div class="dropdown-menu">
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myprofile.html">myProfile</a>
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Dashboard</a>
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html#" style="color: red">Logout</a>
+
+<p class="step">Step 3 : <span>Choose a service type</span></p>
+
+<div class = "serviceProvider-tag">
+    <img src="../../icons/voda.png" height="630" width="1200"/>
+    <p>vodafone</p>
 </div>
 
-<p class="step">Step 2 : <span>Choose a service provider</span></p>
+
+<a href="#" id="service-type-menu-button" class="service-type-menu-button">
+    <span class="ServiceTypeContent">Service types</span>
+    ▾</a>
+<div class="service-type-menu">
+    <a href="#" class="menu-option">Vodafone bill</a>
+</div>
 
 
-<table class="link-table">
-    <tr>
-        <td>
-            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/donation/57357hospital.html">
-                <img src="../../icons/hospital.png" height="568" width="524"/></a>
-        </td>
-    <td>
-        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/donation/resala.html">
-            <img src="../../icons/resala.png" height="870" width="1044"/></a>
-    </td>
-    </tr>
-</table>
+<div class = "txt_field">
+    <input type = "text" name = "Mobile Number" id ="Mobile Number" class="mobileNumber" required  >
+    <span></span>
+    <label>Mobile number</label>
+</div>
+<style>
+    .txt_field{
+        display: none;
+    }
+</style>
 
-<a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class="back-button">
-    <img href ="#"> Back
-</a>
+<div class = "buttons">
+    <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class = "back-button">
+         Back
+    </a>
 
-
-
+    <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/payment.html" class = "back-button"  id="next-button">
+        Next
+    </a>
+</div>
 
 <div class="footer">
     <ul>
@@ -112,5 +119,6 @@
 <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
 <script src="/client-side/js/template.js"></script>
 <script src="/client-side/js/services.js"></script>
+
 </body>
 </html>

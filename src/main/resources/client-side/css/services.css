@@ -9,7 +9,7 @@
 
 
 }
-.back-button{
+.back-button , .next-button{
     display: inline-block;
     margin-left: 20px;
 }
@@ -84,61 +84,9 @@
     color:#2691d9;
 }
 
-/*mobile number text field*/
-.txt_field{
-    background-color: white;
-    text-decoration: none;
-    position: absolute;
-    left: 800px;
-    top: 300px;
-    border-radius: 7px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
-    padding: 10px 380px 10px 20px;
 
-}
 /*footer*/
 .footer{
     margin: 60px 0px 0px -10px ;
 }
 
-
-/*Mobile text field*/
-.txt_field input{
-    height: 15px;
-    font-size: 16px;
-    width: 400px;
-    margin-right: -380px;
-    border: none;
-    background: none;
-    outline: none;
-}
-.txt_field label{
-    position: absolute;
-    top: 70%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-70%);
-    font-size: 16px;
-    pointer-events: none;
-    transition: .5s;
-    font-weight: bold;
-}
-.txt_field span::before{
-    content: '';
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #2691d9;
-    transition: .5s;
-}
-.txt_field input:focus ~ label,
-.txt_field input:valid ~ label{
-    top: -5px;
-    color: #2691d9;
-}
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before{
-    width: 100%;
-}

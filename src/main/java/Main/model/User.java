@@ -1,6 +1,11 @@
 package Main.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -15,8 +20,10 @@ public class User {
     private String password;
     private String phonenumber;
 
-
-    public User() {}
+    public User() {
+        creditCards = new ArrayList<>();
+        transactions = new ArrayList<>();
+    }
 
     @Override
     public String toString() {
@@ -78,16 +85,43 @@ public class User {
         this.phonenumber = phonenumber;
     }
 
-    public creditcard getCreditCard() {
-        return userCreditCard;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("user")
+    private List<creditcard> creditCards;
+
+
+    public List<creditcard> getCreditCards() {
+        return creditCards;
+    }
+
+    public void addCreditCard(creditcard card) {
+        if (creditCards == null) {
+            creditCards = new ArrayList<>();
+        }
+        //bidirectional relation
+         creditCards.add(card);
+         card.setUser(this);
+    }
+    public void removeCreditCard(creditcard card) {
+        creditCards.remove(card);
+        card.setUser(null);
     }
 
 
-    public void addCreditCard(creditcard creditCard) {
-        creditCard.setUser(this);
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private  List<transaction> transactions ;
+
+    public List<transaction> getTransaction() {
+        return transactions;
     }
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private creditcard userCreditCard  ;
 
+    public void setTransaction(transaction transaction) {
+       transactions.add(transaction) ;
+       transaction.setUser(this);
+    }
 }

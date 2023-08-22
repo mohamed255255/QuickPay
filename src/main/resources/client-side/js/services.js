@@ -14,7 +14,7 @@ serviceTypeButton.addEventListener('click', function() {
 
 const menuButton = document.getElementById('service-type-menu-button');
 const menuOptions = document.querySelectorAll('.menu-option');
-const mobileTextField = document.querySelector('.txt_field');
+const TextField = document.querySelector('.txt_field');
 let servicename;  /// service name from the drop down-menu
 menuOptions.forEach(option => {
     option.addEventListener('click', (event) => {
@@ -22,17 +22,25 @@ menuOptions.forEach(option => {
         servicename = option.textContent;
         menuButton.querySelector('span').textContent = servicename;
         dropdownMenu2.style.display = 'none';
-        mobileTextField.style.display = 'flex';
+        TextField.style.display = 'flex';
     });
 });
 
-let nextbutton = document.getElementById('next-button');
-let  img , serviceProvider ;
+let nextButton = document.getElementById('next-button');
 
-nextbutton.addEventListener('click', (event)=>{
-    event.preventDefault();
-    let img = document.querySelector('.serviceProvider-tag img');
-    let serviceProvider = document.querySelector('.serviceProvider-tag p');
+nextButton.addEventListener('click', (event) => {
 
-})
+    localStorage.setItem('someServiceImg', document.querySelector('.serviceProvider-tag img').src);
+    localStorage.setItem('serviceProvider' , document.querySelector('.serviceProvider-tag p').textContent);
+    localStorage.setItem('servicename' , servicename);
+
+
+
+
+});
+
+
+
+
+
 
