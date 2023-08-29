@@ -5,24 +5,35 @@
   <title>payment</title>
   <link rel="stylesheet" href="/client-side/css/services.css">
   <link rel="stylesheet" href="/client-side/css/template.css">
+  <link rel="stylesheet" href="/client-side/css/payment.css">
+
 </head>
 <body>
 
 
-<header>
-  <div class="logo">
-    <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
-  </div>
-  <div class="header-buttons">
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>
-    <a href="http://127.0.0.1:5500/client-side/html/home.html"   id ="myHistory">myHistory</a>
-    <a href="http://127.0.0.1:5500/client-side/html/home.html"   id  ="help-support">Help & Support</a>
-  </div>
-</header>
+  <header>
+    <div class="logo">
+      <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
+    </div>
+    <div class="header-buttons">
+      <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
+      <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>
+      <a href="http://127.0.0.1:5500/client-side/html/home.html"   id ="myHistory">myHistory</a>
+      <a href="http://127.0.0.1:5500/client-side/html/home.html"   id  ="help-support">Help & Support</a>
+    </div>
+  </header>
 
 
-<p class="step">Step4: <span>Choose a FawryPay options</span></p>
+  <a href="#" class="dropdown-button">welcome userFirstName ▼</a>
+  <div class="dropdown-menu">
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myprofile.html">myProfile</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Dashboard</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html" style="color: red">Logout</a>
+  </div>
+
+
+
+  <p class="step">Step4: <span>Choose a FawryPay options</span></p>
 
 <div class = "serviceProvider-tag">
   <img  src="#">
@@ -36,24 +47,39 @@
   <label>Select amount</label>
 </div>
 
-<style>
-  .txt_field{
-    display: flex;
-    margin-left:-698px;
-  }
-
-</style>
-
 
 <div class = "buttons">
-  <a  href="#" class = "back-button">
+  <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class = "back-button">
     Back
   </a>
 
-  <a  href="#" class = "back-button">
+  <a  href="#" class = "next-button" onclick="pay()">
     Next
   </a>
 </div>
+
+<form class = "receipt">
+     <p class="serviceprovider"></p>
+     <br>
+     <p class="servicename"></p>
+     <img src = "/client-side/icons/circle-check-icon-3.jpg">
+     <p class = "orderNo"></p>
+     <a href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/payment.html">Close</a>
+</form>
+
+
+  <a href="#" id="creditcard-menu-button" class="creditcard-menu-button">
+    <span class="ServiceTypeContent">Choose a credit card</span>
+    ▾</a>
+  <div class="creditcard-menu">
+  </div>
+
+  <div class ="noCreditCardText">
+    <p>There is no added card to continue the payment process<br>
+      kindly add your card by pressing <span>Add a new credit card</span> button
+    </p>
+  </div>
+
 
 <div class="footer">
   <ul>

@@ -44,30 +44,36 @@ public class UserController {
         return userService.search(servicename);
     }
 
-    @GetMapping("/checkDiscount")
-    List<Discount> ShowAllDiscounts() {
-        return userService.ShowAllDiscounts();
-    }
-
 
     @PostMapping("/AddCreditCard")
     public void addCreditCard(@RequestBody creditcard creditcard) {
         userService.addCreditCard(creditcard);
     }
 
+    @GetMapping("/showcreditcard")
+    public List<creditcard> showCreditCard() {
+        return userService.showCreditCard();
+    }
+
+    @PostMapping("/pickCreditcard")
+    public void pickCreditcard(@RequestParam("cardNumber") String cardNumber){
+        userService.pickCreditcard(cardNumber);
+    }
 
     @PostMapping("/pay")
-    public void payforService(@RequestBody services service, @RequestBody double amount) {
-        userService.payforService(service, amount);
+    public ResponseEntity<String> payforService(
+            @RequestParam("servicename") String servicename
+            , @RequestParam("servicetype") String servicetype
+            ,@RequestParam("amount") double amount)
+    {
+
+        return userService.payforService( servicename ,  servicetype , amount);
     }
 
     @PostMapping("/RefundRequest")
-    public void AskForRefund(RefundRequest RefundRequest) {
+    public void AskForRefund(@RequestBody  RefundRequest RefundRequest) {
         userService.AskForRefund(RefundRequest);
     }
 
-    @GetMapping("showcreditcard")
-    public List<creditcard> showCreditCard() {
-       return userService.showCreditCard();
-    }
+
 }

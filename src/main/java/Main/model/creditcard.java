@@ -18,15 +18,6 @@ public class creditcard  {
     private String CVV ;
     private double currentBalance;
 
-
-    public int getCreditcardID() {
-        return creditcardID;
-    }
-
-    public void setCreditcardID(int creditcardID) {
-        this.creditcardID = creditcardID;
-    }
-
     public String getCreditcardName() {
         return creditcardName;
     }
@@ -51,12 +42,20 @@ public class creditcard  {
         Expiryyear = expiryyear;
     }
 
-    public String getexpirymonth() {
+    public int getCreditcardID() {
+        return creditcardID;
+    }
+
+    public void setCreditcardID(int creditcardID) {
+        this.creditcardID = creditcardID;
+    }
+
+    public String getExpirymonth() {
         return expirymonth;
     }
 
-    public void setexpirymonth(String expirymonth) {
-        expirymonth = expirymonth;
+    public void setExpirymonth(String expirymonth) {
+        this.expirymonth = expirymonth;
     }
 
     public String getCVV() {

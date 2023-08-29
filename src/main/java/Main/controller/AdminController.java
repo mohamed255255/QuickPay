@@ -1,6 +1,5 @@
 package Main.controller;
 import Main.Service.AdminService;
-import Main.model.Discount;
 import Main.model.RefundRequest;
 import Main.model.services;
 import Main.model.transaction;
@@ -25,11 +24,6 @@ public class AdminController {
     @PostMapping("/addservice")
     public void addNewService(@RequestBody services service){
         adminService.addNewService(service);
-    }
-
-    @PostMapping("/addDiscount")
-    public void addDiscount(@RequestBody Discount discount){
-        adminService.addDiscount(discount);
     }
 
     @GetMapping("/getAllRefundReq")

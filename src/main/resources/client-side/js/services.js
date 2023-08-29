@@ -12,7 +12,7 @@ serviceTypeButton.addEventListener('click', function() {
 
 
 
-const menuButton = document.getElementById('service-type-menu-button');
+const menuButton = document.querySelector('#service-type-menu-button');
 const menuOptions = document.querySelectorAll('.menu-option');
 const TextField = document.querySelector('.txt_field');
 let servicename;  /// service name from the drop down-menu

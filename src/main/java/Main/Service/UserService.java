@@ -19,20 +19,17 @@ public class UserService {
 
     public final UserRepository UserRepository;
     public final ServicesRepository servicesRepository;
-    public final DiscountRepository discountRepository ;
     public final transactionRepository transactionRepository;
     public final RefundRequestRepository refundRequestRepository;
     public final  creditCardRepository creditCardRepository ;
     @Autowired
     public UserService(UserRepository UserRepository ,
                        ServicesRepository servicesRepository,
-                       DiscountRepository discountRepository,
                        transactionRepository transactionRepository,
                        RefundRequestRepository refundRequestRepository, Main.repository.creditCardRepository creditCardRepository) {
 
         this.UserRepository = UserRepository;
         this.servicesRepository = servicesRepository;
-        this.discountRepository = discountRepository;
         this.transactionRepository = transactionRepository;
         this.refundRequestRepository = refundRequestRepository;
         this.creditCardRepository = creditCardRepository;
@@ -68,10 +65,6 @@ public class UserService {
 
     }
 
-    public HttpSession getSession() {
-        return session;
-    }
-
     public String welcomeFirstName(HttpSession session) {
         if (session != null) {
             User user = (User) session.getAttribute("user");
@@ -89,10 +82,6 @@ public class UserService {
         return servicesRepository.findAllMatchingServices(ServiceName);
     }
 
-    public List<Discount> ShowAllDiscounts(){
-        return discountRepository.findAllDiscounts();
-    }
-
 
 
     public void addCreditCard(creditcard creditcard)  {
@@ -107,27 +96,23 @@ public class UserService {
     }
 
 
-    public void payforService(services service , double amount){
-         User user = (User)session.getAttribute("user");
-         Discount discount = discountRepository.findByServiceType(service.getServicetype());
-         if(discount != null){
-             double PriceAfterDiscount =  discount.getDiscountPercentage() * amount ;
-            // creditcard userCreditCard = user.getCreditCard();
+    public ResponseEntity<String> payforService(String servicename , String servicetype , double amount){
+         User user = (User) session.getAttribute("user");
+         creditcard chosenCard = (creditcard)session.getAttribute("creditcard");
+         if(amount > chosenCard.getCurrentBalance())
+            return ResponseEntity.badRequest().body("No enough money to continue the payment process");
 
-           //  double BalanceAfterPayment = userCreditCard.getCurrentBalance() - PriceAfterDiscount ;
-           //  userCreditCard.setCurrentBalance(BalanceAfterPayment);
-         }else{
-           //  creditcard userCreditCard = user.getCreditCard();
-         //    double BalanceAfterPayment = userCreditCard.getCurrentBalance();
-          //   userCreditCard.setCurrentBalance(BalanceAfterPayment);
-         }
+        double BalanceAfterPayment = chosenCard.getCurrentBalance() - amount;
+        chosenCard.setCurrentBalance(BalanceAfterPayment);
+        creditCardRepository.save(chosenCard);
          transaction payment_transaction = new transaction(
-                 service.getServicetype() ,
-                 service.getServicename() ,
+                 servicetype ,
+                 servicename ,
                  "payment transaction" );
-         transactionRepository.save(payment_transaction);
+        user.setTransaction(payment_transaction); /// link the transaction with the user
+        transactionRepository.save(payment_transaction);
+        return ResponseEntity.ok("paid successfully");
     }
-
 
 
     public void AskForRefund(RefundRequest RefundRequest){
@@ -146,7 +131,11 @@ public List<creditcard> showCreditCard() {
         return user.getCreditCards();
     }
 
+    public void pickCreditcard(String cardNumber){
+        creditcard chosenCard = creditCardRepository.findByCardNumber(cardNumber);
+        session.setAttribute("creditcard" , chosenCard);
 
+    }
 
 }
 

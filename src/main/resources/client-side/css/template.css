@@ -175,9 +175,10 @@ background : rgb(255, 212, 2) !important;
 /*web site text fields */
 
 .txt_field{
-    position: relative;
+    position: absolute;
     border-bottom: 2px solid #adadad;
-    margin: 70px 0px 30px 800px;
+    right: 300px;
+    top:318px;
     width: 25%;
 }
 

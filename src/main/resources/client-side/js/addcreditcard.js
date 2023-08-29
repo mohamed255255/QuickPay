@@ -9,13 +9,7 @@ nextButton.addEventListener('click', (e) => {
         cardNumber     : document.querySelector('#cardNumber').value
     };
 
-    fetch('http://localhost:8080/QuickPay/AddCreditCard', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
+    fetch('http://localhost:8080/QuickPay/AddCreditCard', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)} )
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
