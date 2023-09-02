@@ -1,24 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <title>helwan university</title>
-    <link rel="stylesheet" href="/client-side/css/services.css">
+    <meta charset="utf-8">
+    <title>myDashboard</title>
+    <link rel="stylesheet" href="/client-side/css/dashboard.css">
     <link rel="stylesheet" href="/client-side/css/template.css">
+    <script src="https://kit.fontawesome.com/8f96432f9e.js" crossorigin="anonymous"></script>
 </head>
+
+
+
 <body>
-
-
 <header>
     <a class="logo" href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">
         <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
     </a>
     <div class="header-buttons">
         <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
-        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>        <a href="http://127.0.0.1:5500/client-side/html/home.html"   id ="myHistory">myHistory</a>
-        <a href="http://127.0.0.1:5500/client-side/html/home.html"   id  ="help-support">Help & Support</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myhistory.html"   id ="myHistory">myHistory</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html"   id  ="help-support">Help & Support</a>
     </div>
 </header>
+
+
+<div class="search-bar">
+    <input type="text" id ="search-input"  name="search-input" placeholder="Search for Service" name = "q">
+    <div id="search-results" style="display: none">
+        <ul id="results-list"></ul>
+    </div>
+</div>
+
+<a href="serviceCategory.html" class="newpayment-button">
+    <img src="../icons/1.1.png" alt="coins Image">
+    <p>New payment</p>
+</a>
+
+
+
+
+<div class="left-menu" layout="column">
+    <p class = "welcomeTitle">Welcome</p>
+    <a href = "myprofile.html" class ="firstname"></a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/settings.html"> Settings</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/security.html">Security</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/notification.html">Notifications</a>
+</div>
+
 
 <a href="#" class="dropdown-button">welcome userFirstName ▼</a>
 <div class="dropdown-menu">
@@ -27,44 +55,18 @@
     <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html" style="color: red">Logout</a>
 </div>
 
-<p class="step">Step 3 : <span>Choose a service type</span></p>
 
-<div class = "serviceProvider-tag">
-    <img src="../../icons/ainshams.png" height="120" width="120"/>
-    <p>Ain shams University</p>
-</div>
+<table>
+    <tr>
+        <td class="summary">
+            <a href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Summary</a>
+        </td>
+        <td class = "fav">
+            <a href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/fav.html">Favourites</a>
+        </td>
+    </tr>
+</table>
 
-
-<a href="#" id="service-type-menu-button" class="service-type-menu-button">
-    <span class="ServiceTypeContent">Service types</span>
-    ▾</a>
-<div class="service-type-menu">
-    <a href="#" class="menu-option">Ain shams Tuition Fees</a>
-    <a href="#" class="menu-option">Faculty of Engineering-credit system</a>
-    <a href="#" class="menu-option">Faculty of Engineering mainstream</a>
-</div>
-
-
-<div class = "txt_field">
-    <input type = "text" name = "StudentID" id ="StudentID" class="StudentID" required  >
-    <span></span>
-    <label>Student id</label>
-</div>
-<style>
-    .txt_field{
-        display: flex;
-    }
-</style>
-
-<div class = "buttons">
-    <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class = "back-button">
-        Back
-    </a>
-
-    <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/payment.html" class = "next-button"  id="next-button">
-        Next
-    </a>
-</div>
 
 <div class="footer">
     <ul>
@@ -125,8 +127,7 @@
     </div>
 </div>
 <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
+<script src="/client-side/js/dashboard.js"></script>
 <script src="/client-side/js/template.js"></script>
-<script src="/client-side/js/services.js"></script>
-
 </body>
 </html>

@@ -130,13 +130,80 @@
   margin-left: 400px;
   margin-top: -50px;
   display: inline-block;
-
 }
+
+
 .newpayment-button p{
 margin : 0 ;
 font-size: 13px;
 }
 
+
+table{
+  position: relative;
+  left: 400px;
+  bottom: 120px;
+  background: #ffd400 ;
+  border-radius: 5px;
+}
+table a{
+  display: block;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  border: 0;
+  padding: 10px 20px 10px 20px;
+  margin: -2px;
+  border-radius: 5px;
+}
+
+.summary{
+  background-color: white;
+  transition: background-color 0.5s ease;
+
+}
+.fav{
+  background-color: white;
+  transition: background-color 0.5s ease;
+
+
+}
+.summary:hover , .fav :hover{
+  background: #d3d3d3;
+}
+
+
+.noTransactionList img{
+  position: relative;
+  left: 700px;
+}
+.noTransactionList p{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.transactionList{
+  color: #333;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.transactionList div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 50px;
+  border-bottom: 1px solid #c0baba;
+  font-weight: bold;
+  background: #f1efef;
+}
+.transactionList img{
+  width: 45px;
+  height: 45px;
+}
 .footer{
   margin: 400px -10px 0px -10px ;
 }

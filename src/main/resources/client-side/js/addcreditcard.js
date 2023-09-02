@@ -2,11 +2,11 @@ const nextButton = document.querySelector('#next-button');
 nextButton.addEventListener('click', (e) => {
     e.preventDefault();
     const data = {
-        creditcardName : document.querySelector('#ccname').value,
-        expirymonth    : document.querySelector('#expirymonth').value,
-        expiryyear     : document.querySelector('#expiryyear').value,
-        cvv            : document.querySelector('#cvv').value,
-        cardNumber     : document.querySelector('#cardNumber').value
+        creditcardName : document.querySelector('#ccnameID').value,
+        expirymonth    : document.querySelector('#expirymonthID').value,
+        expiryyear     : document.querySelector('#expiryyearID').value,
+        cvv            : document.querySelector('#cvvID').value,
+        cardNumber     : document.querySelector('#cardNumberID').value
     };
 
     fetch('http://localhost:8080/QuickPay/AddCreditCard', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)} )

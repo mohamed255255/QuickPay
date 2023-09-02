@@ -16,15 +16,46 @@ h1{
 
 }
 .footer{
-    margin-top: 0px;
-    margin-right: -7px;
+    margin-top: 20px;
+    margin-right: -10px;
 }
 .next-button{
-    margin: -25px 0px 50px 600px;
+    margin: 200px 0px 50px 600px;
 }
 
 /*txt field edits to fit this page*/
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before{
     width: 20px;
+}
+
+#ccname {
+    top: 350px;
+    left: 150px;
+    width: 15%;
+}
+
+#expirymonth {
+    top: 450px;
+    left: 150px;
+    width: 8%;
+
+}
+
+#expiryyear {
+    top: 450px;
+    left: 300px;
+    width: 8%;
+
+}
+
+#cvv {
+    top: 450px;
+    left: 470px;
+    width: 5%;
+}
+#cardNumber{
+    top: 350px;
+    left: 500px;
+    width: 15%;
 }

@@ -37,8 +37,6 @@ public class  AdminService {
          return refundRequestRepository.GetAllRefundRequests();
     }
 
-    public List<transaction> GetAllTransactions(){
-        return transactionRepository.GetAllTransactions();}
 
 
     public List<services> ShowAllServices(){

@@ -11,6 +11,17 @@ import jakarta.persistence.*;
     private int transactionID ;
     private  String ServiceName ;
     private String servicetype ;
+    private String TransactionType ;
+    private String imgPath ;
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
 
     public int getTransactionID() {
         return transactionID;
@@ -33,9 +44,6 @@ import jakarta.persistence.*;
         return ServiceName;
     }
 
-    public void setServiceName(String serviceName) {
-        ServiceName = serviceName;
-    }
 
     public String getTransactionType() {
         return TransactionType;
@@ -43,14 +51,6 @@ import jakarta.persistence.*;
 
     public void setTransactionType(String transactionType) {
         TransactionType = transactionType;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
     }
 
     public User getUser() {
@@ -61,12 +61,11 @@ import jakarta.persistence.*;
         this.user = user;
     }
 
-    private  String TransactionType ;
-    private double amount ;
 
 
-   public transaction(String ServiceType , String ServiceName , String TransactionType){
-       this.ServiceName = ServiceName ;
+   public transaction(String servicetype , String ServiceName , String TransactionType){
+       this.servicetype = servicetype;
+        this.ServiceName = ServiceName ;
        this.TransactionType = TransactionType;
    }
     public transaction(String TransactionType){

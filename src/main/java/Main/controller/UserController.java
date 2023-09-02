@@ -44,7 +44,6 @@ public class UserController {
         return userService.search(servicename);
     }
 
-
     @PostMapping("/AddCreditCard")
     public void addCreditCard(@RequestBody creditcard creditcard) {
         userService.addCreditCard(creditcard);
@@ -55,19 +54,17 @@ public class UserController {
         return userService.showCreditCard();
     }
 
-    @PostMapping("/pickCreditcard")
+    @GetMapping ("/pickCreditcard")
     public void pickCreditcard(@RequestParam("cardNumber") String cardNumber){
         userService.pickCreditcard(cardNumber);
     }
-
     @PostMapping("/pay")
-    public ResponseEntity<String> payforService(
-            @RequestParam("servicename") String servicename
-            , @RequestParam("servicetype") String servicetype
-            ,@RequestParam("amount") double amount)
-    {
+    public ResponseEntity<String> payforService(@RequestBody payRequest payRequest) {
+        String servicename = payRequest.getServicename();
+        String servicetype = payRequest.getServicetype();
+        double amount = payRequest.getAmount();
 
-        return userService.payforService( servicename ,  servicetype , amount);
+        return userService.payforService(servicename, servicetype, amount);
     }
 
     @PostMapping("/RefundRequest")
@@ -75,5 +72,16 @@ public class UserController {
         userService.AskForRefund(RefundRequest);
     }
 
+    @GetMapping("/GetTransactions")
+    public List<transaction> GetAllTransactions(){ return userService.GetAllTransactions() ;}
 
+    @PostMapping("/addtofav")
+    public ResponseEntity<String> addToFav(@RequestBody favourites favService){
+        return userService.addToFav(favService);
+    }
+
+    @GetMapping("getallfav")
+    public List<favourites> getAllFavServices(){
+        return userService.getAllFavServices();
+    }
 }

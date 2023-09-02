@@ -8,10 +8,18 @@ let servicename = localStorage.getItem('servicename');
 document.querySelector('.serviceProvider-tag img').src = someServiceImg.src;
 document.querySelector('.firstText').textContent = serviceProvider;
 document.querySelector('.secondText').textContent = servicename;
+let orderNumber = 1 ;
 
-
-
-
+function incrementOrder(){
+    let storedNum = localStorage.getItem("orderNumber");
+    if(!storedNum) {
+        storedNum = orderNumber;
+    }
+    localStorage.setItem("orderNumber", orderNumber.toString());
+    orderNumber = parseInt(storedNum) + 1
+    localStorage.setItem("orderNumber", orderNumber.toString());
+    return orderNumber
+}
 
 /*show all credit cards in a drop-down menu*/
 function loadCreditCardInfo() {
@@ -26,18 +34,27 @@ function loadCreditCardInfo() {
                 document.querySelector('.noCreditCardText').style.display='none';
                 data.forEach(function (result) {
                             let link = document.createElement('a');
-                            link.className = "menu-option" ;
-                            link.innerText = `${result.creditcardName}`;
                             link.href="#";
+                            link.className = "menu-option" ;
 
+                            let cardname = document.createElement("p");
+                            cardname.className="cardname";
+                            cardname.textContent = `${result.creditcardName}`;
+
+                            let cardNumber = document.createElement("p");
+                            cardNumber.className="cardNumber";
+                            cardNumber.textContent = `${result.cardNumber}`;
+                            cardNumber.style.display='none';
                             let type = detectCardType(result.cardNumber);
-                            let img = document.createElement("img");
 
+                            let img = document.createElement("img");
                             img.src = `/client-side/icons/${type}.png`;
+
                             link.appendChild(img);
+                            link.appendChild(cardname);
+                            link.appendChild(cardNumber);
                             document.querySelector(".creditcard-menu").appendChild(link);
                 });
-                pickCreditCard(data.cardNumber);
             }
         }).catch(error => console.error(error));
 }
@@ -70,53 +87,65 @@ serviceTypeButton.addEventListener('click', function() {
     }else{
         dropdownMenu2.style.display = 'none';
     }
+    pickCreditCard()
 });
+
 
 /*sending the choice to the backend*/
 
-function pickCreditCard(cardNumber){
-    const menuButton  = document.querySelector('#creditcard-menu-button');
+
+function pickCreditCard(){
+
+    const menuButton = document.querySelector('#creditcard-menu-button');
     const menuOptions = document.querySelectorAll('.menu-option');
-    let chosenCard;  /// chosenCard from the drop down-menu
     menuOptions.forEach(option => {
-        option.addEventListener('click', (event) => {
-            event.preventDefault();
-            chosenCard = option;
-            menuButton.querySelector('span').textContent = chosenCard.innerText; /////////////// fix
-            dropdownMenu2.style.display = 'none';
-            fetch(`http://localhost:8080/QuickPay/pickCreditcard?cardNumber=${encodeURIComponent(cardNumber)}`)
-                .then(function(response) {
-                    console.log(response);
-                })
-        });
+        option.addEventListener('click', handleClick);
+
     });
+    function handleClick(event) {
+        event.preventDefault();
+        let cardNumber = event.currentTarget .querySelector('.cardNumber').textContent;
+        let cardName = event.currentTarget .querySelector('.cardname').textContent;
+        menuButton.querySelector('span').textContent = cardName ;
+        dropdownMenu2.style.display = 'none';
+       fetch(`http://localhost:8080/QuickPay/pickCreditcard?cardNumber=${encodeURIComponent(cardNumber)}`)
+            .then(response => console.log(cardNumber));
+
+    }
 
 }
+
 
 /*payment logic*/
 document.querySelector('.receipt').style.display = "none";
 function  pay(){
+    const amount = document.querySelector('.amount').value;
+    const requestBody =
+        {
+            servicename: servicename,
+            servicetype: serviceProvider,
+            amount: amount
+        };
+
     fetch('http://localhost:8080/QuickPay/pay',
-        { method: 'POST', headers: {'Content-Type': 'application/json'}} )
+        { method: 'POST', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(requestBody)} )
         .then(response => {
             if (!response.ok) {
-                throw new Error('No enough money to continue the payment');
+                throw new Error('no enough money in your credit card');
             }
             return response;
         })
         .then(response => {
             console.log(response);
-            alert('You have successfully paid');
-
         })
         .catch(error => {
-            console.error('failed', error);
-            alert('An error occurred while paying . Please try again later.');
         });
-    document.querySelector('.serviceprovider').textContent = serviceProvider;
+
+    document.querySelector('.servicetype').textContent = serviceProvider;
     document.querySelector('.servicename').textContent = servicename;
     document.querySelector('.receipt').style.display = "flex";
-    document.querySelector('.orderNo').textContent='order # : ' + 1 ; ////////// fix this logic
+    document.querySelector('.orderNo').textContent = 'order # : ' + incrementOrder() ;
     document.body.style.backgroundColor = "grey";
     document.querySelector("header").style.display = 'none' ;
     document.querySelector("p").style.display = 'none' ;
@@ -125,11 +154,12 @@ function  pay(){
     document.querySelector(".txt_field").style.display = 'none' ;
     document.querySelector(".buttons").style.display = 'none' ;
     document.querySelector(".bottomFooter").style.display = 'none' ;
-
-
-
-
+    document.querySelector(".creditcard-menu-button").style.display = 'none' ;
+    document.querySelector(".dropdown-button").style.display = 'none' ;
 
 
 
 }
+
+
+

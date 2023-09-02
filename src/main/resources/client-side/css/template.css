@@ -11,7 +11,7 @@ header img {
     left: 200px;
     width: 13%;
     height: 205%;
-    top:-60px;
+    top:-40px;
 }
 
 /* Header buttons */
@@ -19,7 +19,7 @@ header img {
     display: flex;
     font-size: 15px;
     margin-left: 400px;
-    margin-top: -210px;
+    margin-top: -170px;
 }
 
 .header-buttons a {
@@ -44,7 +44,7 @@ body {
     text-decoration: none;
     position: absolute;
     left: 1300px;
-    top: 15px;
+    top: 10px;
 
 }
 .dropdown-menu {
@@ -170,7 +170,10 @@ body {
 }
 .next-button{
 background : rgb(255, 212, 2) !important;
+transition: background-color 1s ease;
+
 }
+
 
 /*web site text fields */
 

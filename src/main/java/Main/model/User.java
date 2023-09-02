@@ -23,6 +23,7 @@ public class User {
     public User() {
         creditCards = new ArrayList<>();
         transactions = new ArrayList<>();
+        favouritesList = new ArrayList<>();
     }
 
     @Override
@@ -123,5 +124,26 @@ public class User {
     public void setTransaction(transaction transaction) {
        transactions.add(transaction) ;
        transaction.setUser(this);
+    }
+    public List<transaction> getTransactions() {
+        return transactions;
+    }
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("user")
+    private List<favourites> favouritesList;
+
+
+
+    public List<favourites> getFavouritesList() {
+        return favouritesList;
+    }
+
+    public void setFavouritesList(favourites favService) {
+        if(favouritesList.isEmpty())
+            favService.setUser(this);
+        favouritesList.add(favService);
+
     }
 }

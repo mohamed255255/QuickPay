@@ -12,9 +12,9 @@
 
 
   <header>
-    <div class="logo">
+    <a class="logo" href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">
       <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
-    </div>
+    </a>
     <div class="header-buttons">
       <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
       <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>
@@ -42,7 +42,7 @@
 </div>
 
 <div class = "txt_field">
-  <input  type = "text"  name = "amount" id ="amount" class="amount"   required  >
+  <input  type = "number"  name = "amount" id ="amount" class="amount"   required  >
   <span></span>
   <label>Select amount</label>
 </div>
@@ -53,13 +53,13 @@
     Back
   </a>
 
-  <a  href="#" class = "next-button" onclick="pay()">
+  <a href="#" class = "next-button" onclick=" pay()">
     Next
   </a>
 </div>
 
 <form class = "receipt">
-     <p class="serviceprovider"></p>
+     <p class="servicetype"></p>
      <br>
      <p class="servicename"></p>
      <img src = "/client-side/icons/circle-check-icon-3.jpg">

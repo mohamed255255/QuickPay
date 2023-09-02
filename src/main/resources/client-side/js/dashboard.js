@@ -51,4 +51,69 @@
 
 
 
+const transactionList = document.querySelector(".transactionList")  ;
+const notransactionList = document.querySelector(".noTransactionList")  ;
 
+
+
+    if(window.location.href === "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"){
+        document.querySelector(".summary").style.background = "#ffd400";
+        fetch('http://localhost:8080/QuickPay/GetTransactions') .then(function(response) {
+            return response.json();
+        })
+            .then(function(results) {
+                notransactionList.innerHTML = '';
+                if (results.length === 0) {
+                    const img = document.createElement('img');
+                    const firstTxt = document.createElement('p');
+                    const secondTxt = document.createElement('p');
+                    const link = document.createElement('a');
+                    img.src=`/client-side/icons/trans.png`;
+                    firstTxt.innerText = "There is no payment transaction for now\n";
+                    firstTxt.style.fontSize="20px";
+                    secondTxt.innerText = "You can start make your payment right\t";
+                    secondTxt.style.opacity="0.7";
+                    link.href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/serviceCategory.html";
+                    link.innerText = "Here";
+                    link.style.fontWeight="bold";
+
+
+                    notransactionList.appendChild(img);
+                    notransactionList.appendChild(firstTxt);
+                    notransactionList.appendChild(secondTxt);
+                    secondTxt.appendChild(link);
+                    notransactionList.appendChild(secondTxt);
+
+
+                }else{
+                    results.forEach(function(result) {
+                     console.log(result);
+                        const listItem = document.createElement('div');
+                        const servicename = document.createElement("p");
+                        const servicetype = document.createElement("p");
+                        const TransactionType = document.createElement("p");
+                        const img = document.createElement("img");
+
+                        servicename.innerText = result.serviceName;
+                        servicetype.innerText = result.servicetype;
+                        TransactionType.innerText = result.transactionType;
+                        img.src=`${result.imgPath}`;
+                        img.className="transactionImg"
+
+
+                        listItem.appendChild(servicename);
+                        listItem.appendChild(servicetype);
+                        listItem.appendChild(TransactionType);
+                        listItem.appendChild(img);
+                        transactionList.appendChild(listItem);
+
+                    });
+                }
+            })
+
+    }
+    else{
+        document.querySelector(".summary").style.background="white";
+        document.querySelector(".fav").style.background="#ffd400";
+
+    }

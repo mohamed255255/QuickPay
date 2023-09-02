@@ -30,8 +30,6 @@ public class AdminController {
     public List<RefundRequest> GetAllRefundRequests(){return adminService.GetAllRefundRequests() ;}
 
 
-    @GetMapping("/GetTransactions")
-    public List<transaction> GetAllTransactions(){ return adminService.GetAllTransactions() ;}
 
     @GetMapping("/ShowAllServices")
     public List<services> ShowAllServices(){
