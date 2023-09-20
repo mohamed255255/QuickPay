@@ -1,6 +1,6 @@
 package Main.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -75,7 +75,7 @@ public class creditcard  {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("user")
+    @JsonIgnore
     @JoinColumn(name = "UserID")
     private User user;
 

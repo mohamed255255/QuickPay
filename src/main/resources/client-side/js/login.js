@@ -23,8 +23,6 @@ const error = document.querySelector('#error');
                 errorMessage.style.color = 'red'
                 errorMessage.textContent = 'invalid password.';
                 error.insertBefore(errorMessage, error.firstChild);
-
-
               }
               else if(response === 'User not found'){
                   errorMessage.style.color = 'red';
@@ -40,3 +38,12 @@ const error = document.querySelector('#error');
   });
 
 
+/// if i type in any txt fields the label goes up (valid = go up)
+let AllTextFields = document.querySelectorAll('.txt_field input');
+AllTextFields.forEach(textFields =>{
+    textFields.addEventListener('input' , function (){
+        if(textFields.value.length > 0){
+            textFields.classList.add('valid');
+        }
+    })
+})

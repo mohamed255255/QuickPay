@@ -31,12 +31,13 @@
 #search-results{
   background-color: white;
   position: absolute;
-  top: 174px;
+  top: 146px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   overflow-x: hidden;
   overflow-y: scroll;
   width: 800px;
   max-height: 300px; /* Set the maximum height of the container */
+  z-index: 999;
 }
 #results-list {
   list-style: none;
@@ -148,6 +149,7 @@ table{
   bottom: 120px;
   background: #ffd400 ;
   border-radius: 5px;
+  z-index: 888;
 }
 table a{
   display: block;
@@ -184,8 +186,6 @@ table a{
   display: flex;
   justify-content: center;
 }
-
-
 
 .transactionList{
   color: #333;

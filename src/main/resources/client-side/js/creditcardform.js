@@ -1,16 +1,17 @@
 const nextButton =  document.querySelector('#next-button');
 const cardNumber =  document.querySelector('#cardNumberID').value;
 
-//*short circuit*/
 function validateInputs(){
-    return checkCardName() && checkCardNumber() && checkMonth() && checkYear() && checkCVV();
+    return checkCardName() & checkCardNumber() & checkMonth() & checkYear() & checkCVV();
 }
 
 function checkCardName(){
     const cardnameError =   document.querySelector('.cardName-error');
-    const cardnameInput =   document.querySelector('#cardName');
+    const cardnameInput =   document.querySelector('#ccnameID');
     const cardnameLabel =   document.querySelector('.cardName-label')
-    if(cardnameInput.value.length===0){
+    document.querySelector('#ccname').style.border = '0' ;
+    cardnameError.innerHTML = '';
+    if( cardnameInput.value.length === 0 ){
         cardnameInput.classList.remove('valid');
         cardnameLabel.style.color = 'red';
         cardnameInput.style.borderBottom = '2px solid red' ;
@@ -25,8 +26,11 @@ function checkCardName(){
 }
 function checkCardNumber(){
     const cardNumberError =   document.querySelector('.cardNumber-error');
-    const cardNumberInput =   document.querySelector('#cardNumber');
+    const cardNumberInput =   document.querySelector('#cardNumberID');
     const cardNumberLabel =   document.querySelector('.cardNumber-label');
+    document.querySelector('#cardNumber').style.border = '0' ;
+    cardNumberError.innerHTML = '';
+
     if(cardNumberInput.value.length === 0 ){
         cardNumberInput.classList.remove('valid');
         cardNumberLabel.style.color = 'red';
@@ -48,8 +52,11 @@ function checkCardNumber(){
 }
 function checkMonth(){
     const expiryMonthError =   document.querySelector('.month-error');
-    const expiryMonthInput =   document.querySelector('#expirymonth');
+    const expiryMonthInput =   document.querySelector('#expirymonthID');
     const expiryMonthLabel =   document.querySelector('.expirymonth-label');
+    document.querySelector('#expirymonth').style.border = '0' ;
+    expiryMonthError.innerHTML = '';
+
     if(expiryMonthInput.value .length===0){
         expiryMonthInput.classList.remove('valid');
         expiryMonthLabel.style.color = 'red';
@@ -57,7 +64,14 @@ function checkMonth(){
         expiryMonthError.innerText = "Expiry month is required";
         return false;
     }
-    else if(expiryMonthInput.value > 12 && expiryMonthInput.value < 1 ){
+    else if(expiryMonthInput.value < 1 ){
+        expiryMonthInput.classList.add('valid');
+        expiryMonthLabel.style.color = 'red';
+        expiryMonthInput.style.borderBottom = '2px solid red' ;
+        expiryMonthError.innerText = "invalid month";
+        return false;
+    }
+    else if(expiryMonthInput.value > 12 ){
         expiryMonthInput.classList.add('valid');
         expiryMonthLabel.style.color = 'red';
         expiryMonthInput.style.borderBottom = '2px solid red' ;
@@ -71,8 +85,11 @@ function checkMonth(){
 }
 function checkYear(){
     const expiryyearError =   document.querySelector('.year-error');
-    const expiryyearInput =   document.querySelector('#expiryyear');
+    const expiryyearInput =   document.querySelector('#expiryyearID');
     const expiryyearLabel =   document.querySelector('.expiryyear-label');
+    document.querySelector('#expiryyear').style.border = '0' ;
+    expiryyearError.innerHTML = '';
+
     if(expiryyearInput.value .length === 0 ){
         expiryyearInput.classList.remove('valid');
         expiryyearLabel.style.color = 'red';
@@ -88,8 +105,11 @@ function checkYear(){
 
 function checkCVV(){
     const CVVError =   document.querySelector('.CVV-error');
-    const CVVInput =   document.querySelector('#CVV');
+    const CVVInput =   document.querySelector('#cvvID');
     const CVVLabel =   document.querySelector('.CVV-label');
+    document.querySelector('#cvv').style.border = '0' ;
+    CVVError.innerHTML = '';
+
     if(CVVInput.value .length === 0 ){
         CVVInput.classList.remove('valid');
         CVVLabel.style.color = 'red';
@@ -130,7 +150,6 @@ nextButton.addEventListener('click', (e) => {
                 })
                 .then(response => {
                     console.log(response);
-                    alert('You have successfully added a credit card!');
                 })
                 .catch(error => {
                     console.error('failed to add credit card:', error);

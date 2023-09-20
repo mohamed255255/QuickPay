@@ -82,3 +82,7 @@ input[type="submit"]:hover{
 }
 
 
+.txt_field input:focus ~ label,
+.txt_field input.valid ~ label{
+  top: -5px;
+}

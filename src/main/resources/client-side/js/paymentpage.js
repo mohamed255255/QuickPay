@@ -126,6 +126,10 @@ function pickCreditCard(){
 document.querySelector('.receipt').style.display = "none";
 function  pay(){
     const amount = document.querySelector('.amount').value;
+   /* if( menuButton.querySelector('span').textContent === 'Choose a credit card'){
+        alert("pick a credit card first");
+        return;
+    }*/
     const requestBody =
         {
             servicename: servicename,
@@ -141,20 +145,7 @@ function  pay(){
                 throw new Error('no enough money in your credit card');
             }
             else{
-                document.querySelector('.servicetype').textContent = serviceProvider;
-                document.querySelector('.servicename').textContent = servicename;
-                document.querySelector('.receipt').style.display = "flex";
-                document.querySelector('.orderNo').textContent = 'order # : ' + incrementOrder() ;
-                document.body.style.backgroundColor = "grey";
-                document.querySelector("header").style.display = 'none' ;
-                document.querySelector("p").style.display = 'none' ;
-                document.querySelector(".footer").style.display = 'none' ;
-                document.querySelector(".serviceProvider-tag").style.display = 'none' ;
-                document.querySelector(".txt_field").style.display = 'none' ;
-                document.querySelector(".buttons").style.display = 'none' ;
-                document.querySelector(".bottomFooter").style.display = 'none' ;
-                document.querySelector(".creditcard-menu-button").style.display = 'none' ;
-                document.querySelector(".dropdown-button").style.display = 'none'
+                window.location.href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/reciept.html";
             }
             return response;
         })

@@ -28,3 +28,14 @@ function loadWelcomeMessage() {
 window.addEventListener('load', () => {
     loadWelcomeMessage();
 });
+
+
+/// if i type in any txt fields the label goes up (valid = go up)
+let AllTextFields = document.querySelectorAll('.txt_field input');
+AllTextFields.forEach(textFields =>{
+    textFields.addEventListener('input' , function (){
+        if(textFields.value.length > 0){
+            textFields.classList.add('valid');
+        }
+    })
+})

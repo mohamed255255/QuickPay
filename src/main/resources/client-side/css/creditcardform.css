@@ -30,18 +30,14 @@ h1{
 .month-error ,
 .year-error
 {
-
+    position: absolute;
+    top : 20px;
+    left: 0px;
     font-size: 13px;
-    position: relative;
-    top: 20px;
-    right: 25px;
+    padding-right: 100px;
     color:red;
-}
+    white-space: nowrap;
 
-/*txt field edits to fit this page*/
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before{
-    width: 20px;
 }
 
 #ccname {

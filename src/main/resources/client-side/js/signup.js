@@ -21,10 +21,11 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneNumberRegex = /^\d+$/;
 
 function validateInputs() {
-    const r1 = checkFirstname(), r2 = checklastname(), r3 = checkPassword(),
-        r4 = checkRepeatedPassword(), r5 = checkPhoneNumber(), r6 = checkEmail(),
-        r7 = checkGender();
-    return r1 & r2 & r3 & r4 & r5 & r6 & r7;
+    const AllFields = document.querySelectorAll('.txt_field');
+    AllFields.forEach((AllFields) => {
+        AllFields.style.border = '0';
+    });
+    return checkEmail() & checkFirstname() & checklastname() & checkGender() & checkPhoneNumber() & checkPassword() & checkRepeatedPassword();
 }
 function checkGender(){
     if(femaleRadio.checked  === false && maleRadio.checked  === false){
@@ -126,28 +127,30 @@ function checkPassword(){
 
 function checkRepeatedPassword(){
     const repeatedPasswordInput = document.querySelector('#repeated-password');
-    repeatedPasswordInput.classList.add('valid');
+    const passwordInput = document.querySelector('#password');
     const error = document.querySelector('.repeatedPasswordError');
     error.innerText = '';
 
-    if (repeatedPasswordInput.value.length > 0 && (repeatedPasswordInput.value === passwordInput.value) ){
-        document.querySelector('.repeatedPassword-label').style.color = 'green';
-        repeatedPasswordInput.style.borderBottom = '2px solid green' ;
-        return true;
-    }
-    else if(repeatedPasswordInput.value !== passwordInput.value){
+    repeatedPasswordInput.classList.add('valid');
+    if(repeatedPasswordInput.content !== passwordInput.content){
         document.querySelector('.repeatedPasswordError');
         error.innerText = 'no matching with your password';
         document.querySelector('.repeatedPassword-label').style.color = 'red';
         repeatedPasswordInput.style.borderBottom='2px solid red';
         return false;
     }
-    repeatedPasswordInput.classList.remove('valid');
-    error.innerText = 'confirm your password';
-    document.querySelector('.repeatedPassword-label').style.color = 'red';
-    repeatedPasswordInput.classList.remove('valid');
-    repeatedPasswordInput.style.borderBottom='2px solid red';
-    return false ;
+    else if(repeatedPasswordInput.value.length === 0 ){
+        repeatedPasswordInput.classList.remove('valid');
+        error.innerText = 'confirm your password';
+        document.querySelector('.repeatedPassword-label').style.color = 'red';
+        repeatedPasswordInput.style.borderBottom='2px solid red';
+        return false ;
+    }
+
+    document.querySelector('.repeatedPassword-label').style.color = 'green';
+    repeatedPasswordInput.style.borderBottom = '2px solid green' ;
+    return true;
+
 }
 
 function checkPhoneNumber(){
@@ -208,10 +211,17 @@ signUpForm.addEventListener('submit', (e) => {
                     .catch(error => {
                     console.error('Error signing up:', error);
                     });
-
    }
-
 })
 
 
+/// if i type in any txt fields the label goes up (valid = go up)
+let AllTextFields = document.querySelectorAll('.txt_field input');
+AllTextFields.forEach(textFields =>{
+    textFields.addEventListener('input' , function (){
+        if(textFields.value.length > 0){
+            textFields.classList.add('valid');
+        }
+    })
+})
 
