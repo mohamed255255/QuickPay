@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -20,19 +24,21 @@ public class UserService {
     public final UserRepository UserRepository;
     public final ServicesRepository servicesRepository;
     public final transactionRepository transactionRepository;
-    public final RefundRequestRepository refundRequestRepository;
+    public final complaintRepository complaintRepository;
     public final  creditCardRepository creditCardRepository ;
     public final  FavouriteRepository favouriteRepository;
     @Autowired
     public UserService(UserRepository UserRepository ,
                        ServicesRepository servicesRepository,
                        transactionRepository transactionRepository,
-                       RefundRequestRepository refundRequestRepository, Main.repository.creditCardRepository creditCardRepository, FavouriteRepository favouriteRepository) {
-
+                       complaintRepository complaintRepository,
+                       creditCardRepository creditCardRepository,
+                       FavouriteRepository favouriteRepository)
+    {
         this.UserRepository = UserRepository;
         this.servicesRepository = servicesRepository;
         this.transactionRepository = transactionRepository;
-        this.refundRequestRepository = refundRequestRepository;
+        this.complaintRepository = complaintRepository;
         this.creditCardRepository = creditCardRepository;
         this.favouriteRepository = favouriteRepository;
     }
@@ -40,6 +46,20 @@ public class UserService {
     public HttpSession getSession() {
         return session;
     }
+
+    public void formatTransactionDateAndTime(transaction transaction){
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = now.format(dateFormatter);
+
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String formattedTime = now.format(timeFormatter);
+
+        transaction.setTime(formattedTime);
+        transaction.setDate(formattedDate);
+    }
+
 
     public ResponseEntity<String> signup(User user) {
         Optional<User> userOptional = UserRepository.findUserByEmail(user.getEmail());
@@ -85,21 +105,25 @@ public class UserService {
 
 
 
-    public void addCreditCard(creditcard creditcard)  {
-
+    public ResponseEntity<String> addCreditCard(creditcard creditcard)  {
         User user = (User) session.getAttribute("user");
+        creditcard cc = creditCardRepository.findByCardNumber(creditcard.getCardNumber());
+        if(cc != null){
+            return ResponseEntity.badRequest().body("already existed");
+        }
         user.addCreditCard(creditcard);  /// link the Credit card with the user
         creditCardRepository.save(creditcard) ;
-
         transaction addCreditCardTransaction = new transaction("____", "____","a credit card is added" );
         user.setTransaction(addCreditCardTransaction); /// link the transaction with the user
         addCreditCardTransaction.setImgPath("/client-side/icons/addcreditcard.PNG");
+        formatTransactionDateAndTime(addCreditCardTransaction);
         transactionRepository.save(addCreditCardTransaction);
+        return ResponseEntity.ok("Credit card is successfully added") ;
     }
 
 
+
     public ResponseEntity<String> payforService(String servicename , String servicetype , double amount){
-        System.out.println(amount + " " + servicename + " " + servicetype);
          User user = (User) session.getAttribute("user");
          creditcard chosenCard = (creditcard)session.getAttribute("creditcard");
          if(amount > chosenCard.getCurrentBalance())
@@ -108,19 +132,24 @@ public class UserService {
         double BalanceAfterPayment = chosenCard.getCurrentBalance() - amount;
         chosenCard.setCurrentBalance(BalanceAfterPayment);
         creditCardRepository.save(chosenCard);
-
         transaction payment_transaction = new transaction(servicetype , servicename , "payment transaction");
         user.setTransaction(payment_transaction); /// link the transaction with the user
         payment_transaction.setImgPath("/client-side/icons/payment.PNG");
+        formatTransactionDateAndTime(payment_transaction);
         transactionRepository.save(payment_transaction);
         return ResponseEntity.ok("paid successfully");
     }
 
-    public void AskForRefund(RefundRequest RefundRequest){
-        refundRequestRepository.save(RefundRequest);
-        transaction RefundTransaction = new transaction("____","____","Refund transaction");
-        RefundTransaction.setImgPath("/client-side/icons/refund.PNG");
-        transactionRepository.save(RefundTransaction);
+    public void sendComplaint(complaints complaint){
+        User user = (User) session.getAttribute("user");
+        user.addComplain(complaint);
+        transaction complaintTransaction = new transaction("____","____","Complaint transaction");
+        complaintTransaction.setImgPath("/client-side/icons/refund.PNG");
+        formatTransactionDateAndTime(complaintTransaction);
+
+        complaintRepository.save(complaint);
+        transactionRepository.save(complaintTransaction);
+
         /// in transaction class u use more attribute than u need try to optimize it .. compare between trans constructos
         //to get my point
     }
@@ -152,8 +181,17 @@ public List<transaction> GetAllTransactions(){
 
 
     public ResponseEntity<String>addToFav(favourites favService){
-        favouriteRepository.save(favService);
-        return ResponseEntity.ok("Service is added sucessfully");
+        User user = (User) session.getAttribute("user") ;
+        favService.setUser(user);
+        String servicename = favService.getServicename();
+        String servicetype = favService.getServicetype();
+        favourites fav  = favouriteRepository.findByServicenameAndServicetype(servicename , servicetype) ;
+        if(fav == null){
+            favouriteRepository.save(favService);
+            return ResponseEntity.ok("Service is added sucessfully");
+        }
+        return ResponseEntity.badRequest().body("service is added before");
+
     }
 
     public List<favourites> getAllFavServices(){
@@ -161,11 +199,50 @@ public List<transaction> GetAllTransactions(){
         return  favouriteRepository.getAll(user.getUserID());
     }
 
+    public ResponseEntity<String> checkFavService(String servicename , String servicetype){
+        favourites found = favouriteRepository.findByServicenameAndServicetype(servicename, servicetype);
+        if(found !=null){
+            return ResponseEntity.ok("found");
+        }
+        return ResponseEntity.badRequest().body("not found");
 
+    }
+    public ResponseEntity<String> deleteFavService(favourites reqToDelete){
+        String servicename = reqToDelete.getServicename();
+        String servicetype = reqToDelete.getServicetype();
 
+        favourites fav = favouriteRepository.findByServicenameAndServicetype(servicename, servicetype);
+        favouriteRepository.delete(fav);
+        return ResponseEntity.ok("Successfully deleted");
+    }
 
+    public ResponseEntity<String> updateUserData(User user){
+        User currentUser = (User) session.getAttribute("user") ;
+        currentUser.setFirstname(user.getFirstname());
+        currentUser.setLastname(user.getLastname());
+        currentUser.setPhonenumber(user.getPhonenumber());
+        currentUser.setEmail(user.getEmail());
+        currentUser.setProfilepicture(user.getProfilepicture());
+        UserRepository.save(currentUser);
+        return ResponseEntity.ok("Data is updated successfully") ;
+    }
 
+    public ResponseEntity<String> updatePassword( Map<String, String> jsonPassword){
+        String currentPassword = jsonPassword.get("currentpassword");
+        String newPassword = jsonPassword.get("newpassword");
+        User currentUser = (User) session.getAttribute("user");
 
+        if (currentUser.getPassword().equals(currentPassword)) {
+            currentUser.setPassword(newPassword);
+            UserRepository.save(currentUser);
+            return ResponseEntity.ok("Done");
+        }
+        return ResponseEntity.badRequest().body("Current password is not correct");
+    }
+    public User getUserData(){
+        User currentUser = (User) session.getAttribute("user") ;
+        return currentUser;
+    }
 }
 
 

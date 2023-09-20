@@ -2,7 +2,7 @@
     background-color: white;
     height: 200px;
     width: 70%;
-    margin: 150px 40px 80px 250px;
+    margin: 170px 40px 80px 250px;
     border: 0px solid #ececec;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding-top: 20px;
@@ -11,7 +11,7 @@
     text-align: center;
 }
 .noCreditCardForm span{
-    background: rgb(0, 118, 163); ;
+    background: rgb(31, 101, 178); ;
     color : white ;
     font-weight: bold;
     font-size: 12px;
@@ -19,7 +19,7 @@
     border-radius: 6px;
 }
 .noCreditCardForm img{
-padding-left: 510px;
+    padding-left: 510px;
 }
 
 .ccbutton{
@@ -41,14 +41,21 @@ padding-left: 510px;
 }
 
 .CreditCardTable {
-   padding: 160px 250px 50px 250px;
+   padding: 160px 280px 50px 250px;
+
+
+}
+
+.CreditCardTable p {
+    margin-bottom: -10px;
 }
 
 .CreditCardTable td{
     margin-right: 20px;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     border: 0;
-    padding: 20px 50px 20px 20px;
+    padding: 20px 150px 20px 20px;
+
 }
 
 .CreditCardTable tr td img{
@@ -64,7 +71,8 @@ padding-left: 510px;
     font-size: 20px;
     width: 80%;
 }
-.dropdown-menu{
 
+.footer{
+    margin: 200px -20px 0 -20px;
 }
-.footer{margin-right: -10px; margin-top: 200px;}
+

@@ -2,12 +2,167 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>FAQ</title>
     <link rel="stylesheet" href="/client-side/css/template.css">
     <link rel="stylesheet" href="/client-side/css/FAQ.css">
 
 </head>
 <body>
+<header>
+    <a class="logo" href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">
+        <img src="/client-side/icons/quickpay.png" alt="my Logo">
+    </a>
+    <div class="header-buttons">
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myhistory.html"   id ="myHistory">myHistory</a>
+        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html"   id  ="help-support">Help & Support</a>
+    </div>
+</header>
+
+<h2>About Quickpay </h2>
+    <button class="buttons" onclick="show('p1')" >What is Quickpay</button>
+        <p class="p1">Quickpay is an online portal that allows you to pay bills, subsritpions, donations , renew your car license, top up your mobile and many other services using your personal credit card.</p>
+
+<h2>Payment methods</h2>
+    <button class="buttons" onclick="show('p2')" >What are the accepted payment methods?</button>
+             <p class="p2" >Quickpay accepts VISA and MasterCard credit cards issued from Egypt</p>
+
+
+    <button class="buttons" onclick="show('p3')">Can I use Quickpay if I live aboard?</button>
+            <p class="p3" >Yes. If you have a credit card issused from Egypt, you can use Quickpay anywhere.</p>
+
+    <button class="buttons" onclick="show('p4')">Does Quickpay accept International credit cards?</button>
+        <p class="p4" >No. We only accept credit cards issued from Egypt.</p>
+
+
+
+<h2 class="but3">Create & activate an account</h2>
+    <button class="buttons" onclick="show('p5')">Do I need to have an account to use Quickpay?</button>
+        <p class="p5" >Yes. Click on login button then choose create an account.</p>
+
+    <button class="buttons" onclick="show('p6')">Do I need to have a valid mobile number to activate my account?</button>
+        <p class="p6" >Yes. We will send you an activation code to your mobile phone to be able to activate your account.</p>
+
+    <button class="buttons" onclick="show('p7')">Do I need to use an Egyptian mobile number?</button>
+      <p class="p7" >Yes. International mobile numbers are not supported.</p>
+
+    <button class="buttons" onclick="show('p8')" >What is the data needed to create an account?</button>
+      <p class="p8" >You need to have a valid email address and a mobile number.</p>
+
+
+<h2>Add/Activate a credit card</h2>
+    <button class="buttons" onclick="show('p9')" >Add/Activate a credit card</button>
+       <p class="p9">You can add a credit card by going to PawryPay page. Then, select your card type and enter its information.</p>
+    <button class="buttons" onclick="show('p10')" >How can I add a credit card?</button>
+      <p class="p10">You can add a credit card by going to Quickpay page. Then, select your card type and enter its information.</p>
+    <button class="buttons" onclick="show('p11')" >Does Quickpay save my credit card information?</button>
+      <p class="p11">We do encrypt your credit card information. Transmitting encrypted credit card information through this method is safe and secured.</p>
+    <button class="buttons" onclick="show('p12')" >Can I add more than a card?</button>
+        <p class="p12">Yes. You can have up to 3 credit cards.</p>
+    <button class="buttons" onclick="show('p13')" >Can I delete my credit card?</button>
+       <p class="p13">Yes. All you have to do is to go to "Quickpay" page and choose to delete your card(s)</p>
+
+<h2>Security</h2>
+    <button class="buttons" onclick="show('p14')">Is Quickpay secured?</button>
+       <p class="p14">Yes. Our technology and processes are in full compliance with ISO 27001 and PCI DSS standards and offer authentication, non-repudiation, data confidentiality and integrity, segregation of duties, and network security and physical security at all infrastructure levels.</p>
+
+<h2>Account management</h2>
+    <button class="buttons"  onclick="show('p15')">I forgot my username, what should I do</button>
+        <p class="p15">Click on forgot username from the login page</p>
+    <button class="buttons"  onclick="show('p16')">I forgot my password, what should I do?</button>
+        <p class="p16">Click on forgot password from the login page</p>
+     <button class="buttons"  onclick="show('p17')">Can I upload my photo?</button>
+        <p class="p17">Yes. Please visit your account management page.</p>
+
+<h2>Troubleshoots and complaints</h2>
+    <button class="buttons" onclick="show('p18')">I'm facing some issues while using Quickpay, what should I do?</button>
+        <p class="p18">Please contact us through live chat or email us on Quickpay@Quickpay.com</p>
+
+<button class="buttons" onclick="show('p19')"> My payment is not succesfully paid</button>
+    <p class="p19">Please contact us through live chat or email us on Quickpay@Quickpay.com</p>
+
+<h2>Payments & History</h2>
+    <button class="buttons" onclick="show('p20')">How can I make a payment?</button>
+        <p class="p20">Click on make a payment, select the payment category type, then select the service provider.</p>
+
+    <button class="buttons" onclick="show('p21')">How can I save a payment?</button>
+        <p class="p21">Before confirming any payment, you will have "add to favorites" button, you need to select it and name your payment to be saved and added to your favorites.</p>
+
+    <button class="buttons" onclick="show('p22')">Can I check my payment history?</button>
+        <p class="p22">Yes. Please visit "myPayment histroy" page.</p>
+
+
+
+
+
+<a href="#" class="dropdown-button">welcome userFirstName ▼</a>
+<div class="dropdown-menu">
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myprofile.html">myProfile</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Dashboard</a>
+    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html" style="color: red">Logout</a>
+</div>
+
+<div class="footer">
+    <ul>
+        <li class = "MainTitles">
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">myDashboard</a>
+        </li>
+        <li>
+            <button type="button" style="border: none; cursor: pointer; background: #383535; color: white" onclick="goToFavLink()">Favourites</button>
+        </li>
+        <li>
+            <button type="button" style="border: none; cursor: pointer; background: #383535; color: white" onclick="goToSummaryLink()">Summary</button>
+        </li>
+    </ul>
+    <ul>
+        <li class = "MainTitles">
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/addcreditcard.html">QuickPay</a>
+        </li>
+        <li>
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/addcreditcard.html">QuickPay</a>
+        </li>
+    </ul>
+
+    <ul>
+        <li class = "MainTitles">
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html">Help & Support</a>
+        </li>
+        <li>
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/contactus.html">Contact us</a>
+        </li>
+        <li>
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/FAQ.html">FAQ</a>
+        </li>
+    </ul>
+
+    <ul>
+        <li class = "MainTitles">
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myhistory.html">myHistory</a>
+        </li>
+    </ul>
+
+    <ul>
+        <li class = "MainTitles">
+            Language
+        </li>
+        <li>
+            <a href="#">عربي</a>
+        </li>
+        <li>
+            <a href="#">English</a>
+        </li>
+    </ul>
+
+    <ul> <li class = "MainTitles">Follow us</li></ul>
+    <div class="social-media">
+        <a href="#"><img class="fb"src="/client-side/icons/facebook.png"></a>
+        <a href="#"> <img class = "insta"src="/client-side/icons/instgram.png"></a>
+        <a href="#"><img class = "twitter"src="/client-side/icons/twitter.png"></a>
+    </div>
+</div>
+<footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
 <script src="/client-side/js/FAQ.js"></script>
 <script src="/client-side/js/template.js"></script>
 </body>

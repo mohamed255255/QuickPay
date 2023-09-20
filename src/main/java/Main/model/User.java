@@ -1,6 +1,5 @@
 package Main.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -18,12 +17,44 @@ public class User {
     private String lastname;
     private String email;
     private String password;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     private String phonenumber;
+    private String profilepicture;
+    private String gender ;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("user")
+    private List<creditcard> creditCards;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("user")
+    private  List<transaction> transactions ;
+
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("user")
+    private List<favourites> favouritesList;
+
+
+    @OneToMany(mappedBy = "user" , cascade =  CascadeType.ALL , fetch = FetchType.EAGER)
+    private List<complaints> complaintsList;
+
 
     public User() {
         creditCards = new ArrayList<>();
         transactions = new ArrayList<>();
         favouritesList = new ArrayList<>();
+        complaintsList = new ArrayList<>();
     }
 
     @Override
@@ -36,6 +67,14 @@ public class User {
                 ", password='" + password + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
                 '}';
+    }
+
+    public String getProfilepicture() {
+        return profilepicture;
+    }
+
+    public void setProfilepicture(String profilepicture) {
+        this.profilepicture = profilepicture;
     }
 
     public int getUserID() {
@@ -88,9 +127,7 @@ public class User {
 
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("user")
-    private List<creditcard> creditCards;
+
 
 
     public List<creditcard> getCreditCards() {
@@ -112,9 +149,7 @@ public class User {
 
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
-    private  List<transaction> transactions ;
+
 
     public List<transaction> getTransaction() {
         return transactions;
@@ -130,14 +165,18 @@ public class User {
     }
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("user")
-    private List<favourites> favouritesList;
-
-
-
     public List<favourites> getFavouritesList() {
         return favouritesList;
+    }
+
+    public List<complaints> getRefundRequestList() {
+        return complaintsList;
+    }
+
+    public void addComplain(complaints request) {
+        if(complaintsList.isEmpty())
+            request.setUser(this);
+        complaintsList.add(request);
     }
 
     public void setFavouritesList(favourites favService) {

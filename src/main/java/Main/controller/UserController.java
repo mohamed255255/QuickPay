@@ -6,8 +6,8 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -29,9 +29,24 @@ public class UserController {
     }
 
     @PostMapping("/signin")
-    ResponseEntity<String> signIn(@RequestBody User user, HttpSession session) {
+    public ResponseEntity<String> signIn(@RequestBody User user, HttpSession session) {
         return userService.login(user, session);
     }
+    @GetMapping("/getUserData")
+    public User getUserData() {
+        return userService.getUserData();
+    }
+
+    @PostMapping("/updateUserData")
+    public ResponseEntity<String> updateUserData(@RequestBody User user) {
+        return userService.updateUserData(user);
+    }
+
+    @PostMapping("/updatePassword")
+    public ResponseEntity<String> updateUserData(@RequestBody Map<String, String> jsonPassword)  {
+        return   userService.updatePassword(jsonPassword);
+    }
+
 
     @GetMapping("/welcome")
     public String welcomeFirstName() {
@@ -45,8 +60,8 @@ public class UserController {
     }
 
     @PostMapping("/AddCreditCard")
-    public void addCreditCard(@RequestBody creditcard creditcard) {
-        userService.addCreditCard(creditcard);
+    public ResponseEntity<String> addCreditCard(@RequestBody creditcard creditcard) {
+        return userService.addCreditCard(creditcard);
     }
 
     @GetMapping("/showcreditcard")
@@ -67,9 +82,9 @@ public class UserController {
         return userService.payforService(servicename, servicetype, amount);
     }
 
-    @PostMapping("/RefundRequest")
-    public void AskForRefund(@RequestBody  RefundRequest RefundRequest) {
-        userService.AskForRefund(RefundRequest);
+    @PostMapping("/sendComplaint")
+    public void sendComplaint(@RequestBody complaints complaints) {
+        userService.sendComplaint(complaints);
     }
 
     @GetMapping("/GetTransactions")
@@ -80,8 +95,20 @@ public class UserController {
         return userService.addToFav(favService);
     }
 
-    @GetMapping("getallfav")
+    @GetMapping("/getallfav")
     public List<favourites> getAllFavServices(){
         return userService.getAllFavServices();
     }
+
+    @GetMapping("/checkFavService")
+    public ResponseEntity<String> checkFavService(@RequestParam("servicename") String servicename ,
+                                                  @RequestParam("servicetype") String servicetype ){
+        return userService.checkFavService(servicename , servicetype);
+    }
+
+    @DeleteMapping("/deletefav")
+    public ResponseEntity<String> deleteFavService(@RequestBody favourites favService){
+        return userService.deleteFavService(favService);
+    }
+
 }

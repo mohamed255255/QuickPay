@@ -1,3 +1,5 @@
+/*after payment*/
+
 .receipt {
     background: white;
     justify-content: center;
@@ -64,7 +66,8 @@
     white-space: nowrap;
 }
 .txt_field{
-    margin-top:-5px;
+    margin-top:-15px;
+    margin-right: 120px;
 }
 
 .orderNo{
@@ -79,6 +82,7 @@
 
 }
 
+/*in case there is CC for the registered user*/
 .noCreditCardText p{
     text-align: center;
     position: absolute;
@@ -87,7 +91,7 @@
     font-size: 25px;
 }
 .noCreditCardText span{
-    background: rgb(0, 118, 163); ;
+    background: rgb(19, 95, 192); ;
     color : white ;
     font-weight: bold;
     font-size: 18px;
@@ -95,20 +99,56 @@
     border-radius: 6px;
 }
 
+
+
+/*in case there is a CC*/
+.creditcard-menu{
+    margin-top: -8px;
+}
+.creditcard-menu-button{
+    padding:0px 5px 5px 20px;
+}
+
+.creditcard-menu a{
+    display: grid;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 1s ease;
+    padding-right: 110px;
+    padding-left: 20px;
+
+}
+.creditcard-menu p{
+  margin-top: -30px;
+
+}
 .creditcard-menu img{
-    height:25px;
-    width:25px;
+    height:50px;
+    width:50px;
     position: relative;
-    top: 8px;
-    left: 10px;
-    display: block;
-
+    top: 5px;
+    left: 90px;
 }
-
- .creditcard-menu-button span{
-    padding-right: 300px;
+.pickedCreditCardImg{
+    display: none;
+    position: relative;
+    top:6px;
+    right: -15px;
+    width: 25px;
+    height: 25px;
+    padding-right: 90px;
 }
-
+.favButton{
+    border: none;
+    background: white;
+    cursor: pointer;
+    color: black;
+    position: relative;
+    top:100px;
+    left: 110px;
+}
 
 .footer , .bottomFooter{
     margin-right: -15px;

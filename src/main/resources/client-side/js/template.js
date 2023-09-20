@@ -13,7 +13,7 @@ function loadWelcomeMessage() {
     fetch('http://localhost:8080/QuickPay/welcome')
         .then(response => response.text())
         .then(data => {
-            if(data == "Session not found"){
+            if(data === "Session not found"){
                 alert("Session expired. Please log in again.");
                 window.location.href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html";
             }

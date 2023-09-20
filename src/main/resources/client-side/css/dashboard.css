@@ -105,7 +105,7 @@
 }
 .welcomeTitle{
   margin-left: 15px;
-  color: #468cbb;
+  color: #4659bb;
   margin-bottom: -10px;
 
 }
@@ -131,7 +131,10 @@
   margin-top: -50px;
   display: inline-block;
 }
-
+.newpayment-button img{
+  width: 70px;
+  height: 80px;
+}
 
 .newpayment-button p{
 margin : 0 ;
@@ -205,5 +208,5 @@ table a{
   height: 45px;
 }
 .footer{
-  margin: 400px -10px 0px -10px ;
+  margin: 170px -7px 0px -7px ;
 }

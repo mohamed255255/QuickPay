@@ -1,12 +1,13 @@
 h1{
-    color: #468cbb;
+    color: #527fef;
     margin-left: 145px;
+    margin-top: 60px;
 
 }
 
 .writings span{
     background: #ffd4007a;
-    color: #468cbb;
+    color: #3159b2;
     padding: 2px 5px 2px 5px;
     margin-right: 10px;
     border-radius: 5px;
@@ -16,11 +17,25 @@ h1{
 
 }
 .footer{
-    margin-top: 20px;
-    margin-right: -10px;
+   margin: 0 -20px;
 }
 .next-button{
-    margin: 200px 0px 50px 600px;
+    margin: 200px 0px 50px 700px;
+}
+
+
+.cardName-error ,
+.cardNumber-error ,
+.CVV-error  ,
+.month-error ,
+.year-error
+{
+
+    font-size: 13px;
+    position: relative;
+    top: 20px;
+    right: 25px;
+    color:red;
 }
 
 /*txt field edits to fit this page*/
@@ -30,7 +45,7 @@ h1{
 }
 
 #ccname {
-    top: 350px;
+    top: 380px;
     left: 150px;
     width: 15%;
 }
@@ -55,7 +70,7 @@ h1{
     width: 5%;
 }
 #cardNumber{
-    top: 350px;
+    top: 380px;
     left: 500px;
     width: 15%;
 }

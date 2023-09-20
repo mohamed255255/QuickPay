@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>payment</title>
   <link rel="stylesheet" href="/client-side/css/services.css">
   <link rel="stylesheet" href="/client-side/css/template.css">
@@ -13,7 +14,7 @@
 
   <header>
     <a class="logo" href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">
-      <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
+      <img src="/client-side/icons/quickpay.png" alt="my Logo">
     </a>
     <div class="header-buttons">
       <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
@@ -33,7 +34,7 @@
 
 
 
-  <p class="step">Step4: <span>Choose a FawryPay options</span></p>
+  <p class="step">Step 4: <span>Choose a FawryPay options</span></p>
 
 <div class = "serviceProvider-tag">
   <img  src="#">
@@ -47,13 +48,16 @@
   <label>Select amount</label>
 </div>
 
+  <button class = "favButton" href="#" onclick="addtofav()">
+    <span style="font-size: 20px">♥</span>  Add to favourite
+  </button>
 
 <div class = "buttons">
   <a  href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html" class = "back-button">
     Back
   </a>
 
-  <a href="#" class = "next-button" onclick=" pay()">
+  <a href="#" class = "next-button" onclick="pay()">
     Next
   </a>
 </div>
@@ -70,6 +74,7 @@
 
   <a href="#" id="creditcard-menu-button" class="creditcard-menu-button">
     <span class="ServiceTypeContent">Choose a credit card</span>
+    <img class="pickedCreditCardImg" src="#">
     ▾</a>
   <div class="creditcard-menu">
   </div>
@@ -134,13 +139,13 @@
 
   <ul> <li class = "MainTitles">Follow us</li></ul>
   <div class="social-media">
-    <i class="fa-brands fa-square-instagram fa-2xl" style="color: #fb09bb;"></i>
-    <i class="fa-brands fa-square-facebook fa-2xl" style="color: #1160e8;"></i>
-    <i class="fa-brands fa-twitter fa-2xl" style="color: #0798f6;"></i>
+    <a href="#"><img class="fb"src="/client-side/icons/facebook.png"></a>
+    <a href="#"> <img class = "insta"src="/client-side/icons/instgram.png"></a>
+    <a href="#"><img class = "twitter"src="/client-side/icons/twitter.png"></a>
   </div>
 </div>
 <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
 <script src="/client-side/js/template.js"></script>
-<script src="/client-side/js/payment.js"></script>
+<script src="/client-side/js/paymentpage.js"></script>
 </body>
 </html>

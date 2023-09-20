@@ -1,0 +1,32 @@
+h2{
+    color : #468cbb;
+    margin-left: 40px;
+}
+
+p{
+    display: none;
+    color: #333;
+    background-color: white;
+    margin-left: 40px;
+    width: 69%;
+    border: 2px solid #ddd;
+    margin-top: -5px;
+    padding: 10px 0px 10px 15px;
+
+}
+
+.buttons{
+    padding: 10px 0px 10px 15px;
+    width: 70%;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 40px;
+    text-align: left;
+    border-color: #ddd;
+    border-right: none;
+    border-bottom: none;
+}
+
+.footer{
+    margin-top: 100px;
+}

@@ -1,29 +1,31 @@
 /* Header */
 header {
-    height: 10vh;
+    height: 12vh;
     z-index: 999;
-    background: #1b6ca1;
-    margin: -10px -8px  0px  -8px ;
+    background: white;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    margin: -20px ;
 }
 
 header img {
     position: relative;
-    left: 200px;
-    width: 13%;
-    height: 205%;
-    top:-40px;
+    top:0px;
+    left: 70px;
+    width: 50vh;
+    height: 13vh;
 }
 
 /* Header buttons */
 .header-buttons {
     display: flex;
     font-size: 15px;
-    margin-left: 400px;
-    margin-top: -170px;
+    margin-left: 430px;
+    margin-top: -100px;
+    font-weight: bold;
 }
 
 .header-buttons a {
-    color: white;
+    color: #355fb2;
     text-decoration: none;
     padding: 40px 30px 20px 20px;
 }
@@ -39,12 +41,13 @@ body {
 /*Right side*/
 .dropdown-button{
     padding: 10px 28px 10px 20px;
-    background-color: #1b6ca1;
-    color: #ffffff;
+    background-color: white;
+    color: #3767c2;
+    font-size: 20px;
     text-decoration: none;
     position: absolute;
     left: 1300px;
-    top: 10px;
+    top: 4px;
 
 }
 .dropdown-menu {
@@ -52,7 +55,7 @@ body {
     position: absolute;
     top:70px;
     right: 50px;
-    background-color: #f9f9f9;
+    background-color: white;
     min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -84,7 +87,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #f1efef;
+    background-color: #363333;
     border-top: 2px solid #eaeaea;
     display: flex;
     align-content: center;
@@ -96,7 +99,7 @@ body {
 
 .footer a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .footer li:not(.MainTitles) {
@@ -104,7 +107,7 @@ body {
     list-style: none;
     font-size: 14px;
     padding-bottom: 5px;
-
+    margin-left: 10px;
 }
 
 .MainTitles {
@@ -113,6 +116,8 @@ body {
     padding-bottom: 15px;
     opacity: 0.7;
     list-style: none;
+    color: white;
+    margin-left: 10px;
 }
 
 .bottomFooter {
@@ -127,25 +132,34 @@ body {
     margin: 0px -10px  -10px -10px ;
 }
 .social-media {
-    margin-top: 10px;
-    position: relative;
-    right: 178px;
-    top:40px;
+  position: relative;
+  right: 180px;
+  top:40px;
 }
-
-.social-media i {
-    display: inline-block;
-    margin-right: 10px;
+.twitter{
+    width: 33px;
+    height: 33px;
+    margin-top: 4px;
 }
-
+.fb{
+    width: 45px;
+    height: 37px;
+    margin-left: -5px;
+}
+.insta{
+    width: 35px;
+    height: 35px;
+    margin-left: -10px;
+}
 
 /*step line*/
 .step{
     position: absolute;
     left: 100px;
+    margin-top: 50px;
     font-weight: bold;
     font-size: 22px;
-    color : #1b6ca1;
+    color : #1751c4;
 
 }
 .step span{
@@ -153,7 +167,7 @@ body {
     font-weight: lighter;
 }
 
-.back-button , .next-button{
+.back-button , .next-button , .save{
     padding : 10px 70px 10px 70px ;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     border: 0px solid #ececec;
@@ -168,11 +182,13 @@ body {
 .back-button{
     background: #d2cece;
 }
-.next-button{
-background : rgb(255, 212, 2) !important;
+.next-button , .save{
+background: rgb(255, 212, 2) !important;
 transition: background-color 1s ease;
+    cursor: pointer;
 
 }
+
 
 
 /*web site text fields */
@@ -193,6 +209,7 @@ transition: background-color 1s ease;
     border: none;
     background: none;
     outline: none;
+
 }
 .txt_field label{
     position: absolute;
@@ -211,16 +228,16 @@ transition: background-color 1s ease;
     top: 17px;
     left: 0;
     height: 2px;
-    background: #2691d9;
     transition: .5s;
 
 }
 .txt_field input:focus ~ label,
-.txt_field input:valid ~ label{
+.txt_field input.valid ~ label{
     top: -5px;
-    color: #2691d9;
 }
 .txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before{
+.txt_field input.valid ~ span::before{
     width: 100%;
 }
+
+

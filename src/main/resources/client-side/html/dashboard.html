@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>myDashboard</title>
     <link rel="stylesheet" href="/client-side/css/dashboard.css">
     <link rel="stylesheet" href="/client-side/css/template.css">
@@ -13,7 +14,7 @@
   <body>
     <header>
         <a class="logo" href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">
-            <img src="/client-side/icons/fawry-en1.png" alt="my Logo">
+            <img src="/client-side/icons/quickpay.png" alt="my Logo">
         </a>
       <div class="header-buttons">
           <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
@@ -59,10 +60,10 @@
     <table>
         <tr>
             <td class="summary">
-                <a href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Summary</a>
+                <a href = "#" onclick="goToSummaryLink()">Summary</a>
             </td>
             <td class = "fav">
-                <a href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/fav.html">Favourites</a>
+                <a href = "#" onclick="goToFavLink()">Favourites</a>
             </td>
         </tr>
     </table>
@@ -83,10 +84,10 @@
                 <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">myDashboard</a>
             </li>
             <li>
-                <button type="button" style="border: none; cursor: pointer;">Favourites</button>
+                <button type="button" style="border: none; cursor: pointer; background: #383535; color: white" onclick="goToFavLink()">Favourites</button>
             </li>
             <li>
-                <button type="button" style="border: none; cursor: pointer;">Summary</button>
+                <button type="button" style="border: none; cursor: pointer; background: #383535; color: white" onclick="goToSummaryLink()">Summary</button>
             </li>
         </ul>
         <ul>
@@ -103,7 +104,7 @@
                 <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html">Help & Support</a>
             </li>
             <li>
-                <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/contactus.html">Contact us</a>
+                <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html">Contact us</a>
             </li>
             <li>
                 <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/FAQ.html">FAQ</a>
@@ -130,9 +131,9 @@
 
         <ul> <li class = "MainTitles">Follow us</li></ul>
         <div class="social-media">
-            <i class="fa-brands fa-square-instagram fa-2xl" style="color: #fb09bb;"></i>
-            <i class="fa-brands fa-square-facebook fa-2xl" style="color: #1160e8;"></i>
-            <i class="fa-brands fa-twitter fa-2xl" style="color: #0798f6;"></i>
+            <a href="#"><img class="fb"src="/client-side/icons/facebook.png"></a>
+            <a href="#"> <img class = "insta"src="/client-side/icons/instgram.png"></a>
+            <a href="#"><img class = "twitter"src="/client-side/icons/twitter.png"></a>
         </div>
     </div>
     <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>

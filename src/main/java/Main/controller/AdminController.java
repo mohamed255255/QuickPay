@@ -1,8 +1,7 @@
 package Main.controller;
 import Main.Service.AdminService;
-import Main.model.RefundRequest;
+import Main.model.complaints;
 import Main.model.services;
-import Main.model.transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -27,7 +26,7 @@ public class AdminController {
     }
 
     @GetMapping("/getAllRefundReq")
-    public List<RefundRequest> GetAllRefundRequests(){return adminService.GetAllRefundRequests() ;}
+    public List<complaints> GetAllRefundRequests(){return adminService.GetAllRefundRequests() ;}
 
 
 

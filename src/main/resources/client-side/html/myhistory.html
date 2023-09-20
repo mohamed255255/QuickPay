@@ -1,15 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>my history</title>
-    <link rel="stylesheet" href="/client-side/css/template.css">
-    <link rel="stylesheet" href="/client-side/css/myhistory.css">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>my history</title>
+        <link rel="stylesheet" href="/client-side/css/template.css">
+        <link rel="stylesheet" href="/client-side/css/myhistory.css">
 
 
-</head>
-<body>
-<script src="/client-side/js/myhistory.js"></script>
-<script src="/client-side/js/template.js"></script>
-</body>
-</html>
+    </head>
+    <body>
+        <header>
+            <a class="logo" href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">
+                <img src="/client-side/icons/quickpay.png" alt="my Logo">
+            </a>
+            <div class="header-buttons">
+                <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html"   class ="myDashboard">myDashboard</a>
+                <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"   id ="myPay">QuickPay</a>
+                <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myhistory.html"   id ="myHistory">myHistory</a>
+                <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html"   id  ="help-support">Help & Support</a>
+            </div>
+        </header>
+
+
+        <a href="#" class="dropdown-button">welcome userFirstName ▼</a>
+        <div class="dropdown-menu">
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myprofile.html">myProfile</a>
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">Dashboard</a>
+            <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html" style="color: red">Logout</a>
+        </div>
+
+    <div class = "historyForm">
+        <p>Date from</p>
+        <input type="date">
+
+        <p>Date to</p>
+        <input type="date">
+
+    </div>
+
+        <div class="footer">
+            <ul>
+                <li class = "MainTitles">
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">myDashboard</a>
+                </li>
+                <li>
+                    <button type="button" style="border: none; cursor: pointer;" onclick="goToFavLink()">Favourites</button>
+                </li>
+                <li>
+                    <button type="button" style="border: none; cursor: pointer; " onclick="goToSummaryLink()">Summary</button>
+                </li>
+            </ul>
+            <ul>
+                <li class = "MainTitles">
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/addcreditcard.html">QuickPay</a>
+                </li>
+                <li>
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/addcreditcard.html">QuickPay</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li class = "MainTitles">
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html">Help & Support</a>
+                </li>
+                <li>
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html">Contact us</a>
+                </li>
+                <li>
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/FAQ.html">FAQ</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li class = "MainTitles">
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myhistory.html">myHistory</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li class = "MainTitles">
+                    Language
+                </li>
+                <li>
+                    <a href="#">عربي</a>
+                </li>
+                <li>
+                    <a href="#">English</a>
+                </li>
+            </ul>
+
+            <ul> <li class = "MainTitles">Follow us</li></ul>
+            <div class="social-media">
+                <img class="fb"src="/client-side/icons/facebook.png">
+                <img class = "insta"src="/client-side/icons/instgram.png">
+                <img class = "twitter"src="/client-side/icons/twitter.png">
+            </div>
+        </div>
+
+        <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
+        <script src="/client-side/js/myhistory.js"></script>
+        <script src="/client-side/js/template.js"></script>
+    </body>
+    </html>

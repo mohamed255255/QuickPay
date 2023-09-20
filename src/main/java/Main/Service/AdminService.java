@@ -12,18 +12,18 @@ public class  AdminService {
 
     public final ServicesRepository ServicesRepository;
     public final UserRepository userRepository ;
-    public final RefundRequestRepository refundRequestRepository ;
+    public final complaintRepository complaintRepository;
     public final transactionRepository transactionRepository ;
 
     @Autowired
     public AdminService(ServicesRepository ServicesRepository,
                         UserRepository userRepository,
-                        RefundRequestRepository refundRequestRepository,
+                        complaintRepository complaintRepository,
                         transactionRepository transactionRepository) {
 
         this.ServicesRepository = ServicesRepository;
         this.userRepository = userRepository;
-        this.refundRequestRepository = refundRequestRepository;
+        this.complaintRepository = complaintRepository;
         this.transactionRepository = transactionRepository;
     }
 
@@ -33,8 +33,8 @@ public class  AdminService {
         ServicesRepository.save(newService);
     }
 
-    public List<RefundRequest> GetAllRefundRequests(){
-         return refundRequestRepository.GetAllRefundRequests();
+    public List<complaints> GetAllRefundRequests(){
+         return complaintRepository.GetAllRefundRequests();
     }
 
 

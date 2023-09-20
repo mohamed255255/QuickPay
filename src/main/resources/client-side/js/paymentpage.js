@@ -40,6 +40,7 @@ function loadCreditCardInfo() {
                             let cardname = document.createElement("p");
                             cardname.className="cardname";
                             cardname.textContent = `${result.creditcardName}`;
+                            cardname.style.fontSize="20px";
 
                             let cardNumber = document.createElement("p");
                             cardNumber.className="cardNumber";
@@ -48,6 +49,7 @@ function loadCreditCardInfo() {
                             let type = detectCardType(result.cardNumber);
 
                             let img = document.createElement("img");
+                            img.className="img";
                             img.src = `/client-side/icons/${type}.png`;
 
                             link.appendChild(img);
@@ -106,9 +108,13 @@ function pickCreditCard(){
         event.preventDefault();
         let cardNumber = event.currentTarget .querySelector('.cardNumber').textContent;
         let cardName = event.currentTarget .querySelector('.cardname').textContent;
-        menuButton.querySelector('span').textContent = cardName ;
+        let img = event.currentTarget .querySelector('.img');
+        menuButton.querySelector('span').textContent = cardName;
+        menuButton.querySelector('.pickedCreditCardImg').src = img.src;
+        menuButton.querySelector('.pickedCreditCardImg').style.display='inline';
+
         dropdownMenu2.style.display = 'none';
-       fetch(`http://localhost:8080/QuickPay/pickCreditcard?cardNumber=${encodeURIComponent(cardNumber)}`)
+        fetch(`http://localhost:8080/QuickPay/pickCreditcard?cardNumber=${encodeURIComponent(cardNumber)}`)
             .then(response => console.log(cardNumber));
 
     }
@@ -134,6 +140,22 @@ function  pay(){
             if (!response.ok) {
                 throw new Error('no enough money in your credit card');
             }
+            else{
+                document.querySelector('.servicetype').textContent = serviceProvider;
+                document.querySelector('.servicename').textContent = servicename;
+                document.querySelector('.receipt').style.display = "flex";
+                document.querySelector('.orderNo').textContent = 'order # : ' + incrementOrder() ;
+                document.body.style.backgroundColor = "grey";
+                document.querySelector("header").style.display = 'none' ;
+                document.querySelector("p").style.display = 'none' ;
+                document.querySelector(".footer").style.display = 'none' ;
+                document.querySelector(".serviceProvider-tag").style.display = 'none' ;
+                document.querySelector(".txt_field").style.display = 'none' ;
+                document.querySelector(".buttons").style.display = 'none' ;
+                document.querySelector(".bottomFooter").style.display = 'none' ;
+                document.querySelector(".creditcard-menu-button").style.display = 'none' ;
+                document.querySelector(".dropdown-button").style.display = 'none'
+            }
             return response;
         })
         .then(response => {
@@ -142,24 +164,59 @@ function  pay(){
         .catch(error => {
         });
 
-    document.querySelector('.servicetype').textContent = serviceProvider;
-    document.querySelector('.servicename').textContent = servicename;
-    document.querySelector('.receipt').style.display = "flex";
-    document.querySelector('.orderNo').textContent = 'order # : ' + incrementOrder() ;
-    document.body.style.backgroundColor = "grey";
-    document.querySelector("header").style.display = 'none' ;
-    document.querySelector("p").style.display = 'none' ;
-    document.querySelector(".footer").style.display = 'none' ;
-    document.querySelector(".serviceProvider-tag").style.display = 'none' ;
-    document.querySelector(".txt_field").style.display = 'none' ;
-    document.querySelector(".buttons").style.display = 'none' ;
-    document.querySelector(".bottomFooter").style.display = 'none' ;
-    document.querySelector(".creditcard-menu-button").style.display = 'none' ;
-    document.querySelector(".dropdown-button").style.display = 'none' ;
+   ;
 
 
 
 }
+/*check if service is a fav service when loading the page*/
+function checkFavService(){
+    fetch(`http://localhost:8080/QuickPay/checkFavService?servicename=${(servicename)}&servicetype=${(serviceProvider)}`)
+        .then( response => {
+            if (response.ok) {
+                document.querySelector('.favButton span').style.color = 'red';
+            }
+        })
+}
 
+window.addEventListener('DOMContentLoaded', () => {
+    checkFavService();
+});
+
+function addtofav(){
+  let heart = document.querySelector('.favButton span');
+    if(heart.style.color === 'black'){ /// add to fav
+        heart.style.color = 'red';
+        const requestBody =
+            {
+                servicename: servicename,
+                servicetype: serviceProvider,
+                img_path: someServiceImg.src
+            };
+
+        fetch('http://localhost:8080/QuickPay/addtofav',
+            { method: 'POST', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(requestBody)} )
+
+
+    }else{ // delete
+        heart.style.color = 'black';
+        const favorite =
+            {
+                servicename: servicename,
+                servicetype: serviceProvider,
+            };
+        fetch('http://localhost:8080/QuickPay/deletefav', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                     },
+            body: JSON.stringify(favorite),
+        }).then( response =>{
+            console.log(response.text());
+            return response;
+        })
+    }
+}
 
 
