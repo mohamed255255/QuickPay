@@ -20,8 +20,12 @@
         <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/help&support.html"   id  ="help-support">Help & Support</a>
     </div>
 
+    <div>
+        <img class="pfpImage" src="/client-side/icons/profile.png">
+    </div>
+
     <div  class="nav-bar">
-        <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/myprofile.html" class="pfpLink">myProfile
+        <a  class="pfpLink">myProfile
             <img src ="/client-side/icons/profile-active.png" class="pfpimg">
         </a>
 
@@ -29,8 +33,6 @@
             Security
             <img  src ="/client-side/icons/profile-security.png" class="securityimg">
         </a>
-
-
 
     </div>
 
@@ -50,7 +52,7 @@
 
 <form class="profileForm">
     <div class="frame">
-        <img  src="/client-side/icons/profile.png" id="pfp" alt="dark pfp">
+        <img src="/client-side/icons/profile.png" id="profilePicture" alt="dark pfp">
         <label for="input-file">Click to upload image</label>
         <input type="file" accept="image/jpeg, image/png,  img/jpeg" id = "input-file">
     </div>
@@ -61,13 +63,16 @@
         <label>Last name</label>
         <input type="text" name = "lastname" class="lastname" required>
 
-        <label>phone number</label>
+        <label>Phone number</label>
         <input type="text" name = "phonenumber"  class="phonenumber" required>
 
-        <label>email</label>
+        <label>Email</label>
         <input type="text" name = "email"  class="email" required>
+
+        <label>Gender:</label>
+        <p style = "position: relative ; left: 60px ; bottom: 35px; "class="gender"></p>
     </div>
-    <button type = "submit" class="save" >save</button>
+    <button type = "submit" class="save" >Update</button>
 </form>
 
 

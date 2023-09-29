@@ -1,15 +1,17 @@
 package Main.Service;
 
 import Main.model.*;
+import Main.model.BankDB.creditcard;
 import Main.repository.*;
+import Main.repository.BankRepository.creditCardRepository;
 import jakarta.servlet.http.HttpSession;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +27,7 @@ public class UserService {
     public final ServicesRepository servicesRepository;
     public final transactionRepository transactionRepository;
     public final complaintRepository complaintRepository;
-    public final  creditCardRepository creditCardRepository ;
+    public final Main.repository.BankRepository.creditCardRepository creditCardRepository ;
     public final  FavouriteRepository favouriteRepository;
     @Autowired
     public UserService(UserRepository UserRepository ,
@@ -85,7 +87,11 @@ public class UserService {
         else
             return ResponseEntity.badRequest().body("User not found");
     }
+    public String  getProfilePicture(){
+        User user = (User) session.getAttribute("user");
+        return user.getProfilepicture();
 
+    }
     public String welcomeFirstName(HttpSession session) {
         if (session != null) {
             User user = (User) session.getAttribute("user");
@@ -113,17 +119,22 @@ public class UserService {
         }
         user.addCreditCard(creditcard);  /// link the Credit card with the user
         creditCardRepository.save(creditcard) ;
-        transaction addCreditCardTransaction = new transaction("____", "____","a credit card is added" );
+
+        transaction addCreditCardTransaction = new transaction("____", "____","Add credit card" );
         user.setTransaction(addCreditCardTransaction); /// link the transaction with the user
-        addCreditCardTransaction.setImgPath("/client-side/icons/addcreditcard.PNG");
         formatTransactionDateAndTime(addCreditCardTransaction);
         transactionRepository.save(addCreditCardTransaction);
         return ResponseEntity.ok("Credit card is successfully added") ;
     }
+    @Transactional
+    public ResponseEntity<String> deleteCreditCard(int creditcardID , int index){
+        User user = (User) session.getAttribute("user");
+        user.getCreditCards().remove(index);
+        creditCardRepository.deleteByCreditcardID(creditcardID);
+        return ResponseEntity.ok("Successfully deleted");
+   }
 
-
-
-    public ResponseEntity<String> payforService(String servicename , String servicetype , double amount){
+    public ResponseEntity<String> payforService(String servicename , String serviceProvider , double amount){
          User user = (User) session.getAttribute("user");
          creditcard chosenCard = (creditcard)session.getAttribute("creditcard");
          if(amount > chosenCard.getCurrentBalance())
@@ -132,9 +143,8 @@ public class UserService {
         double BalanceAfterPayment = chosenCard.getCurrentBalance() - amount;
         chosenCard.setCurrentBalance(BalanceAfterPayment);
         creditCardRepository.save(chosenCard);
-        transaction payment_transaction = new transaction(servicetype , servicename , "payment transaction");
+        transaction payment_transaction = new transaction(serviceProvider , servicename , "payment");
         user.setTransaction(payment_transaction); /// link the transaction with the user
-        payment_transaction.setImgPath("/client-side/icons/payment.PNG");
         formatTransactionDateAndTime(payment_transaction);
         transactionRepository.save(payment_transaction);
         return ResponseEntity.ok("paid successfully");
@@ -143,8 +153,7 @@ public class UserService {
     public void sendComplaint(complaints complaint){
         User user = (User) session.getAttribute("user");
         user.addComplain(complaint);
-        transaction complaintTransaction = new transaction("____","____","Complaint transaction");
-        complaintTransaction.setImgPath("/client-side/icons/refund.PNG");
+        transaction complaintTransaction = new transaction("____","____","Complaint");
         formatTransactionDateAndTime(complaintTransaction);
 
         complaintRepository.save(complaint);
@@ -184,14 +193,13 @@ public List<transaction> GetAllTransactions(){
         User user = (User) session.getAttribute("user") ;
         favService.setUser(user);
         String servicename = favService.getServicename();
-        String servicetype = favService.getServicetype();
-        favourites fav  = favouriteRepository.findByServicenameAndServicetype(servicename , servicetype) ;
+        String company = favService.getCompany();
+         favourites fav  = favouriteRepository.findByServicenameAndCompany(servicename , company) ;
         if(fav == null){
             favouriteRepository.save(favService);
-            return ResponseEntity.ok("Service is added sucessfully");
+            return ResponseEntity.ok("Service is added successfully");
         }
         return ResponseEntity.badRequest().body("service is added before");
-
     }
 
     public List<favourites> getAllFavServices(){
@@ -199,20 +207,18 @@ public List<transaction> GetAllTransactions(){
         return  favouriteRepository.getAll(user.getUserID());
     }
 
-    public ResponseEntity<String> checkFavService(String servicename , String servicetype){
-        favourites found = favouriteRepository.findByServicenameAndServicetype(servicename, servicetype);
+
+    public ResponseEntity<String> checkFavService(String servicename , String company){
+        favourites found = favouriteRepository.findByServicenameAndCompany(servicename, company);
         if(found !=null){
             return ResponseEntity.ok("found");
         }
         return ResponseEntity.badRequest().body("not found");
-
     }
-    public ResponseEntity<String> deleteFavService(favourites reqToDelete){
-        String servicename = reqToDelete.getServicename();
-        String servicetype = reqToDelete.getServicetype();
 
-        favourites fav = favouriteRepository.findByServicenameAndServicetype(servicename, servicetype);
-        favouriteRepository.delete(fav);
+
+    public ResponseEntity<String> deleteFavService(favourites reqToDelete){
+        favouriteRepository.deleteByServicenameAndCompany( reqToDelete.getServicename(), reqToDelete.getCompany());
         return ResponseEntity.ok("Successfully deleted");
     }
 

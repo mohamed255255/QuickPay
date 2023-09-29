@@ -11,8 +11,16 @@ public class favourites {
     private Long id;
     private  String servicename;
     private  String servicetype ;
+    private  String company;
     private  String img_path ;
 
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore

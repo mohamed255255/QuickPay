@@ -191,21 +191,102 @@ table a{
   color: #333;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
+  overflow-y: scroll;
+  max-height:400px;
+  display: none;
+  width:790px;
+  margin-left: 400px;
+
+
 }
 .transactionList div {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(6, 120px);
+  grid-auto-rows: 50px;
   align-items: center;
   justify-content: space-between;
-  padding-left: 50px;
-  border-bottom: 1px solid #c0baba;
   font-weight: bold;
-  background: #f1efef;
+  width: 760px;
+  padding-left: 10px;
+  background: white;
+  border: 1px solid #c0baba;
+  border-right: none;
+  color: green;
 }
-.transactionList img{
-  width: 45px;
-  height: 45px;
+div .transactionTitles{
+  color: black;
+  background: white;
+
+
+}
+div .transactionTitles p {
+  font-weight: bold;
+}
+.transactionList p{
+  border-right:1px solid black;
+  height : 40px;
+  padding-top:  12px;
+  font-weight: lighter;
+}
+.FavouriteList a{
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  grid-auto-rows: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  background: white;
+  border-bottom: 1px solid #c0baba;
+  text-decoration: none;
+  color : black;
+  font-weight: lighter;
+
+
+}
+.FavouriteList{
+  width: 550px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height:300px;
+  margin-left: 500px;
+  padding: 10px 10px 0px 10px  ;
+  display: none;
+
+}
+
+.FavouriteList a img{
+  width: 50px;
+  height: 50px;
+  margin-left: 50px;
+}
+
+.FavouriteList  a:hover{
+  background: #eceaea;
+}
+
+.FavouriteList div.title{
+  font-weight: bold;
+  background: #728dea;
+  margin-top: -5px;
+  padding-left: 210px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.noFavouriteList{
+  margin: 0px 0px 100px 600px;
+}
+.noFavouriteList p{
+  margin-left: -25px;
+  font-size: 22px;
+}
+.noFavouriteList img{
+  width: 100px;
+  height: 100px;
+  margin-top: -2px;
+  margin-left: 72px;
 }
 .footer{
   margin: 170px -7px 0px -7px ;

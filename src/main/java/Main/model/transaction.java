@@ -12,7 +12,6 @@ import jakarta.persistence.*;
     private  String ServiceName ;
     private String servicetype ;
     private String TransactionType ;
-    private String imgPath ;
     private String time ;
     private String date ;
 
@@ -31,15 +30,6 @@ import jakarta.persistence.*;
     public void setDate(String date) {
         this.date = date;
     }
-
-    public String getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
-
 
     public int getTransactionID() {
         return transactionID;

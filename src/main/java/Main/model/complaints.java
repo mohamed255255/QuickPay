@@ -1,5 +1,6 @@
 package Main.model;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -47,7 +48,7 @@ public class complaints {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("user")
+    @JsonIgnore
     @JoinColumn(name = "userID")
     private User user;
 

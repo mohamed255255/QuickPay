@@ -14,7 +14,14 @@ header img {
     width: 50vh;
     height: 13vh;
 }
-
+header .pfpImage{
+    width: 80px;
+    height: 60px;
+    position: absolute;
+    left: 1220px;
+    top: 7px;
+    border-radius: 100%;
+}
 /* Header buttons */
 .header-buttons {
     display: flex;
@@ -95,6 +102,18 @@ body {
     height: 40%;
     padding-top: 20px;
     padding-bottom: 70px;
+
+}
+.bottomFooter {
+    text-align: center;
+    color: white;
+    background: #353636;
+    padding: 15px 0;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    margin: 0px -10px  -10px -10px ;
 }
 
 .footer a {
@@ -120,17 +139,7 @@ body {
     margin-left: 10px;
 }
 
-.bottomFooter {
-    text-align: center;
-    color: white;
-    background: #353636;
-    padding: 15px 0;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-    margin: 0px -10px  -10px -10px ;
-}
+
 .social-media {
   position: relative;
   right: 180px;

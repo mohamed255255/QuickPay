@@ -48,7 +48,7 @@ function checkFirstname(){
         firstnameInput.style.borderBottom = '2px solid green' ;
         return true ;
     }
-    error.innerText = 'firstname is required';
+    error.innerText = 'first name is required';
     document.querySelector('.firstname-label').style.color = 'red';
     firstnameInput.style.borderBottom = '2px solid red' ;
     firstnameInput.classList.remove('valid');
@@ -70,7 +70,7 @@ function checklastname(){
     secondnameInput.classList.remove('valid');
     document.querySelector('.lastname-label').style.color = 'red';
     secondnameInput.style.borderBottom = '2px solid red' ;
-    error.innerText = 'lastname is required';
+    error.innerText = 'last name is required';
     return false ;
 
 }
@@ -85,18 +85,16 @@ function checkEmail(){
         document.querySelector('.email-label').style.color = 'green';
         emailInput.style.borderBottom = '2px solid green' ;
         return true ;
+    }else{
+        emailInput.classList.add('valid');
+        error.innerText = 'email format is not correct';
     }
-    else if(emailInput.value === ''){
+    if(emailInput.value === ''){
         emailInput.classList.remove('valid');
-        document.querySelector('.email-label').style.color = 'red';
-        emailInput.style.borderBottom = '2px solid red' ;
         error.innerText = 'email is required';
-        return false ;
     }
-    emailInput.classList.add('valid');
     document.querySelector('.email-label').style.color = 'red';
     emailInput.style.borderBottom = '2px solid red' ;
-    error.innerText = 'email format is not correct';
     return false ;
 }
 
@@ -110,18 +108,15 @@ function checkPassword(){
         document.querySelector('.password-label').style.color = 'green';
         passwordInput.style.borderBottom = '2px solid green' ;
         return true ;
+    }else{
+        error.innerText = 'password is less than 8 characters';
     }
-    else if(passwordInput.value.length === 0){
+    if(passwordInput.value.length === 0){
         passwordInput.classList.remove('valid');
-        document.querySelector('.password-label').style.color = 'red';
-        passwordInput.style.borderBottom = '2px solid red' ;
         error.innerText = 'password is required';
-        return false ;
-
     }
     document.querySelector('.password-label').style.color = 'red';
     passwordInput.style.borderBottom = '2px solid red' ;
-    error.innerText = 'password is less than 8 characters';
     return false
 }
 
@@ -130,8 +125,8 @@ function checkRepeatedPassword(){
     const passwordInput = document.querySelector('#password');
     const error = document.querySelector('.repeatedPasswordError');
     error.innerText = '';
-
     repeatedPasswordInput.classList.add('valid');
+
     if(repeatedPasswordInput.content !== passwordInput.content){
         document.querySelector('.repeatedPasswordError');
         error.innerText = 'no matching with your password';
@@ -150,7 +145,6 @@ function checkRepeatedPassword(){
     document.querySelector('.repeatedPassword-label').style.color = 'green';
     repeatedPasswordInput.style.borderBottom = '2px solid green' ;
     return true;
-
 }
 
 function checkPhoneNumber(){
@@ -164,20 +158,20 @@ function checkPhoneNumber(){
         phoneNumberInput.style.borderBottom = '2px solid green' ;
         return true ;
     }
-    else if(phoneNumberInput.value === ''){
+    else{
+        error.innerText = 'invalid format';
+    }
+    if(phoneNumberInput.value === ''){
         phoneNumberInput.classList.remove('valid');
-        document.querySelector('.phoneNumber-label').style.color = 'red';
-        phoneNumberInput.style.borderBottom='2px solid red';
         error.innerText = 'phone number is required';
-        return false
-
     }
     document.querySelector('.phoneNumber-label').style.color = 'red';
     phoneNumberInput.style.borderBottom = '2px solid red' ;
-    error.innerText = 'invalid format';
     return false ;
 
 }
+
+
 
 signUpForm.addEventListener('submit', (e) => {
    e.preventDefault();

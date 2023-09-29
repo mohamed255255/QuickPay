@@ -9,17 +9,27 @@ function loadCreditCardInfo() {
                 document.querySelector(".noCreditCardForm").style.display = "none";
 
                 const tableRow = document.createElement("tr");
-
+                let cntr = 0 ;
                 data.forEach(function (result) {
                     const tableData = document.createElement("td");
-                    tableData.className = "dataElement"; // Add a class name for styling
+                    tableData.dataset.index =  cntr++ ;
+
+                    tableData.className = "dataElement";
+
+                    let removeButton = document.createElement('button');
+                    removeButton.className='removeButton';
+                    let closeImg = document.createElement('img');
+                    closeImg.src='/client-side/icons/closeButton.png';
+                    removeButton.appendChild(closeImg);
+
+
 
                     let name = document.createElement("p");
                     name.innerText = `${result.creditcardName}`;
                     name.style.fontWeight = "bold";
 
                     let number = document.createElement("p");
-                    let SecuredCardNumber = changeformat(result.cardNumber);
+                    let SecuredCardNumber = SecureCardNumber(result.cardNumber);
                     number.innerText = `${SecuredCardNumber}`;
                     number.style.fontSize = "17px";
                     number.style.opacity = "0.5";
@@ -35,46 +45,69 @@ function loadCreditCardInfo() {
                     tableData.appendChild(number);
                     tableData.appendChild(balance);
                     tableData.appendChild(img);
-
+                    tableData.appendChild(removeButton);
                     tableRow.appendChild(tableData);
+                    removeButton.onclick = function () {
+                        const parentTr = tableData.parentNode;
+                        parentTr.removeChild(tableData);
+                        deleteCreditCard(result.creditcardID , tableData.dataset.index);
+                    }
                 });
 
                 document.querySelector(".CreditCardTable").appendChild(tableRow);
-
-
+                if (tableRow.offsetWidth < 1310) {
+                    document.querySelector('.CreditCardTable').style.overflowX = 'hidden';
+                }
             }
         })
         .catch(error => console.error(error));
 }
-
+// call
 window.addEventListener('DOMContentLoaded', () => {
     loadCreditCardInfo();
+
+
 });
 
- function detectCardType(number) {
 
-    if(number[0] === '4')
-        return "visa";
-     else if (number[0] === '5')
-        return "mastercard";
-     else if (number[0] === '3')
-        return "amex";
-
-    return "unknown";
+function deleteCreditCard(ID, index) {
+    fetch(`http://localhost:8080/QuickPay/deleteCreditCard?creditcardID=${ID}&index=${index}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => response.text())
+        .then(responseText => {
+            console.log(responseText);
+        })
+    window.location.href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html";
 }
+const visaRegex = /^4\d{12}(?:\d{3})?$/;
+const meezaRegex = /^\d{16}000$/;
+const mastercardRegex = /^5[1-5]\d{14}$/;
 
-function changeformat(cardNumber){
+function detectCardType(number) {
+    if (visaRegex.test(number))
+        return "Visa";
+    if (mastercardRegex.test(number))
+        return "Mastercard";
+    if (meezaRegex.test(number))
+        return "meza";
+
+}
+function SecureCardNumber(cardNumber){
      let SecuredCardNumber = "" ;
      for(let i = 1 ; i <= cardNumber.length ; i++){
          if( i <= cardNumber.length - 4 )
              SecuredCardNumber += '*';
          else
              SecuredCardNumber += cardNumber[i-1] ;
-
          if( i % 4 === 0) {
              SecuredCardNumber+=" ";
          }
-
      }
      return SecuredCardNumber ;
 }
+
+/// Removing the scroll bar

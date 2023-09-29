@@ -1,7 +1,7 @@
 package Main.model;
 
+import Main.model.BankDB.creditcard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -18,6 +18,13 @@ public class User {
     private String lastname;
     private String email;
     private String password;
+    private String phonenumber;
+    private String gender ;
+
+    @Column(length = 500000)
+    private String profilepicture;
+
+
 
     public String getGender() {
         return gender;
@@ -27,9 +34,7 @@ public class User {
         this.gender = gender;
     }
 
-    private String phonenumber;
-    private String profilepicture;
-    private String gender ;
+
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -38,16 +43,17 @@ public class User {
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("user")
+    @JsonIgnore
     private  List<transaction> transactions ;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("user")
+    @JsonIgnore
     private List<favourites> favouritesList;
 
 
     @OneToMany(mappedBy = "user" , cascade =  CascadeType.ALL , fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<complaints> complaintsList;
 
 
@@ -143,10 +149,7 @@ public class User {
          creditCards.add(card);
          card.setUser(this);
     }
-    public void removeCreditCard(creditcard card) {
-        creditCards.remove(card);
-        card.setUser(null);
-    }
+
 
 
 

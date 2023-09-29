@@ -2,6 +2,7 @@ package Main.controller;
 
 import Main.Service.UserService;
 import Main.model.*;
+import Main.model.BankDB.creditcard;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -64,6 +65,11 @@ public class UserController {
         return userService.addCreditCard(creditcard);
     }
 
+    @DeleteMapping("/deleteCreditCard")
+    public ResponseEntity<String> deleteCreditCard(@RequestParam("creditcardID") int creditcardID  ,
+                                                   @RequestParam("index") int index) {
+        return userService.deleteCreditCard(creditcardID , index);
+    }
     @GetMapping("/showcreditcard")
     public List<creditcard> showCreditCard() {
         return userService.showCreditCard();
@@ -76,12 +82,15 @@ public class UserController {
     @PostMapping("/pay")
     public ResponseEntity<String> payforService(@RequestBody payRequest payRequest) {
         String servicename = payRequest.getServicename();
-        String servicetype = payRequest.getServicetype();
+        String serviceProvider = payRequest.getCompany();
         double amount = payRequest.getAmount();
 
-        return userService.payforService(servicename, servicetype, amount);
+        return userService.payforService(servicename, serviceProvider, amount);
     }
-
+    @GetMapping("/getProfilePicture")
+    String getProfilePicture(){
+        return userService.getProfilePicture();
+    }
     @PostMapping("/sendComplaint")
     public void sendComplaint(@RequestBody complaints complaints) {
         userService.sendComplaint(complaints);
@@ -102,8 +111,8 @@ public class UserController {
 
     @GetMapping("/checkFavService")
     public ResponseEntity<String> checkFavService(@RequestParam("servicename") String servicename ,
-                                                  @RequestParam("servicetype") String servicetype ){
-        return userService.checkFavService(servicename , servicetype);
+                                                  @RequestParam("company") String company ){
+        return userService.checkFavService(servicename , company);
     }
 
     @DeleteMapping("/deletefav")

@@ -65,9 +65,10 @@ input:focus {
 }
 .save{
     position: relative;
-    bottom: 180px ; left: 370px;
-    font-size: 24px;
+    bottom: 250px ; left: 370px;
+    font-size: 17px;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 .frame{

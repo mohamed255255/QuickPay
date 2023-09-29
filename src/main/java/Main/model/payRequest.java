@@ -3,6 +3,7 @@ package Main.model;
 public class payRequest {
      String servicename ;
      String servicetype ;
+     String company ;
      double amount ;
 
     public String getServicename() {
@@ -15,5 +16,9 @@ public class payRequest {
 
     public double getAmount() {
         return amount;
+    }
+
+    public String getCompany() {
+        return company;
     }
 }

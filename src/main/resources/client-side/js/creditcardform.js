@@ -24,31 +24,29 @@ function checkCardName(){
     return true ;
 
 }
+const creditCardRegex = /^(4\d{12}(?:\d{3})?|\d{16}000|5[1-5]\d{14})$/;
+// this regex checks : meeza , master , visa
 function checkCardNumber(){
     const cardNumberError =   document.querySelector('.cardNumber-error');
     const cardNumberInput =   document.querySelector('#cardNumberID');
     const cardNumberLabel =   document.querySelector('.cardNumber-label');
     document.querySelector('#cardNumber').style.border = '0' ;
     cardNumberError.innerHTML = '';
-
-    if(cardNumberInput.value.length === 0 ){
-        cardNumberInput.classList.remove('valid');
-        cardNumberLabel.style.color = 'red';
-        cardNumberInput.style.borderBottom = '2px solid red' ;
-        cardNumberError.innerText = "card number is required";
-        return false;
-    }
-    else if(cardNumberInput.value.length > 16){
-        cardNumberInput.classList.add('valid');
-        cardNumberLabel.style.color = 'red';
-        cardNumberInput.style.borderBottom = '2px solid red' ;
-        cardNumberError.innerText = "Invalid card number";
-        return false;
-    }
     cardNumberInput.classList.add('valid');
-    cardNumberLabel.style.color = 'green';
-    cardNumberInput.style.borderBottom = '2px solid green' ;
-    return true ;
+
+   if(creditCardRegex.test(cardNumberInput.value)){
+       cardNumberLabel.style.color = 'green';
+       cardNumberInput.style.borderBottom = '2px solid green' ;
+       return true ;
+   }else{
+       cardNumberError.innerText = "invalid card number";
+   }
+    if(cardNumberInput.value.length === 0)
+        cardNumberError.innerText = "card number is required";
+
+    cardNumberLabel.style.color = 'red';
+    cardNumberInput.style.borderBottom = '2px solid red' ;
+    return false;
 }
 function checkMonth(){
     const expiryMonthError =   document.querySelector('.month-error');
@@ -57,31 +55,27 @@ function checkMonth(){
     document.querySelector('#expirymonth').style.border = '0' ;
     expiryMonthError.innerHTML = '';
 
+    if(expiryMonthInput.value <= 12 &&  expiryMonthInput.value >= 1 ){
+        expiryMonthInput.classList.add('valid');
+        expiryMonthLabel.style.color = 'green';
+        expiryMonthInput.style.borderBottom = '2px solid green' ;
+        return true ;
+    }
+
     if(expiryMonthInput.value .length===0){
-        expiryMonthInput.classList.remove('valid');
-        expiryMonthLabel.style.color = 'red';
-        expiryMonthInput.style.borderBottom = '2px solid red' ;
         expiryMonthError.innerText = "Expiry month is required";
-        return false;
     }
     else if(expiryMonthInput.value < 1 ){
-        expiryMonthInput.classList.add('valid');
-        expiryMonthLabel.style.color = 'red';
-        expiryMonthInput.style.borderBottom = '2px solid red' ;
         expiryMonthError.innerText = "invalid month";
-        return false;
     }
     else if(expiryMonthInput.value > 12 ){
-        expiryMonthInput.classList.add('valid');
-        expiryMonthLabel.style.color = 'red';
-        expiryMonthInput.style.borderBottom = '2px solid red' ;
         expiryMonthError.innerText = "invalid month";
-        return false;
     }
-    expiryMonthInput.classList.add('valid');
-    expiryMonthLabel.style.color = 'green';
-    expiryMonthInput.style.borderBottom = '2px solid green' ;
-    return true ;
+    expiryMonthInput.classList.remove('valid');
+    expiryMonthLabel.style.color = 'red';
+    expiryMonthInput.style.borderBottom = '2px solid red' ;
+    return false;
+
 }
 function checkYear(){
     const expiryyearError =   document.querySelector('.year-error');
@@ -110,27 +104,21 @@ function checkCVV(){
     document.querySelector('#cvv').style.border = '0' ;
     CVVError.innerHTML = '';
 
-    if(CVVInput.value .length === 0 ){
-        CVVInput.classList.remove('valid');
-        CVVLabel.style.color = 'red';
-        CVVInput.style.borderBottom = '2px solid red' ;
-        CVVError.innerText = "CVV is required";
-        return false;
-    }
-    else if(CVVInput.value.length !== 3){
+    if(CVVInput.value.length === 3) {
         CVVInput.classList.add('valid');
-        CVVLabel.style.color = 'red';
-        CVVInput.style.borderBottom = '2px solid red' ;
-        CVVError.innerText = "CVV is required";
-        return false;
+        CVVLabel.style.color = 'green';
+        CVVInput.style.borderBottom = '2px solid green';
+        return true;
     }
     CVVInput.classList.add('valid');
-    CVVLabel.style.color = 'green';
-    CVVInput.style.borderBottom = '2px solid green' ;
-    return true ;
+    CVVLabel.style.color = 'red';
+    CVVInput.style.borderBottom = '2px solid red' ;
+    CVVError.innerText = "CVV is required";
+    return false;
 }
 
 nextButton.addEventListener('click', (e) => {
+
     if( validateInputs() ) {
             e.preventDefault();
             const data = {
@@ -143,9 +131,6 @@ nextButton.addEventListener('click', (e) => {
             fetch('http://localhost:8080/QuickPay/AddCreditCard', {
                 method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)} )
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error('this card is already existed');
-                    }
                     return response;
                 })
                 .then(response => {
@@ -153,7 +138,7 @@ nextButton.addEventListener('click', (e) => {
                 })
                 .catch(error => {
                     console.error('failed to add credit card:', error);
-                    alert('An error occurred while adding your credit card . Please try again later.');
+                    alert('this credit card is already existed.');
                 });
             window.location.href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html"
         }

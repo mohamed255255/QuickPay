@@ -1,5 +1,6 @@
-package Main.model;
+package Main.model.BankDB;
 
+import Main.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 

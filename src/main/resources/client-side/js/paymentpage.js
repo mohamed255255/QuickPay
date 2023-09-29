@@ -8,18 +8,7 @@ let servicename = localStorage.getItem('servicename');
 document.querySelector('.serviceProvider-tag img').src = someServiceImg.src;
 document.querySelector('.firstText').textContent = serviceProvider;
 document.querySelector('.secondText').textContent = servicename;
-let orderNumber = 1 ;
 
-function incrementOrder(){
-    let storedNum = localStorage.getItem("orderNumber");
-    if(!storedNum) {
-        storedNum = orderNumber;
-    }
-    localStorage.setItem("orderNumber", orderNumber.toString());
-    orderNumber = parseInt(storedNum) + 1
-    localStorage.setItem("orderNumber", orderNumber.toString());
-    return orderNumber
-}
 
 /*show all credit cards in a drop-down menu*/
 function loadCreditCardInfo() {
@@ -33,29 +22,29 @@ function loadCreditCardInfo() {
             }else{  // a card or more found
                 document.querySelector('.noCreditCardText').style.display='none';
                 data.forEach(function (result) {
-                            let link = document.createElement('a');
-                            link.href="#";
-                            link.className = "menu-option" ;
+                    let link = document.createElement('a');
+                    link.href="#";
+                    link.className = "menu-option" ;
 
-                            let cardname = document.createElement("p");
-                            cardname.className="cardname";
-                            cardname.textContent = `${result.creditcardName}`;
-                            cardname.style.fontSize="20px";
+                    let cardname = document.createElement("p");
+                    cardname.className="cardname";
+                    cardname.textContent = `${result.creditcardName}`;
+                    cardname.style.fontSize="20px";
 
-                            let cardNumber = document.createElement("p");
-                            cardNumber.className="cardNumber";
-                            cardNumber.textContent = `${result.cardNumber}`;
-                            cardNumber.style.display='none';
-                            let type = detectCardType(result.cardNumber);
+                    let cardNumber = document.createElement("p");
+                    cardNumber.className="cardNumber";
+                    cardNumber.textContent = `${result.cardNumber}`;
+                    cardNumber.style.display='none';
+                    let type = detectCardType(result.cardNumber);
 
-                            let img = document.createElement("img");
-                            img.className="img";
-                            img.src = `/client-side/icons/${type}.png`;
+                    let img = document.createElement("img");
+                    img.className="img";
+                    img.src = `/client-side/icons/${type}.png`;
 
-                            link.appendChild(img);
-                            link.appendChild(cardname);
-                            link.appendChild(cardNumber);
-                            document.querySelector(".creditcard-menu").appendChild(link);
+                    link.appendChild(img);
+                    link.appendChild(cardname);
+                    link.appendChild(cardNumber);
+                    document.querySelector(".creditcard-menu").appendChild(link);
                 });
             }
         }).catch(error => console.error(error));
@@ -89,7 +78,7 @@ serviceTypeButton.addEventListener('click', function() {
     }else{
         dropdownMenu2.style.display = 'none';
     }
-    pickCreditCard()
+    pickCreditCard();
 });
 
 
@@ -115,93 +104,89 @@ function pickCreditCard(){
 
         dropdownMenu2.style.display = 'none';
         fetch(`http://localhost:8080/QuickPay/pickCreditcard?cardNumber=${encodeURIComponent(cardNumber)}`)
-            .then(response => console.log(cardNumber));
+            .then(response => { console.log(cardNumber) ; return response});
 
     }
+    document.querySelector('.creditcard-menu-button').style.color = 'black';
 
 }
 
 
 /*payment logic*/
-document.querySelector('.receipt').style.display = "none";
 function  pay(){
-    const amount = document.querySelector('.amount').value;
-   /* if( menuButton.querySelector('span').textContent === 'Choose a credit card'){
-        alert("pick a credit card first");
-        return;
-    }*/
-    const requestBody =
-        {
-            servicename: servicename,
-            servicetype: serviceProvider,
-            amount: amount
-        };
+     const amount = document.querySelector('.amount')
 
-    fetch('http://localhost:8080/QuickPay/pay',
-        { method: 'POST', headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(requestBody)} )
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('no enough money in your credit card');
-            }
-            else{
-                window.location.href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/reciept.html";
-            }
-            return response;
-        })
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => {
-        });
+     const cardSelection = document.querySelector('.ServiceTypeContent');
+     if(cardSelection.textContent === 'Choose a credit card'){
+         document.querySelector('.creditcard-menu-button').style.color = 'red';
+     }
+     else if(amount.value === ''){
+        document.querySelector('.txt_field').style.borderBottom = '1px solid red';
+        document.querySelector('.txt_field input').style.color = 'red';
+        document.querySelector('.txt_field label').style.color = 'red';
+        document.querySelector('.txt_field label').style.opacity = '0.7';
+     }else{
+         const requestBody =
+             {
+                 servicename: servicename,
+                 company: serviceProvider,
+                 amount: amount.value
+             };
+         fetch('http://localhost:8080/QuickPay/pay',
+             { method: 'POST', headers: {'Content-Type': 'application/json'},
+                 body: JSON.stringify(requestBody)} )
+             .then(response => {
+                 console.log(JSON.stringify(requestBody));
+                 return response;
+             })
 
-   ;
+         window.location.href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/reciept.html";
 
-
-
+     }
 }
 /*check if service is a fav service when loading the page*/
-function checkFavService(){
-    fetch(`http://localhost:8080/QuickPay/checkFavService?servicename=${(servicename)}&servicetype=${(serviceProvider)}`)
-        .then( response => {
-            if (response.ok) {
-                document.querySelector('.favButton span').style.color = 'red';
-            }
-        })
-}
+
 
 window.addEventListener('DOMContentLoaded', () => {
     checkFavService();
 });
+function checkFavService(){
 
+    fetch(`http://localhost:8080/QuickPay/checkFavService?servicename=${(servicename)}&company=${(serviceProvider)}`)
+        .then( response => {
+            if (response.ok){
+                document.querySelector('.favButton').style.color = 'red';
+            }
+    })
+}
 function addtofav(){
-  let heart = document.querySelector('.favButton span');
+    let heart = document.querySelector('.favButton');
     if(heart.style.color === 'black'){ /// add to fav
         heart.style.color = 'red';
         const requestBody =
             {
                 servicename: servicename,
-                servicetype: serviceProvider,
-                img_path: someServiceImg.src
+                servicetype: localStorage.getItem('servicetype'),
+                img_path: someServiceImg.src,
+                company : localStorage.getItem('serviceProvider'),
             };
 
         fetch('http://localhost:8080/QuickPay/addtofav',
             { method: 'POST', headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(requestBody)} )
-
-
+                body: JSON.stringify(requestBody)}
+             )
     }else{ // delete
         heart.style.color = 'black';
         const favorite =
             {
                 servicename: servicename,
-                servicetype: serviceProvider,
+                company: serviceProvider,
             };
         fetch('http://localhost:8080/QuickPay/deletefav', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                     },
+            },
             body: JSON.stringify(favorite),
         }).then( response =>{
             console.log(response.text());
@@ -209,5 +194,4 @@ function addtofav(){
         })
     }
 }
-
 

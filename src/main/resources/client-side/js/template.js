@@ -24,9 +24,20 @@ function loadWelcomeMessage() {
         .catch(error => console.error(error));
 }
 
+function getProfilePicture() {
+    fetch('http://localhost:8080/QuickPay/getProfilePicture')
+        .then(response => response.text())
+        .then(dataURL => {
+            document.getElementsByClassName('pfpImage')[0].src = dataURL;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
 /// call welcome msg at load time for all the pages
 window.addEventListener('load', () => {
     loadWelcomeMessage();
+    getProfilePicture();
 });
 
 
