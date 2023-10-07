@@ -12,4 +12,8 @@ public interface ServicesRepository extends JpaRepository<services, Integer> {
 
     @Query("SELECT s FROM services s WHERE s.servicename LIKE %:servicename%")
     List<services> findAllMatchingServices(@Param("servicename") String servicename);
+
+
+    @Query("select s.servicename from services s")
+    List<String> FindAllServiceNames();
 }

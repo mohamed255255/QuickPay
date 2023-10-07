@@ -60,6 +60,20 @@ public class UserController {
         return userService.search(servicename);
     }
 
+    @GetMapping("/getAllServiceNames")
+    List<String> getAllServiceNames() {
+        return userService.getAllServiceNames();
+    }
+
+    @GetMapping("/myHistory")
+    List<transaction> findTransactionByDateRange(
+                            @RequestParam("servicename") String servicename,
+                            @RequestParam("startingDate") String startingDate,
+                            @RequestParam("endingDate")  String endingDate) {
+
+        return userService.findTransactionByDateRange(servicename , startingDate , endingDate);
+    }
+
     @PostMapping("/AddCreditCard")
     public ResponseEntity<String> addCreditCard(@RequestBody creditcard creditcard) {
         return userService.addCreditCard(creditcard);
@@ -67,7 +81,7 @@ public class UserController {
 
     @DeleteMapping("/deleteCreditCard")
     public ResponseEntity<String> deleteCreditCard(@RequestParam("creditcardID") int creditcardID  ,
-                                                   @RequestParam("index") int index) {
+                                                   @RequestParam("index") int index){
         return userService.deleteCreditCard(creditcardID , index);
     }
     @GetMapping("/showcreditcard")
@@ -84,7 +98,6 @@ public class UserController {
         String servicename = payRequest.getServicename();
         String serviceProvider = payRequest.getCompany();
         double amount = payRequest.getAmount();
-
         return userService.payforService(servicename, serviceProvider, amount);
     }
     @GetMapping("/getProfilePicture")

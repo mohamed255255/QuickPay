@@ -8,7 +8,98 @@
     border: 1px solid #dddddd;
 
 }
+.searchWithinDate{
+    position: relative;
+    bottom: -100px;
+    left: 400px;
+    padding: 10px 40px;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.2);
+    background: rgb(255, 212, 2) !important;
+}
+.dropdown-button2{
+    position: absolute;
+    right: 200px;
+    border-radius: 7px;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.2);
+    font-size: 10px;
+}
+.dropdown-button2 span{
+    font-size: 15px;
+}
+.dropdown-menu2{
+    display: none;
+    border:1px solid grey ;
+    width:150px;
+    height: 200px;
+    background: white;
+    padding-left: 10px;
+    transition: background-color 1s ease;
+    position: absolute;
+    right: 200px;
+    bottom: 280px;
+    overflow-y: scroll;
+    max-width: 200px;
+
+}
+.dropdown-menu2 p{
+    padding: 5px;
+    margin-left: -10px;
+}
+.dropdown-menu2 p:hover{
+    background: #dcdbdb;
+}
+
+
+.MenuOfTransactions{
+    color: #333;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    overflow-y: scroll;
+    max-height:400px;
+    width:790px;
+    margin-left: 400px;
+    overflow-x: hidden;
+
+
+
+
+}
+.MenuOfTransactions div {
+    display: grid;
+    grid-template-columns: repeat(6, 120px);
+    grid-auto-rows: 58px;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    width: 780px;
+    padding-left: 10px;
+    background: white;
+    border: 1px solid #c0baba;
+    border-right: none;
+    color: #53cb53;
+
+}
+div .TableTitles{
+    color: black;
+    background: #dce8fc;
+    padding-right: 21px;
+}
+div .TableTitles p {
+    font-weight: bold;
+}
+.transactionList p{
+    border-right:1px solid black;
+    height : 40px;
+    padding-top:  12px;
+}
+
+
 .footer{
     margin-top: 450px;
     margin-right: -10px;
+    margin-left: -10px;
 }

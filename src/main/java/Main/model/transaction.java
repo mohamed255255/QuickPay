@@ -9,11 +9,20 @@ import jakarta.persistence.*;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int transactionID ;
-    private  String ServiceName ;
+    private String ServiceName ;
     private String servicetype ;
     private String TransactionType ;
     private String time ;
     private String date ;
+    private double servicePrice;
+
+    public double getServicePrice() {
+        return servicePrice;
+    }
+
+    public void setServicePrice(double servicePrice) {
+        this.servicePrice = servicePrice;
+    }
 
     public String getTime() {
         return time;
@@ -71,14 +80,16 @@ import jakarta.persistence.*;
 
 
 
-   public transaction(String servicetype , String ServiceName , String TransactionType){
-       this.servicetype = servicetype;
-        this.ServiceName = ServiceName ;
+   public transaction(String TransactionType){
        this.TransactionType = TransactionType;
    }
-    public transaction(String TransactionType){
-     this.TransactionType =  TransactionType;
-   }
+   public transaction(String serviceName , String servicetype , String TransactionType , double amount){
+        this.ServiceName = serviceName ;
+        this.servicetype = servicetype ;
+        this.TransactionType = TransactionType;
+        servicePrice  = amount ;
+    }
+
     public transaction(){}
     public void setId(int id) {
         this.transactionID = id;

@@ -1,15 +1,16 @@
 package Main.Service;
 
-import Main.model.*;
 import Main.model.BankDB.creditcard;
-import Main.repository.*;
+import Main.model.*;
 import Main.repository.BankRepository.creditCardRepository;
+import Main.repository.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -110,7 +111,20 @@ public class UserService {
     }
 
 
+    public List<transaction>findTransactionByDateRange(String servicename ,String startingDate , String endingDate) {
 
+        List<transaction> transactions = transactionRepository.findTransactionByDateRange(servicename);
+        List<transaction> ans = new ArrayList<>();
+        for (var t : transactions) {
+            LocalDate start = LocalDate.parse(startingDate);
+            LocalDate end = LocalDate.parse(endingDate);
+            LocalDate TransactionDate = LocalDate.parse(t.getDate());
+            if (TransactionDate.isAfter(start) && TransactionDate.isBefore(end)) {
+                ans.add(t);
+            }
+        }
+        return ans;
+    }
     public ResponseEntity<String> addCreditCard(creditcard creditcard)  {
         User user = (User) session.getAttribute("user");
         creditcard cc = creditCardRepository.findByCardNumber(creditcard.getCardNumber());
@@ -120,7 +134,7 @@ public class UserService {
         user.addCreditCard(creditcard);  /// link the Credit card with the user
         creditCardRepository.save(creditcard) ;
 
-        transaction addCreditCardTransaction = new transaction("____", "____","Add credit card" );
+        transaction addCreditCardTransaction = new transaction("Credit card is added" );
         user.setTransaction(addCreditCardTransaction); /// link the transaction with the user
         formatTransactionDateAndTime(addCreditCardTransaction);
         transactionRepository.save(addCreditCardTransaction);
@@ -143,7 +157,7 @@ public class UserService {
         double BalanceAfterPayment = chosenCard.getCurrentBalance() - amount;
         chosenCard.setCurrentBalance(BalanceAfterPayment);
         creditCardRepository.save(chosenCard);
-        transaction payment_transaction = new transaction(serviceProvider , servicename , "payment");
+        transaction payment_transaction = new transaction(servicename , serviceProvider ,"Payment" , amount);
         user.setTransaction(payment_transaction); /// link the transaction with the user
         formatTransactionDateAndTime(payment_transaction);
         transactionRepository.save(payment_transaction);
@@ -153,16 +167,18 @@ public class UserService {
     public void sendComplaint(complaints complaint){
         User user = (User) session.getAttribute("user");
         user.addComplain(complaint);
-        transaction complaintTransaction = new transaction("____","____","Complaint");
+        transaction complaintTransaction = new transaction(complaint.getCategory().toString());
+        user.setTransaction(complaintTransaction);
         formatTransactionDateAndTime(complaintTransaction);
-
         complaintRepository.save(complaint);
         transactionRepository.save(complaintTransaction);
 
         /// in transaction class u use more attribute than u need try to optimize it .. compare between trans constructos
         //to get my point
     }
-
+public List<String>getAllServiceNames(){
+        return servicesRepository.FindAllServiceNames();
+}
 public List<creditcard> showCreditCard() {
         User user = (User) session.getAttribute("user");
         if (user.getCreditCards().isEmpty()) {

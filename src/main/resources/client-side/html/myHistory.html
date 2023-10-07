@@ -1,5 +1,5 @@
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -37,10 +37,19 @@
 
     <div class = "historyForm">
         <p>Date from</p>
-        <input type="date">
+        <input type="date" class="startingDate" name = "startingDate" >
 
         <p>Date to</p>
-        <input type="date">
+        <input type="date" class="endingDate" name = "endingDate" >
+
+        <button class="dropdown-button2"><span>Service name</span> ▼</button>
+        <div class="dropdown-menu2">
+        </div>
+
+        <button class="searchWithinDate">Search</button>
+    </div>
+
+    <div class = "MenuOfTransactions">
 
     </div>
 
@@ -50,18 +59,18 @@
                     <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/dashboard.html">myDashboard</a>
                 </li>
                 <li>
-                    <button type="button" style="border: none; cursor: pointer;" onclick="goToFavLink()">Favourites</button>
+                    <button type="button" style="border: none; cursor: pointer; background: #383535; color: white" onclick="goToFavLink()">Favourites</button>
                 </li>
                 <li>
-                    <button type="button" style="border: none; cursor: pointer; " onclick="goToSummaryLink()">Summary</button>
+                    <button type="button" style="border: none; cursor: pointer; background: #383535; color: white" onclick="goToSummaryLink()">Summary</button>
                 </li>
             </ul>
             <ul>
                 <li class = "MainTitles">
-                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/addcreditcard.html">QuickPay</a>
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html">QuickPay</a>
                 </li>
                 <li>
-                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/addcreditcard.html">QuickPay</a>
+                    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/Quickpay.html">QuickPay</a>
                 </li>
             </ul>
 
@@ -104,7 +113,7 @@
         </div>
 
         <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
-        <script src="/client-side/js/myhistory.js"></script>
+        <script src="/client-side/js/myHistory.js"></script>
         <script src="/client-side/js/template.js"></script>
     </body>
     </html>

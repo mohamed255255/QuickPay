@@ -16,5 +16,5 @@ document.querySelector('.servicetype').textContent = serviceProvider;
 document.querySelector('.servicename').textContent = servicename;
 document.querySelector('.orderNo').textContent = 'order # : ' + incrementOrder() ;
 
-localStorage.removeItem('valid');
+localStorage.removeItem('fakepage');
 

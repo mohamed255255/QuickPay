@@ -26,14 +26,18 @@ html{
     white-space: nowrap;
 }
 .receipt a{
-    color: #353636;
+    background: rgb(255, 212, 2) !important;
     width: 200px;
     height: 25px;
     text-decoration: none;
-    border: 1px solid #c7c6c6;
+    border: 2px solid #c7c6c6;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     padding: 10px 40px 0px 50px;
     border-radius: 20px;
+    transition:background-color 0.3s ease;
+}
+.receipt a:hover{
+    background: rgb(189, 159, 8) !important;
 }
 .servicetype {
     color: #353636;

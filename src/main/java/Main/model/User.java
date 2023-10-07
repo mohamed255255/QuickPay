@@ -178,14 +178,12 @@ public class User {
     }
 
     public void addComplain(complaints request) {
-        if(complaintsList.isEmpty())
-            request.setUser(this);
+        request.setUser(this);
         complaintsList.add(request);
     }
 
     public void setFavouritesList(favourites favService) {
-        if(favouritesList.isEmpty())
-            favService.setUser(this);
+        favService.setUser(this);
         favouritesList.add(favService);
 
     }

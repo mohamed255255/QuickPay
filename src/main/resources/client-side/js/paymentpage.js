@@ -54,18 +54,19 @@ window.addEventListener('DOMContentLoaded', () => {
     loadCreditCardInfo();
 });
 
+const visaRegex = /^4\d{12}(?:\d{3})?$/;
+const meezaRegex = /^\d{16}000$/;
+const mastercardRegex = /^5[1-5]\d{14}$/;
+
 function detectCardType(number) {
+    if (visaRegex.test(number))
+        return "Visa";
+    if (mastercardRegex.test(number))
+        return "Mastercard";
+    if (meezaRegex.test(number))
+        return "meza";
 
-    if(number[0] === '4')
-        return "visa";
-    else if (number[0] === '5')
-        return "mastercard";
-    else if (number[0] === '3')
-        return "amex";
-
-    return "unknown";
 }
-
 
 
 

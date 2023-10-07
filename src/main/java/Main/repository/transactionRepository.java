@@ -14,4 +14,7 @@ public interface transactionRepository extends JpaRepository<transaction, Intege
 
 @Query("select t from transaction  t where t.user.UserID = :userID")
     List<transaction> findbyuserID(int userID);
-    }
+
+@Query("select t from transaction  t where t.ServiceName = :servicename")
+    List<transaction> findTransactionByDateRange(String servicename);
+}

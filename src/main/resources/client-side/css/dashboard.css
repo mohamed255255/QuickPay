@@ -192,16 +192,17 @@ table a{
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   overflow-y: scroll;
-  max-height:400px;
+  overflow-x: hidden;
+  max-height:300px;
   display: none;
-  width:790px;
+  width:600px;
   margin-left: 400px;
 
 
 }
 .transactionList div {
   display: grid;
-  grid-template-columns: repeat(6, 120px);
+  grid-template-columns: repeat(6, 110px);
   grid-auto-rows: 50px;
   align-items: center;
   justify-content: space-between;
@@ -211,23 +212,22 @@ table a{
   background: white;
   border: 1px solid #c0baba;
   border-right: none;
-  color: green;
+  color: #53cb53;
+
 }
 div .transactionTitles{
   color: black;
-  background: white;
-
+  background: #dfe9f6;
+  padding-right: 21px;
 
 }
 div .transactionTitles p {
   font-weight: bold;
 }
 .transactionList p{
-  border-right:1px solid black;
   height : 40px;
   padding-top:  12px;
-  font-weight: lighter;
-}
+  }
 .FavouriteList a{
   display: grid;
   grid-template-columns: repeat(6, 200px);
@@ -249,7 +249,7 @@ div .transactionTitles p {
   border-radius: 15px;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height:300px;
+  max-height:190px;
   margin-left: 500px;
   padding: 10px 10px 0px 10px  ;
   display: none;

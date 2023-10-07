@@ -110,4 +110,3 @@ function SecureCardNumber(cardNumber){
      return SecuredCardNumber ;
 }
 
-/// Removing the scroll bar

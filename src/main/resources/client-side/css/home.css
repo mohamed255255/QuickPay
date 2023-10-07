@@ -1,13 +1,178 @@
+.body {
+    font-family: "Goudy Old Style";
+}
+
+.woodenCover a{
+    padding: 20px 30px;
+    text-decoration: none;
+    background-color: #1b37a8;
+    color: white;
+    position: relative;
+    bottom: 200px;
+    left: 600px;
+    border-radius: 7px;
+}
+.woodenCover img{
+    width: 1570px;
+    height: 600px;
+    margin-top: -150px;
+    margin-left: -10px;
+}
+.woodenCover p{
+    position: relative;
+    top: 200px;
+    left: 200px;
+    font-size: 40px;
+    color: white;
+}
+.blueCover{
+    width: 1570px;
+    height: 400px;
+    margin-top: 220px;
+    margin-left: -10px;
+    position: absolute;
+    top: 450px;
+    background: #1b37a8;
+    color: white;
+}
+.blueCover p{
+    position: relative;
+    top: 100px;
+    left: 200px;
+    font-size: 16px;
+    color: white;
+}
+.CeramaicCover img{
+    width: 1570px;
+    height: 500px;
+    margin-top: 300px;
+    margin-left: -10px;
+    position: absolute;
+    top: 750px;
+}
+.CeramaicCover p{
+    position: relative;
+    top: 450px;
+    left: 1000px;
+    font-size: 20px;
+    color: white;
+}
+.laptop-img {
+    width: 370px;
+    height: 264px;
+    position: absolute;
+    top: 1550px;
+    left: 371px;
+}
+
+.guyWithLaptop-img {
+    width: 375px;
+    height: 259px;
+    position: absolute;
+    top: 1550px;
+    left: 1139px;
+}
+.ipad-img {
+    width: 380px;
+    height: 260px;
+    position: absolute;
+    top: 1811px;
+    left: -3px;
+}
+
+.BlackScreenLaptop-img {
+    width: 400px;
+    height: 262px;
+    position: absolute;
+    top: 1808px;
+    left: 741px;
+}
+
+.block1 {
+    background-color: #1b37a8;
+    width: 380px;
+    height: 202px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    position: absolute;
+    top: 1550px;
+    left: -9px;
+}
+
+.block2 {
+    background-color: #ffd402;
+    width: 370px;
+    height: 200px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 60px;
+    position: absolute;
+    top: 1801px;
+    left: 371px;
+}
+
+.block3 {
+    background-color: #1b37a8;
+    width: 398px;
+    height: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 60px;
+    position: absolute;
+    top: 1540px;
+    left: 741px;
+}
+.block3 p {
+    margin-top: -10px;
+}
+
+.block4 {
+    background-color: #ffd402;
+    width: 373px;
+    height: 201px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 60px;
+    position: absolute;
+    left: 1141px;
+    top: 1799px;
+}
+
+
+p{
+    font-size: 18px;
+    margin-top: -1px;
+}
+
 .login-button {
     padding: 10px 28px 10px 20px;
-    background-color: #196696;
+    background-color: #1b37a8;
     color: #ffffff;
     text-decoration: none;
     position: absolute;
     left: 1300px;
     top: 15px;
     transition: background-color 1s ease;
+    border-radius: 7px;
 
+}
+.login-button img{
+    position: relative;
+    top:2px;
+    width: 20px;
+    height: 20px;
 }
 .login-button:hover{
 background: #134c70;
@@ -28,4 +193,22 @@ background: #134c70;
     position: absolute;
     left: 420px;
     top: 25px;
+}
+
+.footer {
+    margin-top: 1121px;
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+
+.bottomFooter {
+    text-align: center;
+    color: white;
+    background: #353636;
+    padding: 15px 0;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
 }

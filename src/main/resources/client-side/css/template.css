@@ -11,8 +11,8 @@ header img {
     position: relative;
     top:0px;
     left: 70px;
-    width: 50vh;
-    height: 13vh;
+    width: 45vh;
+    height: 11vh;
 }
 header .pfpImage{
     width: 80px;
@@ -27,12 +27,12 @@ header .pfpImage{
     display: flex;
     font-size: 15px;
     margin-left: 430px;
-    margin-top: -100px;
+    margin-top: -87px;
     font-weight: bold;
 }
 
 .header-buttons a {
-    color: #355fb2;
+    color: #3d37de;
     text-decoration: none;
     padding: 40px 30px 20px 20px;
 }
@@ -40,7 +40,7 @@ header .pfpImage{
 /* Body */
 body {
     background-color: white;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Georgia";
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -49,12 +49,13 @@ body {
 .dropdown-button{
     padding: 10px 28px 10px 20px;
     background-color: white;
-    color: #3767c2;
+    color: #3d37de;
     font-size: 20px;
     text-decoration: none;
     position: absolute;
     left: 1300px;
     top: 4px;
+
 
 }
 .dropdown-menu {
@@ -113,7 +114,7 @@ body {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    margin: 0px -10px  -10px -10px ;
+    margin: 0px -20px  -10px -10px ;
 }
 
 .footer a {
@@ -126,7 +127,7 @@ body {
     list-style: none;
     font-size: 14px;
     padding-bottom: 5px;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 
 .MainTitles {
@@ -136,29 +137,32 @@ body {
     opacity: 0.7;
     list-style: none;
     color: white;
-    margin-left: 10px;
+    margin-left: 2px;
+    white-space: nowrap;
 }
 
 
-.social-media {
-  position: relative;
-  right: 180px;
-  top:40px;
-}
+
 .twitter{
-    width: 33px;
-    height: 33px;
-    margin-top: 4px;
+    width: 80px;
+    height: 45px;
+    position: relative;
+    right: 210px;
+    top:-35px;
 }
 .fb{
-    width: 45px;
-    height: 37px;
-    margin-left: -5px;
+    width: 75px;
+    height: 40px;
+    position: relative;
+    right: 170px;
+    top: 10px;
 }
 .insta{
-    width: 35px;
-    height: 35px;
-    margin-left: -10px;
+    width: 62px;
+    height: 62px;
+    position: relative;
+    right: 200px;
+    top: 24px;
 }
 
 /*step line*/

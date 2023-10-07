@@ -23,12 +23,16 @@
                 listItem.setAttribute('role' , 'button');
 
                 listItem.addEventListener('click', function() {
+                    localStorage.setItem('servicename', result.servicename);
+                    localStorage.setItem('valid', '1');
                     const url = `http://localhost:63342/QuickPay/Online-payment-project/client-side/html/${result.servicetype}/${result.company}.html`;
                     window.location.href = url;
                 });
                 listItem.appendChild(link);
                 listItem.appendChild(img);
                 resultsList.appendChild(listItem);
+
+
               });
             }
           })
@@ -47,6 +51,7 @@
     {
     const query = event.target.value.toLowerCase();
     search(query);
+
     });
 
 
@@ -98,8 +103,6 @@ function goToSummaryLink(){
             }else{
              transactionList.innerHTML = `<div class="transactionTitles">
                                 <p></p>
-                                <p>Service type</p>
-                                <p>Service name</p>
                                 <p>Transaction type</p>
                                 <p>Time</p>
                                 <p>Date</p>
@@ -109,22 +112,16 @@ function goToSummaryLink(){
                     console.log(result);
                     const Number = document.createElement('p');
                     const listItem = document.createElement('div');
-                    const servicename = document.createElement("p");
-                    const servicetype = document.createElement("p");
                     const TransactionType = document.createElement("p");
                     const date = document.createElement("p");
                     const time = document.createElement("p");
 
                     Number.innerText = NumberOfRows++;
-                    servicename.innerText = result.serviceName;
-                    servicetype.innerText = result.servicetype;
                     TransactionType.innerText = result.transactionType;
                     date.innerText = result.date ;
                     time.innerText = result.time ;
 
                     listItem.appendChild(Number);
-                    listItem.appendChild(servicetype);
-                    listItem.appendChild(servicename);
                     listItem.appendChild(TransactionType);
                     listItem.appendChild(time);
                     listItem.appendChild(date);
@@ -176,15 +173,17 @@ function goToFavLink(){
 
                 link.addEventListener('click', function() {
                     localStorage.setItem('servicename', result.servicename);
-                    localStorage.setItem('valid', '1');
+                    localStorage.setItem('fakepage', '1');
                 });
             });
         }
     })
 }
 
-localStorage.removeItem('valid');
 
 window.addEventListener('DOMContentLoaded', () => {
     goToSummaryLink();
+    localStorage.removeItem('fakepage'); // when u go to dashboard
+
 });
+
