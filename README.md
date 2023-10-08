@@ -14,10 +14,10 @@
  # features
  1. Login page for authentication
  2. A dashboard page that conatins the following :
- - Live search for the services
- - Summary button that shows all the types of transactions made by the user with date and time
- - Favourite button that shows all the favourite services the user uses most of the time (the user chooses by himself)
- - New payment button that transfer the user to the service category page
+     - Live search for the services
+     - Summary button that shows all the types of transactions made by the user with date and time
+     - Favourite button that shows all the favourite services the user uses most of the time (the user chooses by himself)
+     - New payment button that transfer the user to the service category page
 
  3. payment page : 
      - After choosing the desired service the user is transfered to this page , at first the user has to pick a credit card and then 
