@@ -32,14 +32,13 @@
 
 
 .inputContainer{
-    display: flex;
+    display: grid;
     align-content: center;
     justify-content: space-between;
     position: relative;
-    right: 90px;
-    top: 30px;
-
-
+    grid-template-columns: repeat(3, 210px);
+    grid-auto-rows: 50px;
+    margin-left: 50px
 }
 
 input{
@@ -58,20 +57,9 @@ input:focus {
     white-space: nowrap;
     margin-bottom: 20px;
     position: relative;
-    left: 150px;
+    top: 30px;
 }
-.currentPassword{
-   position: relative;
-   left: -20px;
 
-}
-.confirmPassword{
-    margin-left: -105px;
-}
-.newPassword{
-    margin-left: -67px;
-
-}
 .save{
     position: relative;
     top:100px ; left: 500px;

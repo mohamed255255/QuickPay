@@ -24,15 +24,13 @@
 
                 listItem.addEventListener('click', function() {
                     localStorage.setItem('servicename', result.servicename);
-                    localStorage.setItem('valid', '1');
+                    localStorage.setItem('fakepage', '1');
                     const url = `http://localhost:63342/QuickPay/Online-payment-project/client-side/html/${result.servicetype}/${result.company}.html`;
                     window.location.href = url;
                 });
                 listItem.appendChild(link);
                 listItem.appendChild(img);
                 resultsList.appendChild(listItem);
-
-
               });
             }
           })

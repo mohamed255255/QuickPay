@@ -84,8 +84,6 @@ serviceTypeButton.addEventListener('click', function() {
 
 
 /*sending the choice to the backend*/
-
-
 function pickCreditCard(){
 
     const menuButton = document.querySelector('#creditcard-menu-button');

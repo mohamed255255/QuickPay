@@ -84,14 +84,6 @@ body {
 }
 
 
-/*the white arrow*/
-.fa-solid{
-    position: absolute;
-    left: 1400px;
-    bottom: 685px;
-    color: white;
-}
-
 
 /* Footer */
 .footer {

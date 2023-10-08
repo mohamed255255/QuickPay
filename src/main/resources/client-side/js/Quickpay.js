@@ -66,7 +66,6 @@ function loadCreditCardInfo() {
 window.addEventListener('DOMContentLoaded', () => {
     loadCreditCardInfo();
 
-
 });
 
 
