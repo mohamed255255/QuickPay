@@ -43,7 +43,7 @@
      - Where the user can change his password
 
 # Screenshots :
-  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/homePage.png">
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/home">
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/settings.png">
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Servicecategory.png">
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/dashboard.png">
