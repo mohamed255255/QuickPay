@@ -1,4 +1,7 @@
-
+.step{
+    position: absolute;
+    top: 70px;
+}
 /*table*/
 .link-table {
     border-collapse: separate;
