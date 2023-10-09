@@ -41,7 +41,7 @@
  9. Security page :
      - Where the user can change his password
 
- <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/homepage.png">
+ <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/homePage.png">
   
    
     
