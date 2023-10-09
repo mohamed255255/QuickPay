@@ -1,4 +1,4 @@
-# Description
+![image](https://github.com/mohamed255255/QuickPay/assets/73656675/bf9ecb86-bd7e-4045-9076-3007f2d78524)# Description
  A Full stack web application to pay for different everyday services like home interent , electric bills , donations and more.
  
  <img src = "https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Logo.png">
@@ -42,7 +42,12 @@
  9. Security page :
      - Where the user can change his password
 
- <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/homePage.png">
-  
+# Screenshots :
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/homePage.png">
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/settings.png">
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Servicecategory.png">
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/dashboard.png">
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/payment.png">
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/reciept.png">
    
     
