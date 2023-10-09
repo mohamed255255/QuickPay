@@ -1,7 +1,7 @@
  # Description
  A Full stack web application to pay for different everyday services like home interent , electric bills , donations and more.
  
- <img src = "https://github.com/mohamed255255/QuickPay/blob/main/screenshots/home2.png">
+ <img src = "https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Logo.png">
  
  # Technologies
  - Spring boot
@@ -43,7 +43,7 @@
      - Where the user can change his password
 
 # Screenshots :
-  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/home">
+  <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/home2.png">
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/settings.png">
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Servicecategory.png">
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/dashboard.png">
