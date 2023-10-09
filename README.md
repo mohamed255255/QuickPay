@@ -1,4 +1,4 @@
-![image](https://github.com/mohamed255255/QuickPay/assets/73656675/bf9ecb86-bd7e-4045-9076-3007f2d78524)# Description
+ # Description
  A Full stack web application to pay for different everyday services like home interent , electric bills , donations and more.
  
  <img src = "https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Logo.png">
