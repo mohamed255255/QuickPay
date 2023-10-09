@@ -3,14 +3,14 @@
 }
 
 .woodenCover a{
-    padding: 20px 30px;
+    padding: 14px 30px;
     text-decoration: none;
     background-color: #1b37a8;
     color: white;
     position: relative;
-    bottom: 200px;
-    left: 600px;
-    border-radius: 7px;
+    bottom: 403px;
+    left: 559px;
+    border-radius: 12px;
 }
 .woodenCover img{
     width: 1570px;
