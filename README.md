@@ -49,8 +49,6 @@
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/payment.png">
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/reciept.png">
 
-# video :
-[!()](https://drive.google.com/file/d/19-Ua8BDoxur9K2GNnTkahY2wLtD1x790/view?usp=sharing)
   
    
     
