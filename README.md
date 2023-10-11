@@ -50,7 +50,7 @@
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/reciept.png">
 
 # video :
-[![videoLink](https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Logo.png)]([https://www.youtube.com/watch?v=7xjnmN9_epU](https://drive.google.com/file/d/19-Ua8BDoxur9K2GNnTkahY2wLtD1x790/view?usp=sharing)https://drive.google.com/file/d/19-Ua8BDoxur9K2GNnTkahY2wLtD1x790/view?usp=sharing)
+[![videoLink]()]([https://www.youtube.com/watch?v=7xjnmN9_epU](https://drive.google.com/file/d/19-Ua8BDoxur9K2GNnTkahY2wLtD1x790/view?usp=sharing)https://drive.google.com/file/d/19-Ua8BDoxur9K2GNnTkahY2wLtD1x790/view?usp=sharing)
   
    
     
