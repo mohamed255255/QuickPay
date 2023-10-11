@@ -21,7 +21,7 @@ public class User {
     private String phonenumber;
     private String gender ;
 
-    @Column(length = 500000)
+    @Column(length = 900000)
     private String profilepicture;
 
 

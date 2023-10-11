@@ -193,7 +193,7 @@ table a{
   border-radius: 5px;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height:200px;
+  max-height:350px;
   display: none;
   width:600px;
   margin-left: 400px;

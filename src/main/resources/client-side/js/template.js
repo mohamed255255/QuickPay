@@ -15,10 +15,9 @@ function loadWelcomeMessage() {
         .then(data => {
             if(data === "Session not found"){
                 alert("Session expired. Please log in again.");
-                window.location.href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/login.html";
+                window.location.href = "http://localhost:63342/QuickPay/Online-payment-project/client-side/html/home.html";
             }
             document.querySelector('.dropdown-button').innerHTML = `Welcome<br>${data} ▾`;
-            document.querySelector('.firstname').innerHTML = `${data}`;;
 
         })
         .catch(error => console.error(error));
@@ -28,7 +27,11 @@ function getProfilePicture() {
     fetch('http://localhost:8080/QuickPay/getProfilePicture')
         .then(response => response.text())
         .then(dataURL => {
-            document.getElementsByClassName('pfpImage')[0].src = dataURL;
+            if(dataURL === "null"){
+                document.getElementsByClassName('pfpImage')[0].src ='/client-side/icons/profile.png'
+            }else{
+                document.getElementsByClassName('pfpImage')[0].src = dataURL;
+            }
         })
         .catch(error => {
             console.error('Error:', error);

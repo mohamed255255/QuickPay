@@ -90,6 +90,9 @@ public class UserService {
     }
     public String  getProfilePicture(){
         User user = (User) session.getAttribute("user");
+        if(user.getProfilepicture() == null){
+            return "null";
+        }
         return user.getProfilepicture();
 
     }

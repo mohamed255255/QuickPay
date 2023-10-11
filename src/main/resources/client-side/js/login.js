@@ -1,9 +1,11 @@
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const signUpForm = document.querySelector('#signup-form');
+const emailInput = document.querySelector('.email');
+const passwordInput = document.querySelector('.password');
+const signInForm = document.querySelector('#signin-form');
 const error = document.querySelector('#error');
 
-  signUpForm.addEventListener('submit', async (e) => {
+
+
+signInForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = emailInput.value;
       const password = passwordInput.value;
@@ -28,7 +30,6 @@ const error = document.querySelector('#error');
                   errorMessage.style.color = 'red';
                   errorMessage.textContent = 'invalid email.';
                   error.insertBefore(errorMessage, error.firstChild);
-
               }
               else
                   window.location.href = "../html/dashboard.html"; // redirect to the dashboard page
@@ -38,12 +39,3 @@ const error = document.querySelector('#error');
   });
 
 
-/// if i type in any txt fields the label goes up (valid = go up)
-let AllTextFields = document.querySelectorAll('.txt_field input');
-AllTextFields.forEach(textFields =>{
-    textFields.addEventListener('input' , function (){
-        if(textFields.value.length > 0){
-            textFields.classList.add('valid');
-        }
-    })
-})

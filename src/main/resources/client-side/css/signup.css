@@ -1,4 +1,6 @@
 .center{
+  z-index: 999;
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -41,7 +43,7 @@ input[type="submit"]{
   font-weight: 700;
   cursor: pointer;
   outline: none;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 input[type="submit"]:hover{
   background: rgb(213, 178, 9);
@@ -92,16 +94,17 @@ input[type="radio"]:checked::before {
 .repeatedPasswordError
 {
 
-  font-size: 13px;
+  font-size: 14px;
   position: relative;
   top: 20px;
   right: 25px;
   color:red;
 }
 .genderError{
-  font-size: 13px;
+  font-size: 15px;
   position: absolute;
-  top: 500px;
+  top: 490px;
   right: 360px;
   color:red;
+  font-weight: bold;
 }

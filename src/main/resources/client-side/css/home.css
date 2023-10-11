@@ -1,5 +1,6 @@
-.body {
+.homeBody {
     font-family: "Goudy Old Style";
+    overflow-y: scroll;
 }
 
 .woodenCover a{
@@ -11,11 +12,12 @@
     bottom: 251px;
     left: 393px;
     border-radius: 12px;
+
 }
 .woodenCover img{
     width: 1570px;
     height: 600px;
-    margin-top: -150px;
+    margin-top: -154px;
     margin-left: -10px;
 }
 .woodenCover p{

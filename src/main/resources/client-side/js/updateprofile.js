@@ -19,13 +19,14 @@ save.addEventListener('click' , function (){
          lastname       : document.querySelector('.lastname').value ,
          phonenumber    : document.querySelector('.phonenumber').value  ,
          email          : document.querySelector('.email').value ,
-         profilepicture : document.getElementById('profilePicture').src
+         profilepicture : profilePicture.src
 
     }
     fetch("http://localhost:8080/QuickPay/updateUserData" , {
         method: 'POST', headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(requestBody)}
-    ).then( response =>{ return response.json();
+    ).then( response =>{
+        console.log(requestBody) ; return response.json();
     })
 })
 /// get data in the txt fields

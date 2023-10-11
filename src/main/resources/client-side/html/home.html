@@ -6,23 +6,88 @@
     <title>QuickPay online payment portal</title>
     <link rel="stylesheet" href="/client-side/css/home.css">
     <link rel="stylesheet" href="/client-side/css/template.css">
-
+    <link rel="stylesheet" href="/client-side/css/login.css">
+    <link rel="stylesheet" href="/client-side/css/signup.css">
 </head>
 
 
-<body>
+<body class="homeBody">
  <header>
         <img src="/client-side/icons/quickpay.png" alt="my Logo">
  </header>
 
- <a href="login.html" class="login-button">
+
+ <div class="hiddenForm">
+     <h1>Login</h1>
+     <form id = "signin-form">
+         <div class="txt_field">
+             <input type="text" name = "email" class="email" required>
+             <span></span>
+             <label>email</label>
+         </div>
+         <div class="txt_field">
+             <input type="password" name = "password"  class="password" required>
+             <span></span>
+             <label>Password</label>
+         </div>
+         <div class="forgot-pass">Forgot Password?</div>
+         <div id="error"></div>
+         <input type="submit" value="Login">
+         <div class="signup_link">
+             <a href="#" onclick="showSignupForm()">Create an account</a>
+         </div>
+     </form>
+ </div>
+
+ <div class="center">
+     <h1>signup</h1>
+     <form id = "signup-form">
+         <div class="txt_field">
+             <input type="text" name = "firstname" id ="firstname">
+             <label class="firstname-label">First name</label>
+             <span class="firstnameError"></span>
+         </div>
+         <div class="txt_field">
+             <input type="text" name = "secondname" id ="secondname">
+             <label class="lastname-label">Last name</label>
+             <span class="secondnameError"></span>
+         </div>
+         <div class="txt_field">
+             <input type="text" name = "email" id ="email">
+             <label class="email-label">email</label>
+             <span class="emailError"></span>
+         </div>
+         <div class="txt_field">
+             <input type="password"  name = "password" id ="password">
+             <label class="password-label">Password</label>
+             <span class="passwordError"></span>
+         </div>
+         <div class = "txt_field">
+             <input  type = "password"  name = "repeated-password" id ="repeated-password">
+             <label class = "repeatedPassword-label">repeat password</label>
+             <span class="repeatedPasswordError"></span>
+         </div>
+         <div class = "txt_field">
+             <input  type = "text"  name = "phone-number" id = "phone-number">
+             <label class = "phoneNumber-label">phone number</label>
+             <span class="phoneNumberError"></span>
+         </div>
+         <input type="radio"     name="gender"   id="male">Male
+         <input type="radio"     name="gender"   id="female">Female
+         <span class="genderError"></span>
+         <input type="submit" value="signup">
+     </form>
+ </div>
+
+
+ <a href="#" class="login-button" onclick="showSigninForm()">
      <img src="/client-side/icons/user.png"> Login
  </a>
 <div class = "woodenCover">
-    <p style="margin-left: 120px">One Click away.</p>
+    <p style="margin-left: 100px">One Click away.</p>
     <p>The easiest Payment solution</p>
     <img  src="/client-side/icons/woodenCover.png">
-    <a href="http://localhost:63342/QuickPay/Online-payment-project/client-side/html/signup.html">Join now</a>
+    <a href="#" class="signup_button" onclick="showSignupForm()">Join now</a>
 </div>
 
  <div class="blueCover">
@@ -101,5 +166,9 @@
      </div>
  </div>
  <footer class="bottomFooter">All rights reserved. © 2023 myQuickPay.</footer>
+ <script src="/client-side/js/home.js"></script>
+ <script src="/client-side/js/login.js"></script>
+ <script src="/client-side/js/signup.js"></script>
+
 </body>
 </html>

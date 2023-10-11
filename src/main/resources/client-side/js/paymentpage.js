@@ -21,6 +21,7 @@ function loadCreditCardInfo() {
 
             }else{  // a card or more found
                 document.querySelector('.noCreditCardText').style.display='none';
+                document.querySelector('.addCreditcard').style.display='none';
                 data.forEach(function (result) {
                     let link = document.createElement('a');
                     link.href="#";

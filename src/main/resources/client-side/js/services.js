@@ -21,9 +21,10 @@ const menuOptions = document.querySelectorAll('.menu-option');
 const TextField = document.querySelector('.txt_field');
 let servicename;  /// service name from the drop down-menu
 
-///if I come from dashboard favourite list so I should have my service name stored else its empty
+//if I come from dashboard favourite list So I should have my service name stored else its empty
 window.addEventListener('DOMContentLoaded', () => {
     if(localStorage.getItem('fakepage') === '1'){
+        TextField.style.display = 'flex';
         document.querySelector('#service-type-menu-button').textContent =
         servicename = localStorage.getItem('servicename' , servicename);
         document.querySelector('#service-type-menu-button').style.paddingRight='300px';
@@ -48,7 +49,7 @@ let nextButton = document.getElementById('next-button');
 
 let valid = 1
 nextButton.addEventListener('click', (event) => {
-    if(document.querySelector('.ServiceTypeContent').textContent === 'Service types'){
+    if(document.querySelector('.service-type-menu-button').textContent === 'Service types'){
               serviceTypeButton.style.color = 'red';
               serviceTypeButton.style.border = '1px solid red';
         valid = 0 ;
