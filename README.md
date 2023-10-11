@@ -50,5 +50,6 @@
   <img src="https://github.com/mohamed255255/QuickPay/blob/main/screenshots/reciept.png">
 
   
-   
+# Video
+[Link](https://drive.google.com/file/d/1WARQcxYfUKMkGgSV3IXF8HG7FDx7S_gV/view?usp=sharing)
     
