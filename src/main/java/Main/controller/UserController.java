@@ -33,6 +33,12 @@ public class UserController {
     public ResponseEntity<String> signIn(@RequestBody User user, HttpSession session) {
         return userService.login(user, session);
     }
+
+    @GetMapping("/getProfilePicture")
+    String getProfilePicture(){
+        return userService.getProfilePicture();
+    }
+
     @GetMapping("/getUserData")
     public User getUserData() {
         return userService.getUserData();
@@ -47,12 +53,12 @@ public class UserController {
     public ResponseEntity<String> updateUserData(@RequestBody Map<String, String> jsonPassword)  {
         return   userService.updatePassword(jsonPassword);
     }
-
-
     @GetMapping("/welcome")
     public String welcomeFirstName() {
         return userService.welcomeFirstName(userService.getSession());
     }
+
+
 
 
     @GetMapping("/search")
@@ -100,10 +106,7 @@ public class UserController {
         double amount = payRequest.getAmount();
         return userService.payforService(servicename, serviceProvider, amount);
     }
-    @GetMapping("/getProfilePicture")
-    String getProfilePicture(){
-        return userService.getProfilePicture();
-    }
+
     @PostMapping("/sendComplaint")
     public void sendComplaint(@RequestBody complaints complaints) {
         userService.sendComplaint(complaints);
@@ -127,7 +130,6 @@ public class UserController {
                                                   @RequestParam("company") String company ){
         return userService.checkFavService(servicename , company);
     }
-
     @DeleteMapping("/deletefav")
     public ResponseEntity<String> deleteFavService(@RequestBody favourites favService){
         return userService.deleteFavService(favService);

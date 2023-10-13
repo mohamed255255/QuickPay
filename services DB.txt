@@ -1,0 +1,40 @@
+1,vodafone,client-side/icons/voda.png,vodafone recharge,mobileRecharge
+2,vodafone,client-side/icons/voda.png,vodafone bill,mobileBill
+3,vodafone,client-side/icons/voda.png,vodafone adsl,homeInternet
+4,etisalat,client-side/icons/etisalat.png,etisalat bill,mobileBill
+5,etisalat,client-side/icons/etisalat.png,etisalat adsl,homeInternet
+6,etisalat,client-side/icons/etisalat.png,etisalat recharge,mobileRecharge
+7,orange,client-side/icons/orange.png,orange recharge,mobileRecharge
+8,orange,client-side/icons/orange.png,orange bill,mobileBill
+9,orange,client-side/icons/orange.png,orange adsl,homeInternet
+10,Taqa Services,client-side/icons/taqa.png,recharge taqa electricity-iskra,electricBills
+11,Taqa Services,client-side/icons/taqa.png,bill taqa electricity-others,electricBills
+12,Cairo University,client-side/icons/cairo.png,cairo university tuitions,education
+13,Ain shams University,client-side/icons/ainshams.png,ain shams university tutitions,education
+14,Helwan University,client-side/icons/helwan.png,hewlan university tuitions,education
+15,we,client-side/icons/we.png,we-home internet,homeInternet
+16,57357hospital,client-side/icons/hospital.png,57357hospital donations,donations
+17,resala,client-side/icons/resala.png,resala,donations
+18,tagneed,client-side/icons/tagneed.jpg,military service,militaryService
+19,57357hospital,client-side/icons/hospital.png,monthly donation,donations
+20,57357hospital,client-side/icons/hospital.png,sadaqa gareya,donations
+21,57357hospital,client-side/icons/hospital.png,bed support,donations
+22,resala,client-side/icons/resala.png,resala-sponsor an orphan,donations
+23,resala,client-side/icons/resala.png,resala zakat mall,donations
+24,resala,client-side/icons/resala.png,resala bahia-hospital,donations
+25,Ain shams University,client-side/icons/ainshams.png,ain shams tuition fees,education
+26,Ain shams University,client-side/icons/ainshams.png,faculty of engineering-credit system,education
+27,Ain shams University,client-side/icons/ainshams.png,faculty of engineering mainstream,education
+28,Cairo University,client-side/icons/cairo.png,cairo university tuition fees,education
+29,Helwan University,client-side/icons/ainshams.png,helwan university tuition fees,education
+30,we,client-side/icons/we.png,20GB-Telecomegypt,homeInternet
+31,we,client-side/icons/we.png,50GB-Telecomegypt,homeInternet
+32,we,client-side/icons/we.png,100GB-Telecomegypt,homeInternet
+33,we,client-side/icons/we.png,we postpaid bill Payment,mobileBill
+34,we,client-side/icons/we.png,we mobile top-up,mobileRecharge
+35,vodafone,client-side/icons/voda.png,flex 70,mobileRecharge
+36,vodafone,client-side/icons/voda.png,flex 45,mobileRecharge
+37,vodafone,client-side/icons/voda.png,vodafone fakka,mobileRecharge
+38,vodafone,client-side/icons/voda.png,marid 10 social,mobileRecharge
+39,vodafone,client-side/icons/voda.png,marid flex,mobileRecharge
+40,vodafone,client-side/icons/voda.png,flex renewal,mobileRecharge
