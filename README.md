@@ -2,7 +2,7 @@
  A Full stack web application to pay for different everyday services like home interent , electric bills , donations and more.
  
  <img src = "https://github.com/mohamed255255/QuickPay/blob/main/screenshots/Logo.png">
- 
+
  # Technologies
  - Spring boot
  - REST API
