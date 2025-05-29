@@ -1,26 +1,26 @@
-# Auto detect text files and perform LF normalization
+# Normalize line endings
 * text=auto
 
-# Focus language stats on Java only
+# Make sure Java files are counted
 *.java linguist-detectable=true
 
-# Ignore front-end and non-Java files from language stats
-*.js linguist-vendored
-*.ts linguist-vendored
-*.css linguist-vendored
-*.scss linguist-vendored
-*.html linguist-vendored
-*.json linguist-vendored
-*.yml linguist-vendored
-*.yaml linguist-vendored
-*.xml linguist-vendored
-*.properties linguist-vendored
-
-# Ignore folders not related to Java code
+# Mark common framework folders as vendored so their languages don't skew stats
 /static/** linguist-vendored
-/resources/** linguist-vendored
+/resources/static/** linguist-vendored
 /public/** linguist-vendored
 /node_modules/** linguist-vendored
 /target/** linguist-vendored
 /build/** linguist-vendored
 /out/** linguist-vendored
+
+# Allow frontend files to still count (not vendored individually!)
+*.html linguist-detectable=true
+*.css linguist-detectable=true
+*.js linguist-detectable=true
+
+# Optional: add syntax diff support
+*.java diff=java
+*.html diff=html
+*.css diff=css
+*.js diff=javascript
+*.md diff=markdown
