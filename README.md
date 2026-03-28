@@ -1,7 +1,8 @@
  # upcmoing updates :
-   I will add  Keycloak integration 
-   Refactor the code 
-   use ReactJs
+   - I will add  Keycloak integration 
+   - Refactor the code 
+   - use ReactJs
+   - I will use modular monolith approach
 
  
  # Description
