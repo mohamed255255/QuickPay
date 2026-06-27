@@ -11,7 +11,7 @@ signInForm.addEventListener('submit', async (e) => {
       const password = passwordInput.value;
       const data = { email: email  , password: password };
 
-      const response = await fetch('http://localhost:8080/QuickPay/signin', {
+      const response = await fetch('http://localhost:8080/user/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

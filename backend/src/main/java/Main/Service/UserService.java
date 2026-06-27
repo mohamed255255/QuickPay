@@ -1,8 +1,6 @@
 package Main.Service;
 
-import Main.model.BankDB.creditcard;
 import Main.model.*;
-import Main.repository.BankRepository.creditCardRepository;
 import Main.repository.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
@@ -22,13 +20,13 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    private  HttpSession session ;
+    private  HttpSession session ; ///// REMOVE
 
     public final UserRepository UserRepository;
     public final ServicesRepository servicesRepository;
     public final transactionRepository transactionRepository;
     public final complaintRepository complaintRepository;
-    public final Main.repository.BankRepository.creditCardRepository creditCardRepository ;
+    public final Main.repository.creditCardRepository creditCardRepository ;
     public final  FavouriteRepository favouriteRepository;
     @Autowired
     public UserService(UserRepository UserRepository ,
@@ -96,7 +94,7 @@ public class UserService {
         return user.getProfilepicture();
 
     }
-
+   //// TODO : get user from spring surcity context 
     public User getUserData(){
         User currentUser = (User) session.getAttribute("user") ;
         return currentUser;

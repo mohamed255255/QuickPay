@@ -1,10 +1,11 @@
-package Main.repository.BankRepository;
+package Main.repository;
 
-import Main.model.BankDB.creditcard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import Main.model.creditcard;
 
 public interface creditCardRepository extends JpaRepository<creditcard, Long> {
     @Query("SELECT c FROM creditcard c WHERE c.cardNumber = :cardNumber")

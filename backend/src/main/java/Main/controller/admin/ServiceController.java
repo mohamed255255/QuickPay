@@ -1,4 +1,4 @@
-package Main.controller;
+package Main.controller.admin;
 import Main.Service.AdminService;
 import Main.model.complaints;
 import Main.model.services;
@@ -9,14 +9,14 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "/QuickPay")
-@CrossOrigin(origins = "http://localhost:63342")
+@RequestMapping(path = "/service")
+@CrossOrigin(origins = "http://localhost:5500")
 
-public class AdminController {
-    @Autowired
+public class ServiceController {
+   
     public final AdminService adminService;
-    @Autowired
-    public AdminController(AdminService adminService) {
+
+    public ServiceController(AdminService adminService) {
         this.adminService = adminService;
     }
 
@@ -25,8 +25,6 @@ public class AdminController {
         adminService.addNewService(service);
     }
 
-    @GetMapping("/getAllRefundReq")
-    public List<complaints> GetAllRefundRequests(){return adminService.GetAllRefundRequests() ;}
 
     @GetMapping("/ShowAllServices")
     public List<services> ShowAllServices(){

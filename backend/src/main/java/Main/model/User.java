@@ -1,6 +1,5 @@
 package Main.model;
 
-import Main.model.BankDB.creditcard;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 

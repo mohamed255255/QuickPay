@@ -180,7 +180,7 @@ signUpForm.addEventListener('submit', (e) => {
                phonenumber: document.querySelector('#phone-number').value,
                gender : gender
            };
-           fetch('http://localhost:8080/QuickPay/signup', {
+           fetch('http://localhost:8080/user/signup', {
                method: 'POST',
                headers: {
                    'Content-Type': 'application/json'
