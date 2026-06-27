@@ -6,64 +6,65 @@ import jakarta.persistence.*;
 @Table
 @Entity
 public class favourites {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private  String servicename;
-    private  String servicetype ;
-    private  String company;
-    private  String img_path ;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    public String getCompany() {
-        return company;
-    }
+  private String servicename;
+  private String servicetype;
+  private String company;
+  private String img_path;
 
-    public void setCompany(String company) {
-        this.company = company;
-    }
+  public String getCompany() {
+    return company;
+  }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnore
-    @JoinColumn(name = "userID")
-    private User user;
+  public void setCompany(String company) {
+    this.company = company;
+  }
 
-    public Long getId() {
-        return id;
-    }
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JsonIgnore
+  @JoinColumn(name = "userID")
+  private User user;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public String getServicename() {
-        return servicename;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setServicename(String servicename) {
-        this.servicename = servicename;
-    }
+  public String getServicename() {
+    return servicename;
+  }
 
-    public String getServicetype() {
-        return servicetype;
-    }
+  public void setServicename(String servicename) {
+    this.servicename = servicename;
+  }
 
-    public void setServicetype(String servicetype) {
-        this.servicetype = servicetype;
-    }
+  public String getServicetype() {
+    return servicetype;
+  }
 
-    public String getImg_path() {
-        return img_path;
-    }
+  public void setServicetype(String servicetype) {
+    this.servicetype = servicetype;
+  }
 
-    public void setImg_path(String img_path) {
-        this.img_path = img_path;
-    }
+  public String getImg_path() {
+    return img_path;
+  }
 
-    public User getUser() {
-        return user;
-    }
+  public void setImg_path(String img_path) {
+    this.img_path = img_path;
+  }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 }

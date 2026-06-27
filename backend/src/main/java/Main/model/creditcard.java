@@ -3,87 +3,86 @@ package Main.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-
-
 @Entity
 @Table
-public class creditcard  {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int creditcardID ;
-    private String creditcardName ;
-    private String cardNumber ;
-    private String Expiryyear ;
-    private String expirymonth ;
-    private String CVV ;
-    private double currentBalance;
+public class creditcard {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int creditcardID;
 
-    public String getCreditcardName() {
-        return creditcardName;
-    }
+  private String creditcardName;
+  private String cardNumber;
+  private String Expiryyear;
+  private String expirymonth;
+  private String CVV;
+  private double currentBalance;
 
-    public void setCreditcardName(String creditcardName) {
-        this.creditcardName = creditcardName;
-    }
+  public String getCreditcardName() {
+    return creditcardName;
+  }
 
-    public String getCardNumber() {
-        return cardNumber;
-    }
+  public void setCreditcardName(String creditcardName) {
+    this.creditcardName = creditcardName;
+  }
 
-    public void setCardNumber(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
+  public String getCardNumber() {
+    return cardNumber;
+  }
 
-    public String getExpiryyear() {
-        return Expiryyear;
-    }
+  public void setCardNumber(String cardNumber) {
+    this.cardNumber = cardNumber;
+  }
 
-    public void setExpiryyear(String expiryyear) {
-        Expiryyear = expiryyear;
-    }
+  public String getExpiryyear() {
+    return Expiryyear;
+  }
 
-    public int getCreditcardID() {
-        return creditcardID;
-    }
+  public void setExpiryyear(String expiryyear) {
+    Expiryyear = expiryyear;
+  }
 
-    public void setCreditcardID(int creditcardID) {
-        this.creditcardID = creditcardID;
-    }
+  public int getCreditcardID() {
+    return creditcardID;
+  }
 
-    public String getExpirymonth() {
-        return expirymonth;
-    }
+  public void setCreditcardID(int creditcardID) {
+    this.creditcardID = creditcardID;
+  }
 
-    public void setExpirymonth(String expirymonth) {
-        this.expirymonth = expirymonth;
-    }
+  public String getExpirymonth() {
+    return expirymonth;
+  }
 
-    public String getCVV() {
-        return CVV;
-    }
+  public void setExpirymonth(String expirymonth) {
+    this.expirymonth = expirymonth;
+  }
 
-    public void setCVV(String CVV) {
-        this.CVV = CVV;
-    }
+  public String getCVV() {
+    return CVV;
+  }
 
-    public double getCurrentBalance() {
-        return currentBalance;
-    }
+  public void setCVV(String CVV) {
+    this.CVV = CVV;
+  }
 
-    public void setCurrentBalance(double currentBalance) {
-        this.currentBalance = currentBalance;
-    }
+  public double getCurrentBalance() {
+    return currentBalance;
+  }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnore
-    @JoinColumn(name = "UserID")
-    private User user;
+  public void setCurrentBalance(double currentBalance) {
+    this.currentBalance = currentBalance;
+  }
 
-    public User getUser() {
-        return user;
-    }
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JsonIgnore
+  @JoinColumn(name = "UserID")
+  private User user;
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 }
